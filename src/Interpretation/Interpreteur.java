@@ -10,6 +10,8 @@ public class Interpreteur {
 		Canvas res = new Canvas(200,200);
 		String[] code = programme.split("\n");
 		
+		
+		
 		for (int i = 0; i < code.length; i++) {
 				
 		}
