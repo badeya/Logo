@@ -69,7 +69,6 @@ public class Crayon {
 		return ecrit;
 	}
 
-
 	public void setEcrit(boolean ecrit) {
 		this.ecrit = ecrit;
 	}
@@ -96,6 +95,7 @@ public class Crayon {
 		
 		return this.coord;
 	}
+	
 
 	public void updateCrayon(String cmd) {
 		String temp = cmd.split(" ")[0];

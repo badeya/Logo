@@ -20,15 +20,12 @@ public class Interpreteur {
 	public Interpreteur(int xCanvas,int yCanvas){
 		crayon = new Crayon(0, 0);
 		this.c = new Canvas(xCanvas,yCanvas);
-		
 		this.gc = c.getGraphicsContext2D();
 	}
 	
 	public Canvas getCanvas(String programme){
 		
 		String[] code = programme.split("\n");
-		
-		
 		
 		for (int i = 0; i < code.length; i++) {
 			if(isMoveCommand(code[i])){
@@ -72,6 +69,11 @@ public class Interpreteur {
 			return true;
 		}
 		return false;
+	}
+	
+	public void clear(){
+		this.c = new Canvas(c.getWidth(),c.getHeight());
+		this.gc = c.getGraphicsContext2D();
 	}
 
 	
