@@ -10,7 +10,12 @@ public class Interpreteur {
 	GraphicsContext gc;
 	Crayon crayon;
 	
-	//final String code = "AVANCE 20\nLEVER\nAVANCE 20\nPOSER"; 
+	final static String CODE = ""
+			+ "AVANT 20\n"
+			+ "LEVER\n"
+			+ "AVANT 20\n"
+			+ "POSER\n"
+			+ "AVANT 20"; 
 	
 	public Interpreteur(int xCanvas,int yCanvas){
 		crayon = new Crayon(0, 0);
@@ -29,7 +34,7 @@ public class Interpreteur {
 			if(isMoveCommand(code[i])){
 				move(code[i]);
 			}else{
-				
+				crayon.updateCrayon(code[i]);
 			}
 		}
 		
@@ -39,32 +44,40 @@ public class Interpreteur {
 	
 	private void move(String commande) {
 		String test = commande.split(" ")[0];
-		if(test.equals("AVANCER")){
-			Coordonne temp = crayon.getCoord();
+		Coordonne temp = crayon.getCoord();
+		
+		if(test.equals("AVANT")){
+			
 			crayon.getNewCoordForward(Integer.valueOf(commande.split(" ")[1]));
 			gc.setFill(crayon.getCouleur());
 			gc.setLineWidth(crayon.getWidth());
-			gc.strokeLine(temp.getX(), temp.getY(), crayon.getX(), crayon.getY());
+			if(crayon.isEcrit()){
+				gc.strokeLine(temp.getX(), temp.getY(), crayon.getX(), crayon.getY());
+			}
+		}
+		if(test.equals("ALLERA")){
+			gc.setFill(crayon.getCouleur());
+			gc.setLineWidth(crayon.getWidth());
+			if(crayon.isEcrit()){
+				gc.strokeLine(temp.getX(), temp.getY(), Integer.valueOf(commande.split(" ")[1].split(",")[0]), Integer.valueOf(commande.split(" ")[1].split(",")[1]));
+			}
 		}
 		
 	}
 
 	private boolean isMoveCommand(String string) {
 		string = string.split(" ")[0];
-		if(string.equals("AVANCER")){
+		if(string.equals("AVANT") || string.equals("ALLERA")){
 			return true;
 		}
 		return false;
 	}
 
-	public void updateCanvas(String LigneCommande){
-		
-	}
 	
 	
 	
 	public static void main(String[]args){
 		Interpreteur i = new Interpreteur(200, 200);
-		Test.start(i.getCanvas("AVANCER 50"));
+		Test.start(i.getCanvas(Interpreteur.CODE));
 	}
 }

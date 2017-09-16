@@ -96,6 +96,39 @@ public class Crayon {
 		
 		return this.coord;
 	}
+
+	public void updateCrayon(String cmd) {
+		String temp = cmd.split(" ")[0];
+		switch (temp) {
+		case "DROITE":
+			this.orientation += Integer.valueOf(cmd.split(" ")[1]);
+			break;
+		case "GAUCHE":
+			this.orientation -= Integer.valueOf(cmd.split(" ")[1]);
+			break;
+		case "POSER":
+			this.ecrit = true;
+			break;
+		case "LEVER":
+			this.ecrit = false;
+			break;
+		case "COULEUR":
+			updateCouleur(cmd.split(" ")[1]);
+			break;
+		case "EPAISSEUR":
+			this.width = Integer.valueOf(cmd.split(" ")[1]);
+			break;
+
+		default:
+			break;
+		}
+		
+	}
+
+	private Color updateCouleur(String string) {
+		return Color.BLACK;
+		
+	}
 	
 	
 	
