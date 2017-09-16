@@ -8,10 +8,19 @@ public class Crayon {
 	private Color couleur = Color.BLACK;
 	private boolean ecrit = true;
 	private int orientation;
+	private int width = 5;
 
 	
 	public Crayon(int x, int y) {
 		coord = new Coordonne(x, y);
+	}
+	
+	public void setWidth(int x){
+		this.width = x;
+	}
+	
+	public int getWidth(){
+		return width;
 	}
 	
 	public Coordonne getCoord(){

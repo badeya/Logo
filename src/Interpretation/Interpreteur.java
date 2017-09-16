@@ -15,6 +15,7 @@ public class Interpreteur {
 	public Interpreteur(int xCanvas,int yCanvas){
 		crayon = new Crayon(0, 0);
 		this.c = new Canvas(xCanvas,yCanvas);
+		
 		this.gc = c.getGraphicsContext2D();
 	}
 	
@@ -42,7 +43,7 @@ public class Interpreteur {
 			Coordonne temp = crayon.getCoord();
 			crayon.getNewCoordForward(Integer.valueOf(commande.split(" ")[1]));
 			gc.setFill(crayon.getCouleur());
-			gc.setLineWidth(10);
+			gc.setLineWidth(crayon.getWidth());
 			gc.strokeLine(temp.getX(), temp.getY(), crayon.getX(), crayon.getY());
 		}
 		
@@ -64,6 +65,6 @@ public class Interpreteur {
 	
 	public static void main(String[]args){
 		Interpreteur i = new Interpreteur(200, 200);
-		Test.start(i.getCanvas("AVANCER 20"));
+		Test.start(i.getCanvas("AVANCER 50"));
 	}
 }
