@@ -1,13 +1,21 @@
 package Interpretation;
 
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import main.Test;
 
 public class Interpreteur {
 
 	Canvas c;
+	GraphicsContext gc;
+	Crayon crayon;
+	
+	//final String code = "AVANCE 20\nLEVER\nAVANCE 20\nPOSER"; 
 	
 	public Interpreteur(int xCanvas,int yCanvas){
+		crayon = new Crayon(0, 0);
 		this.c = new Canvas(xCanvas,yCanvas);
+		this.gc = c.getGraphicsContext2D();
 	}
 	
 	public Canvas getCanvas(String programme){
@@ -18,7 +26,7 @@ public class Interpreteur {
 		
 		for (int i = 0; i < code.length; i++) {
 			if(isMoveCommand(code[i])){
-				
+				move(code[i]);
 			}else{
 				
 			}
@@ -28,8 +36,23 @@ public class Interpreteur {
 	}
 	
 	
+	private void move(String commande) {
+		String test = commande.split(" ")[0];
+		if(test.equals("AVANCER")){
+			Coordonne temp = crayon.getCoord();
+			crayon.getNewCoordForward(Integer.valueOf(commande.split(" ")[1]));
+			gc.setFill(crayon.getCouleur());
+			gc.setLineWidth(10);
+			gc.strokeLine(temp.getX(), temp.getY(), crayon.getX(), crayon.getY());
+		}
+		
+	}
+
 	private boolean isMoveCommand(String string) {
-		// TODO Auto-generated method stub
+		string = string.split(" ")[0];
+		if(string.equals("AVANCER")){
+			return true;
+		}
 		return false;
 	}
 
@@ -39,12 +62,8 @@ public class Interpreteur {
 	
 	
 	
-	/*public static void main(String[]args){
-		System.out.println("Salut");
-		Canvas c = new Canvas(200,200);
-		GraphicsContext gc = c.getGraphicsContext2D();
-		gc.strokeLine(0, 200, 200, 200);
-		gc.line
-		Test.start(c);
-	}*/
+	public static void main(String[]args){
+		Interpreteur i = new Interpreteur(200, 200);
+		Test.start(i.getCanvas("AVANCER 20"));
+	}
 }
