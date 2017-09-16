@@ -113,6 +113,7 @@ public class Crayon {
 			this.ecrit = false;
 			break;
 		case "COULEUR":
+			System.out.println("CASE");
 			updateCouleur(cmd.split(" ")[1]);
 			break;
 		case "EPAISSEUR":
@@ -126,6 +127,41 @@ public class Crayon {
 	}
 
 	private Color updateCouleur(String string) {
+		switch (string) {
+		case "BLANC":
+			couleur = Color.WHITE;
+			break;
+		case "GRIS":
+			couleur = Color.GREY;
+			break;
+		case "BLEU":
+			couleur = Color.BLUE;
+			break;
+		case "VERT":
+			couleur = Color.GREEN;
+			break;
+		case "ROUGE":
+			couleur = Color.RED;
+			break;
+		case "JAUNE":
+			couleur = Color.YELLOW;
+			break;
+		case "ROSE":
+			couleur = Color.PINK;
+			break;
+		case "ORANGE":
+			couleur = Color.ORANGE;
+			break;
+		case "VIOLET":
+			couleur = Color.VIOLET;
+			break;
+		case "MARRON":
+			couleur = Color.MAROON;
+			break;
+
+		default:
+			break;
+		}
 		return Color.BLACK;
 		
 	}

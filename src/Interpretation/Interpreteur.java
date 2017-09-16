@@ -12,9 +12,9 @@ public class Interpreteur {
 	
 	final static String CODE = ""
 			+ "AVANT 20\n"
-			+ "LEVER\n"
+			+ "COULEUR ROUGE\n"
 			+ "AVANT 20\n"
-			+ "POSER\n"
+			+ "COULEUR JAUNE\n"
 			+ "AVANT 20"; 
 	
 	public Interpreteur(int xCanvas,int yCanvas){
@@ -50,6 +50,7 @@ public class Interpreteur {
 			
 			crayon.getNewCoordForward(Integer.valueOf(commande.split(" ")[1]));
 			gc.setFill(crayon.getCouleur());
+			gc.setStroke(crayon.getCouleur());
 			gc.setLineWidth(crayon.getWidth());
 			if(crayon.isEcrit()){
 				gc.strokeLine(temp.getX(), temp.getY(), crayon.getX(), crayon.getY());
