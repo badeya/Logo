@@ -113,8 +113,7 @@ public class Crayon {
 			this.ecrit = false;
 			break;
 		case "COULEUR":
-			System.out.println("CASE");
-			updateCouleur(cmd.split(" ")[1]);
+			this.couleur = updateCouleur(cmd.split(" ")[1]);
 			break;
 		case "EPAISSEUR":
 			this.width = Integer.valueOf(cmd.split(" ")[1]);
@@ -129,10 +128,13 @@ public class Crayon {
 	private Color updateCouleur(String s) {
 		
 		for (Couleur c : Couleur.values()) {
+			System.out.println("for");
 			if(c.getName().equals(s)){
+				System.out.println("if");
 				return c.getColor();
 			}
 		}
+		System.out.println("oué");
 		return Color.BLACK;
 		
 	}

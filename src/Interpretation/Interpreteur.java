@@ -15,7 +15,7 @@ public class Interpreteur {
 			+ "COULEUR ROUGE\n"
 			+ "AVANT 20\n"
 			+ "COULEUR JAUNE\n"
-			+ "DROITE 90"
+			+ "DROITE 90\n"
 			+ "AVANT 20"; 
 	
 	public Interpreteur(int xCanvas,int yCanvas){
