@@ -11,15 +11,29 @@ public class Interpreteur {
 	Crayon crayon;
 	
 	final static String CODE = ""
-			+ "AVANT 20\n"
-			+ "COULEUR ROUGE\n"
-			+ "AVANT 20\n"
-			+ "COULEUR JAUNE\n"
-			+ "DROITE 90\n"
-			+ "AVANT 20"; 
+			+ "\nEPAISSEUR 2"
+			+ "\nLEVER"
+			+ "\nAVANT 100"
+			+ "\nPOSER"
+			+ "\nAVANT 20"
+			+ "\nDROITE 45"
+			+ "\nAVANT 20"
+			+ "\nDROITE 45"
+			+ "\nAVANT 20"
+			+ "\nDROITE 45"
+			+ "\nAVANT 20"
+			+ "\nDROITE 45"
+			+ "\nAVANT 20"
+			+ "\nDROITE 45"
+			+ "\nAVANT 20"
+			+ "\nDROITE 45"
+			+ "\nAVANT 20"
+			+ "\nDROITE 45"
+			+ "\nAVANT 20";
+	
 	
 	public Interpreteur(int xCanvas,int yCanvas){
-		crayon = new Crayon(0, 0);
+		crayon = new Crayon(0, 1);
 		this.c = new Canvas(xCanvas,yCanvas);
 		this.gc = c.getGraphicsContext2D();
 	}

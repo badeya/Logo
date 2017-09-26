@@ -4,10 +4,10 @@ import javafx.scene.paint.Color;
 
 public class Crayon {
 
-	private Coordonne coord;
+	private Coordonne coord = new Coordonne(0, 0);
 	private Color couleur = Color.BLACK;
 	private boolean ecrit = true;
-	private int orientation;
+	private int orientation = 0;
 	private int width = 5;
 
 	
@@ -31,21 +31,21 @@ public class Crayon {
 		this.orientation = o;
 	}
 	
-	public int getOrientation(){
+	public double getOrientation(){
 		return this.orientation;
 	}
 
-	public int getX() {
+	public double getX() {
 		return coord.getX();
 	}
 
 
-	public void setX(int x) {
+	public void setX(double x) {
 		coord.setX(x);
 	}
 
 
-	public int getY() {
+	public double getY() {
 		return coord.getY();
 	}
 
@@ -76,7 +76,20 @@ public class Crayon {
 
 	public Coordonne getNewCoordForward(int distance) {
 		
-		if(this.orientation == 0){
+	
+		
+		
+		double angle = 2.0 * Math.PI * ((double)this.orientation/360);
+		
+		double newx = Math.cos(angle) * distance + this.coord.getX();
+		double newy =  Math.sin(angle) * distance + this.coord.getY();
+		this.coord = new Coordonne(newx, newy);
+		return this.coord;
+		
+		
+		
+		
+		/*	if(this.orientation == 0){
 			coord = new Coordonne(this.coord.getX()+distance, this.coord.getY());
 			return coord;
 		}
@@ -93,7 +106,7 @@ public class Crayon {
 			return coord;
 		}
 		
-		return this.coord;
+		return this.coord;*/
 	}
 	
 
@@ -134,7 +147,6 @@ public class Crayon {
 				return c.getColor();
 			}
 		}
-		System.out.println("oué");
 		return Color.BLACK;
 		
 	}
