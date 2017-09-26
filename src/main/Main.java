@@ -30,30 +30,45 @@ public class Main extends Application{
 		avant.setGraphic(new ImageView(flecheavant));
 		
 		Button arriere=new Button();
+		Image flechearriere=new Image("File:images/flechearriere.png");
+		arriere.setGraphic(new ImageView(flechearriere));
 		arriere.setPrefSize(50, 50);
+		
 		Button gauche=new Button();
+		Image flechegauche=new Image("File:images/flechegauche.png");
+		gauche.setGraphic(new ImageView(flechegauche));
 		gauche.setPrefSize(50, 50);
+		
 		Button droite=new Button();
+		Image flechedroite=new Image("File:images/flechedroite.png");
+		droite.setGraphic(new ImageView(flechedroite));
+		
 		droite.setPrefSize(50, 50);
 		Button poser=new Button();
+		Image flecheposer=new Image("File:images/flecheposer.png");
+		poser.setGraphic(new ImageView(flecheposer));
 		poser.setPrefSize(50, 50);
+		
 		Button lever=new Button();
+		Image flechelever=new Image("File:images/flechelever.png");
+		lever.setGraphic(new ImageView(flechelever));
 		lever.setPrefSize(50, 50);
+		
 		TextArea tf=new TextArea();
 		HBox hbox2=new HBox();
 		Button clear=new Button("clear");
-		clear.setPrefSize(50, 50);
+		clear.setPrefSize(75, 50);
 		Button submit=new Button("submit");
-		submit.setPrefSize(50, 50);
+		submit.setPrefSize(75, 50);
 		Button quit=new Button("quit");
-		quit.setPrefSize(50, 50);
+		quit.setPrefSize(75, 50);
 		root.getChildren().addAll(c2,vbox);
 		hbox.getChildren().addAll(avant,arriere,gauche,droite,poser,lever);
 		hbox2.getChildren().addAll(clear,submit,quit);
 		vbox.getChildren().addAll(hbox,tf,hbox2);
 
 		
-		Scene s = new Scene(root,750,275);
+		Scene s = new Scene(root,800,300);
 		stage.setScene(s);
 		stage.show();
 		
