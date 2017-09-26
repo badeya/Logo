@@ -1,9 +1,11 @@
 package commandes;
 
+import Interpretation.Interpreteur;
+
 public class Couleur implements Commandes{
 
 	@Override
-	public void updateCrayon(String aa) {
+	public void updateCrayon(Interpreteur i) {
 		// TODO Auto-generated method stub
 		
 	}
