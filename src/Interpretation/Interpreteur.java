@@ -79,10 +79,7 @@ public class Interpreteur {
 			crayon.setX(Integer.valueOf(commande.split(" ")[1].split(",")[0]));
 			crayon.setY(Integer.valueOf(commande.split(" ")[1].split(",")[1]));
 			if(crayon.isEcrit()){
-				System.out.println(temp);
-				System.out.println(crayon.getCoord());
 				gc.strokeLine(tempX, tempY, crayon.getX(),crayon.getY());
-				System.out.println("debug");
 			}
 		}
 		
