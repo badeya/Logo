@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -23,8 +24,11 @@ public class Main extends Application{
 		HBox hbox=new HBox();
 		hbox.setPadding(new Insets(5));
 		vbox.setPadding(new Insets(5));
-		Button avant=new Button();
+		Button avant=new Button();	
+		Image flecheavant=new Image("File:images/flecheavant.png");
 		avant.setPrefSize(50, 50);
+		avant.setGraphic(new ImageView(flecheavant));
+		
 		Button arriere=new Button();
 		arriere.setPrefSize(50, 50);
 		Button gauche=new Button();
