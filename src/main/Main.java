@@ -77,6 +77,7 @@ public class Main extends Application{
 		Button quit=new Button("quit");
 		quit.setPrefSize(75, 50);
 		quit.setOnMouseClicked(e->stage.close());
+		root.setPadding(new Insets(3));
 		root.getChildren().addAll(vbox,c2);
 		hbox.getChildren().addAll(avant,gauche,droite,poser,lever);
 		hbox2.getChildren().addAll(clear,submit,quit);
