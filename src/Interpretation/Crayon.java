@@ -50,7 +50,7 @@ public class Crayon {
 	}
 
 
-	public void setY(int y) {
+	public void setY(double y) {
 		coord.setY(y);
 	}
 

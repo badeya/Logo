@@ -21,6 +21,8 @@ public class Interpreteur {
 			+ "\nDROITE 45"
 			+ "\nAVANT 20"
 			+ "\nDROITE 45"
+			+ "\nCOULEUR ROUGE"
+			+"\nALLERA 56,90"
 			+ "\nAVANT 20"
 			+ "\nDROITE 45"
 			+ "\nAVANT 20"
@@ -69,10 +71,18 @@ public class Interpreteur {
 			}
 		}
 		if(test.equals("ALLERA")){
+			double tempX = temp.getX();
+			double tempY = temp.getY();
 			gc.setFill(crayon.getCouleur());
+			gc.setStroke(crayon.getCouleur());
 			gc.setLineWidth(crayon.getWidth());
+			crayon.setX(Integer.valueOf(commande.split(" ")[1].split(",")[0]));
+			crayon.setY(Integer.valueOf(commande.split(" ")[1].split(",")[1]));
 			if(crayon.isEcrit()){
-				gc.strokeLine(temp.getX(), temp.getY(), Integer.valueOf(commande.split(" ")[1].split(",")[0]), Integer.valueOf(commande.split(" ")[1].split(",")[1]));
+				System.out.println(temp);
+				System.out.println(crayon.getCoord());
+				gc.strokeLine(tempX, tempY, crayon.getX(),crayon.getY());
+				System.out.println("debug");
 			}
 		}
 		
