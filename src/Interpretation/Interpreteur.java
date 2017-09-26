@@ -99,6 +99,7 @@ public class Interpreteur {
 	public void clear(){
 		this.c = new Canvas(c.getWidth(),c.getHeight());
 		this.gc = c.getGraphicsContext2D();
+		this.crayon=new Crayon(0, 0);
 	}
 
 	

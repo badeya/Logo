@@ -1,5 +1,6 @@
 package main;
 
+import Interpretation.Interpreteur;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -13,13 +14,14 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Main extends Application{
+	static Interpreteur i = new Interpreteur(375, 375);
+	static Canvas c2 = i.getCanvas("");
 
 	@Override
 	public void start(Stage stage) throws Exception {
 		HBox root = new HBox();
-		Canvas c2=new Canvas();
-		c2.setWidth(375);
-		c2.setHeight(375);
+		TextArea ta=new TextArea();
+		Interpreteur interpreteur=new Interpreteur((int) c2.getWidth(),(int) c2.getHeight());
 		VBox vbox=new VBox();
 		HBox hbox=new HBox();
 		hbox.setPadding(new Insets(5));
@@ -28,21 +30,20 @@ public class Main extends Application{
 		Image flecheavant=new Image("File:images/flecheavant.png");
 		avant.setPrefSize(50, 50);
 		avant.setGraphic(new ImageView(flecheavant));
-		
-		Button arriere=new Button();
-		Image flechearriere=new Image("File:images/flechearriere.png");
-		arriere.setGraphic(new ImageView(flechearriere));
-		arriere.setPrefSize(50, 50);
+		avant.setOnMouseClicked(e->ta.setText(ta.getText()+"AVANT 20\n"));
 		
 		Button gauche=new Button();
 		Image flechegauche=new Image("File:images/flechegauche.png");
 		gauche.setGraphic(new ImageView(flechegauche));
 		gauche.setPrefSize(50, 50);
+		gauche.setOnMouseClicked(e->ta.setText(ta.getText()+"GAUCHE 90\n"));
+
 		
 		Button droite=new Button();
 		Image flechedroite=new Image("File:images/flechedroite.png");
 		droite.setGraphic(new ImageView(flechedroite));
-		
+		droite.setOnMouseClicked(e->ta.setText(ta.getText()+"DROITE 90\n"));
+
 		droite.setPrefSize(50, 50);
 		Button poser=new Button();
 		Image flecheposer=new Image("File:images/flecheposer.png");
@@ -54,18 +55,32 @@ public class Main extends Application{
 		lever.setGraphic(new ImageView(flechelever));
 		lever.setPrefSize(50, 50);
 		
-		TextArea tf=new TextArea();
 		HBox hbox2=new HBox();
 		Button clear=new Button("clear");
 		clear.setPrefSize(75, 50);
+		clear.setOnMouseClicked(e->{
+			interpreteur.clear();
+			ta.setText("");
+		});
 		Button submit=new Button("submit");
 		submit.setPrefSize(75, 50);
+		submit.setOnMouseClicked(e->{
+			Canvas temp = c2;
+			c2=interpreteur.getCanvas(ta.getText());
+			root.getChildren().remove(temp);
+			root.getChildren().add(c2);				
+			interpreteur.clear();
+			ta.setText("");
+
+		});			
+
 		Button quit=new Button("quit");
 		quit.setPrefSize(75, 50);
-		root.getChildren().addAll(c2,vbox);
-		hbox.getChildren().addAll(avant,arriere,gauche,droite,poser,lever);
+		quit.setOnMouseClicked(e->stage.close());
+		root.getChildren().addAll(vbox,c2);
+		hbox.getChildren().addAll(avant,gauche,droite,poser,lever);
 		hbox2.getChildren().addAll(clear,submit,quit);
-		vbox.getChildren().addAll(hbox,tf,hbox2);
+		vbox.getChildren().addAll(hbox,ta,hbox2);
 
 		
 		Scene s = new Scene(root,800,300);
