@@ -24,9 +24,9 @@ public class Avant implements Commandes{
 			if(i.getCrayon().isEcrit()){
 				i.getGc().strokeLine(coord.getX(), coord.getY(), newx, newy);
 			}
-		
-			i.getCrayon().setX(newx);
-			i.getCrayon().setY(newy);
+            Coordonne c = check(newx,newy);
+			i.getCrayon().setX(c.getX());
+			i.getCrayon().setY(c.getY());
 			
 		} catch (Exception e) {
 			
@@ -34,5 +34,21 @@ public class Avant implements Commandes{
 		  }
 		
 	}
+
+	private Coordonne check(double newx, double newy){
+        if (newx > 200){
+            newx=200;
+        }
+        if (newx < 0){
+            newx = 0;
+        }
+        if (newy > 200){
+            newy = 200;
+        }
+        if (newy < 0){
+            newy = 0;
+        }
+        return new Coordonne(newx,newy);
+    }
 
 }
