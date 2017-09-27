@@ -21,7 +21,10 @@ public class Avant implements Commandes{
 			double newx = Math.cos(angle) * distance + coord.getX();
 			double newy =  Math.sin(angle) * distance + coord.getY();
 			
-			i.getGc().strokeLine(coord.getX(), coord.getY(), newx, newy);
+			if(i.getCrayon().isEcrit()){
+				i.getGc().strokeLine(coord.getX(), coord.getY(), newx, newy);
+			}
+		
 			i.getCrayon().setX(newx);
 			i.getCrayon().setY(newy);
 			

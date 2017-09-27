@@ -1,6 +1,5 @@
 package Interpretation;
 
-import commandes.CouleurEnum;
 import javafx.scene.paint.Color;
 
 public class Crayon {
@@ -72,75 +71,7 @@ public class Crayon {
 
 	public void setEcrit(boolean ecrit) {
 		this.ecrit = ecrit;
-	}
-
-
-	public Coordonne getNewCoordForward(int distance) {
-		
-	
-		
-		
-		double angle = 2.0 * Math.PI * ((double)this.orientation/360);
-		
-		double newx = Math.cos(angle) * distance + this.coord.getX();
-		double newy =  Math.sin(angle) * distance + this.coord.getY();
-		this.coord = new Coordonne(newx, newy);
-		return this.coord;
-		
-		
-		
-		
-		/*	if(this.orientation == 0){
-			coord = new Coordonne(this.coord.getX()+distance, this.coord.getY());
-			return coord;
-		}
-		if(this.orientation == 90){
-			coord = new Coordonne(this.coord.getX(), this.coord.getY()+distance);
-			return coord;
-		}
-		if(this.orientation == 180){
-			coord = new Coordonne(this.coord.getX()-distance, this.coord.getY());
-			return coord;
-		}
-		if(this.orientation == 270){
-			coord = new Coordonne(this.coord.getX(), this.coord.getY()-distance);
-			return coord;
-		}
-		
-		return this.coord;*/
-	}
-	
-
-	/*public void updateCrayon(String cmd) {
-		String temp = cmd.split(" ")[0];
-		switch (temp) {
-		case "DROITE":
-			this.orientation += Integer.valueOf(cmd.split(" ")[1]);
-			break;
-		case "GAUCHE":
-			this.orientation -= Integer.valueOf(cmd.split(" ")[1]);
-			break;
-		case "POSER":
-			this.ecrit = true;
-			break;
-		case "LEVER":
-			this.ecrit = false;
-			break;
-		case "COULEUR":
-			this.couleur = updateCouleur(cmd.split(" ")[1]);
-			break;
-		case "EPAISSEUR":
-			this.width = Integer.valueOf(cmd.split(" ")[1]);
-			break;
-
-		default:
-			break;
-		}
-		
-	}*/
-
-	
-	
+	}	
 	
 	
 }

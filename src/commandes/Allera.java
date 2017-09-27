@@ -13,7 +13,10 @@ public class Allera implements Commandes{
 			int newx = Integer.valueOf(i.getCurrentLine().split(" ")[1].split(",")[0]);
 			int newy = Integer.valueOf(i.getCurrentLine().split(" ")[1].split(",")[1]);
 			
-			i.getGc().strokeLine(i.getCrayon().getX(), i.getCrayon().getY(), newx, newy);
+			if(i.getCrayon().isEcrit()){
+				i.getGc().strokeLine(i.getCrayon().getX(), i.getCrayon().getY(), newx, newy);
+			}
+			
 			i.getCrayon().setX(newx);
 			i.getCrayon().setY(newy);
 			
