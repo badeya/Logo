@@ -1,6 +1,7 @@
 package Interpretation;
 
 import commandes.*;
+import javafx.embed.swing.JFXPanel;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import main.Test;
@@ -43,6 +44,7 @@ public class Interpreteur {
 	
 	
 	public Interpreteur(int xCanvas,int yCanvas){
+		new JFXPanel();
 		crayon = new Crayon(0, 1);
 		this.c = new Canvas(xCanvas,yCanvas);
 		this.gc = c.getGraphicsContext2D();
