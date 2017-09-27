@@ -1,6 +1,6 @@
 package Interpretation;
 
-import commandes.Couleur;
+import commandes.CouleurEnum;
 import javafx.scene.paint.Color;
 
 public class Crayon {
@@ -111,7 +111,7 @@ public class Crayon {
 	}
 	
 
-	public void updateCrayon(String cmd) {
+	/*public void updateCrayon(String cmd) {
 		String temp = cmd.split(" ")[0];
 		switch (temp) {
 		case "DROITE":
@@ -137,20 +137,8 @@ public class Crayon {
 			break;
 		}
 		
-	}
+	}*/
 
-	private Color updateCouleur(String s) {
-		
-		for (Couleur c : Couleur.values()) {
-			System.out.println("for");
-			if(c.getName().equals(s)){
-				System.out.println("if");
-				return c.getColor();
-			}
-		}
-		return Color.BLACK;
-		
-	}
 	
 	
 	

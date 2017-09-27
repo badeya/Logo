@@ -1,5 +1,6 @@
 package Interpretation;
 
+import commandes.*;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import main.Test;
@@ -11,6 +12,13 @@ public class Interpreteur {
 	Crayon crayon;
 	
 	String currentLine;
+	
+	
+	
+	/*final static String CODE = ""
+			+ "\nAVANT 20"
+			+ "\nAVANT 2000";*/
+		
 	
 	final static String CODE = ""
 			+ "\nEPAISSEUR 2"
@@ -24,7 +32,7 @@ public class Interpreteur {
 			+ "\nAVANT 20"
 			+ "\nDROITE 45"
 			+ "\nCOULEUR ROUGE"
-			+"\nALLERA 56,90"
+			+ "\nALLERA 56,90"
 			+ "\nAVANT 20"
 			+ "\nDROITE 45"
 			+ "\nAVANT 20"
@@ -68,21 +76,28 @@ public class Interpreteur {
 		
 		switch(this.currentLine.split(" ")[0]){
 		case "DROITE":
-			
+			new Droite().updateCrayon(this);
 			break;
 		case "GAUCHE":
+			new Gauche().updateCrayon(this);
 			break;
 		case "LEVER":
+			new Lever().updateCrayon(this);
 			break;
 		case "POSER":
+			new Poser().updateCrayon(this);
 			break;
 		case "EPAISSEUR":
+			new Epaisseur().updateCrayon(this);
 			break;
 		case "COULEUR":
+			new Couleur().updateCrayon(this);
 			break;
 		case "AVANT":
+			new Avant().updateCrayon(this);
 			break;
 		case "ALLERA":
+			new Allera().updateCrayon(this);
 			break;
 		default:
 			break;
@@ -140,6 +155,10 @@ public class Interpreteur {
 	
 	
 	
+	public GraphicsContext getGc() {
+		return gc;
+	}
+
 	public static void main(String[]args){
 		Interpreteur i = new Interpreteur(200, 200);
 		Test.start(i.getCanvas(Interpreteur.CODE));
