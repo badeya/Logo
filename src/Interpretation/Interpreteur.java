@@ -8,20 +8,20 @@ import main.Test;
 
 public class Interpreteur {
 
-	Canvas c;
-	GraphicsContext gc;
-	Crayon crayon;
-	
-	String currentLine;
-	
-	
-	
+	private Canvas c;
+	private GraphicsContext gc;
+	private Crayon crayon;
+
+	private String currentLine;
+
+
+
 	/*final static String CODE = ""
 			+ "\nAVANT 20"
 			+ "\nAVANT 2000";*/
-		
-	
-	final static String CODE = ""
+
+
+	private final static String CODE = ""
 			+ "\nEPAISSEUR 2"
 			+ "\nLEVER"
 			+ "\nALLERA 75,75"
@@ -41,29 +41,29 @@ public class Interpreteur {
 			+ "\nAVANT 20"
 			+ "\nDROITE 45"
 			+ "\nAVANT 20";
-	
-	
+
+
 	public Interpreteur(int xCanvas,int yCanvas){
 		new JFXPanel();
 		crayon = new Crayon(0, 1);
 		this.c = new Canvas(xCanvas,yCanvas);
 		this.gc = c.getGraphicsContext2D();
 	}
-	
+
 	public Canvas getCanvas(String programme){
-		
+
 		this.clear();
 		String[] code = programme.split("\n");
-		
+
 		for (int i = 0; i < code.length; i++) {
-			this.currentLine = code[i];	
+			this.currentLine = code[i];
 			execute();
 		}
-		
+
 		return c;
 	}
-	
-	
+
+
 	public Crayon getCrayon() {
 		return crayon;
 	}
@@ -73,7 +73,7 @@ public class Interpreteur {
 	}
 
 	private void execute() {
-		
+
 		switch(this.currentLine.split(" ")[0]){
 		case "DROITE":
 			new Droite().updateCrayon(this);
@@ -101,18 +101,18 @@ public class Interpreteur {
 			break;
 		default:
 			break;
-				
-			
+
+
 		}
-		
+
 	}
 
 	/*private void move(String commande) {
 		String test = commande.split(" ")[0];
 		Coordonne temp = crayon.getCoord();
-		
+
 		if(test.equals("AVANT")){
-			
+
 			crayon.getNewCoordForward(Integer.valueOf(commande.split(" ")[1]));
 			gc.setFill(crayon.getCouleur());
 			gc.setStroke(crayon.getCouleur());
@@ -133,7 +133,7 @@ public class Interpreteur {
 				gc.strokeLine(tempX, tempY, crayon.getX(),crayon.getY());
 			}
 		}
-		
+
 	}*/
 
 	/*private boolean isMoveCommand(String string) {
@@ -143,18 +143,18 @@ public class Interpreteur {
 		}
 		return false;
 	}*/
-	
+
 	private void clear(){
 		this.c = new Canvas(c.getWidth(),c.getHeight());
 		this.gc = c.getGraphicsContext2D();
 		this.crayon=new Crayon(0, 0);
 	}
 
-	
-	
-	
-	
-	
+
+
+
+
+
 	public GraphicsContext getGc() {
 		return gc;
 	}

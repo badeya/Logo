@@ -2,7 +2,6 @@ package main;
 
 import Interpretation.Interpreteur;
 import javafx.application.Application;
-import javafx.embed.swing.JFXPanel;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;

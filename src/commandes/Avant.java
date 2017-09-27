@@ -16,7 +16,7 @@ public class Avant implements Commandes{
 			
 			int distance = Integer.valueOf(i.getCurrentLine().split(" ")[1]);
 			
-			double angle = 2.0 * Math.PI * ((double)orientation/360);
+			double angle = 2.0 * Math.PI * (orientation/360);
 			
 			double newx = Math.cos(angle) * distance + coord.getX();
 			double newy =  Math.sin(angle) * distance + coord.getY();
