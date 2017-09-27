@@ -21,7 +21,7 @@ public class Allera implements Commandes{
 			i.getCrayon().setY(newy);
 			
 		} catch (Exception e) {
-			ErreurCommandesAllerA.errSyntaxe();
+			new ErreurCommandesAllerA().afficherErreur();
 		}
 		
 	}

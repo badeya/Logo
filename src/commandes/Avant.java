@@ -29,9 +29,9 @@ public class Avant implements Commandes{
 			i.getCrayon().setY(newy);
 			
 		} catch (Exception e) {
-			// TODO: handle exception
-			ErreurCommandesAvant.errSyntaxe();
-		}
+			
+		  new ErreurCommandesAvant().afficherErreur();
+		  }
 		
 	}
 
