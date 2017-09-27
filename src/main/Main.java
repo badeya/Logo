@@ -14,8 +14,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Main extends Application{
-	static Interpreteur i = new Interpreteur(375, 375);
-	static Canvas c2 = i.getCanvas("");
+	private static Interpreteur i = new Interpreteur(375, 375);
+	private static Canvas c2 = i.getCanvas("");
 
 	@Override
 	public void start(Stage stage) throws Exception {

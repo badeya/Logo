@@ -7,7 +7,7 @@ public class Couleur implements Commandes{
 
 	@Override
 	public void updateCrayon(Interpreteur i) {
-		boolean couleurTrouve = false;;
+		boolean couleurTrouve = false;
 		try {
 			String couleur = i.getCurrentLine().split(" ")[1];
 		
@@ -20,7 +20,7 @@ public class Couleur implements Commandes{
 				}
 			}
 		} catch (Exception e) {
-				
+				System.out.println(e.getMessage());
 		}finally {
 			// TODO : Erreur
 			if(!couleurTrouve){

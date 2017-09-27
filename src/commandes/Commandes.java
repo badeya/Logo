@@ -2,9 +2,9 @@ package commandes;
 
 import Interpretation.Interpreteur;
 
-public interface Commandes {
+interface Commandes {
 
 
-	public void updateCrayon(Interpreteur i);
+	void updateCrayon(Interpreteur i);
 	
 }

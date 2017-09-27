@@ -1,8 +1,8 @@
 package erreur;
 
-public interface Erreur {
+interface Erreur {
 	
-	public void afficherErreur();
+	void afficherErreur();
 	
 }
  

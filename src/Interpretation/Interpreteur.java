@@ -44,6 +44,7 @@ public class Interpreteur {
 
 
 	public Interpreteur(int xCanvas,int yCanvas){
+	    //ne pas retirer le jfx panel
 		new JFXPanel();
 		crayon = new Crayon(0, 1);
 		this.c = new Canvas(xCanvas,yCanvas);
@@ -55,10 +56,10 @@ public class Interpreteur {
 		this.clear();
 		String[] code = programme.split("\n");
 
-		for (int i = 0; i < code.length; i++) {
-			this.currentLine = code[i];
-			execute();
-		}
+        for (String aCode : code) {
+            this.currentLine = aCode;
+            execute();
+        }
 
 		return c;
 	}
