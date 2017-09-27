@@ -59,7 +59,7 @@ public class Main extends Application{
 		Button clear=new Button("clear");
 		clear.setPrefSize(75, 50);
 		clear.setOnMouseClicked(e->{
-			interpreteur.clear();
+			//interpreteur.clear();
 			ta.setText("");
 		});
 		Button submit=new Button("submit");
@@ -69,7 +69,7 @@ public class Main extends Application{
 			c2=interpreteur.getCanvas(ta.getText());
 			root.getChildren().remove(temp);
 			root.getChildren().add(c2);				
-			interpreteur.clear();
+			//interpreteur.clear();
 			ta.setText("");
 
 		});			

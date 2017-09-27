@@ -10,6 +10,8 @@ public class Interpreteur {
 	GraphicsContext gc;
 	Crayon crayon;
 	
+	String currentLine;
+	
 	final static String CODE = ""
 			+ "\nEPAISSEUR 2"
 			+ "\nLEVER"
@@ -42,21 +44,55 @@ public class Interpreteur {
 	
 	public Canvas getCanvas(String programme){
 		
+		this.clear();
 		String[] code = programme.split("\n");
 		
 		for (int i = 0; i < code.length; i++) {
-			if(isMoveCommand(code[i])){
-				move(code[i]);
-			}else{
-				crayon.updateCrayon(code[i]);
-			}
+			this.currentLine = code[i];	
+			execute();
 		}
 		
 		return c;
 	}
 	
 	
-	private void move(String commande) {
+	public Crayon getCrayon() {
+		return crayon;
+	}
+
+	public String getCurrentLine() {
+		return currentLine;
+	}
+
+	private void execute() {
+		
+		switch(this.currentLine.split(" ")[0]){
+		case "DROITE":
+			
+			break;
+		case "GAUCHE":
+			break;
+		case "LEVER":
+			break;
+		case "POSER":
+			break;
+		case "EPAISSEUR":
+			break;
+		case "COULEUR":
+			break;
+		case "AVANT":
+			break;
+		case "ALLERA":
+			break;
+		default:
+			break;
+				
+			
+		}
+		
+	}
+
+	/*private void move(String commande) {
 		String test = commande.split(" ")[0];
 		Coordonne temp = crayon.getCoord();
 		
@@ -83,22 +119,24 @@ public class Interpreteur {
 			}
 		}
 		
-	}
+	}*/
 
-	private boolean isMoveCommand(String string) {
+	/*private boolean isMoveCommand(String string) {
 		string = string.split(" ")[0];
 		if(string.equals("AVANT") || string.equals("ALLERA")){
 			return true;
 		}
 		return false;
-	}
+	}*/
 	
-	public void clear(){
+	private void clear(){
 		this.c = new Canvas(c.getWidth(),c.getHeight());
 		this.gc = c.getGraphicsContext2D();
 		this.crayon=new Crayon(0, 0);
 	}
 
+	
+	
 	
 	
 	
