@@ -1,6 +1,7 @@
 package commandes;
 
 import Interpretation.Interpreteur;
+import erreur.ErreurCommandesAllerA;
 
 public class Allera implements Commandes{
 
@@ -17,7 +18,7 @@ public class Allera implements Commandes{
 			i.getCrayon().setY(newy);
 			
 		} catch (Exception e) {
-			System.out.println("ERREUR : La commande ALLERA s'utilise comme ca : ALLERA (x,y)");
+			ErreurCommandesAllerA.errSyntaxe();
 		}
 		
 	}

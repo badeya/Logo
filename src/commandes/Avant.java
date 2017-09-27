@@ -2,6 +2,7 @@ package commandes;
 
 import Interpretation.Coordonne;
 import Interpretation.Interpreteur;
+import erreur.ErreurCommandesAvant;
 
 public class Avant implements Commandes{
 
@@ -26,7 +27,7 @@ public class Avant implements Commandes{
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("ERREUR : La commande AVANT ne prend que des nombres en paramétre");
+			ErreurCommandesAvant.errSyntaxe();
 		}
 		
 	}
