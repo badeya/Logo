@@ -36,14 +36,14 @@ public class Avant implements Commandes{
 	}
 
 	private Coordonne check(double newx, double newy){
-        if (newx > 200){
-            newx=200;
+        if (newx > 375){
+            newx=375;
         }
         if (newx < 0){
             newx = 0;
         }
-        if (newy > 200){
-            newy = 200;
+        if (newy > 375){
+            newy = 375;
         }
         if (newy < 0){
             newy = 0;
