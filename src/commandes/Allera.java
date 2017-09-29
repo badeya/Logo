@@ -1,11 +1,8 @@
 package commandes;
 
 import Interpretation.Coordonne;
-import Interpretation.Crayon;
 import Interpretation.Interpreteur;
 import erreur.ErreurCommandesAllerA;
-import main.Main;
-import main.Test;
 
 public class Allera implements Commandes{
 
