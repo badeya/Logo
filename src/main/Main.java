@@ -14,8 +14,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Main extends Application{
-	static Interpreteur i = new Interpreteur(375, 375);
-	static Canvas c2 = i.getCanvas("");
+	private static Interpreteur i = new Interpreteur(375, 375);
+	private static Canvas c2 = i.getCanvas("");
 
 	@Override
 	public void start(Stage stage) throws Exception {
@@ -76,7 +76,7 @@ public class Main extends Application{
 
 		Button quit=new Button("quit");
 		quit.setPrefSize(75, 50);
-		quit.setOnMouseClicked(e->stage.close());
+		quit.setOnMouseClicked(e->System.exit(0));
 		root.setPadding(new Insets(3));
 		root.getChildren().addAll(vbox,c2);
 		hbox.getChildren().addAll(avant,gauche,droite,poser,lever);

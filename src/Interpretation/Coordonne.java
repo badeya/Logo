@@ -2,8 +2,8 @@ package Interpretation;
 
 public class Coordonne {
 
-	double x;
-	double y;
+	private double x;
+	private double y;
 	
 	
 	public Coordonne(double x, double y) {
