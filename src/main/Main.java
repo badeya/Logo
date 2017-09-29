@@ -2,7 +2,6 @@ package main;
 
 import Interpretation.Interpreteur;
 import javafx.application.Application;
-import javafx.embed.swing.JFXPanel;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -59,7 +58,7 @@ public class Main extends Application{
 		HBox hbox2=new HBox();
 		Button clear=new Button("clear");
 		clear.setPrefSize(75, 50);
-		clear.setOnMouseClicked(e->{
+		clear.setOnMouseClicked(e->{;
 			//interpreteur.clear();
 			ta.setText("");
 		});
