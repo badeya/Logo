@@ -1,8 +1,8 @@
 package commandes;
 
-import Interpretation.Coordonne;
-import Interpretation.Interpreteur;
 import erreur.ErreurCommandesAllerA;
+import interpretation.Coordonne;
+import interpretation.Interpreteur;
 
 public class Allera implements Commandes{
 

@@ -1,6 +1,6 @@
 package main;
 
-import Interpretation.Interpreteur;
+import interpretation.Interpreteur;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;

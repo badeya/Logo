@@ -1,6 +1,6 @@
 package commandes;
 
-import Interpretation.Interpreteur;
+import interpretation.Interpreteur;
 
 public class Lever implements Commandes{
 

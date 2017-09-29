@@ -1,8 +1,8 @@
 package commandes;
 
-import Interpretation.Coordonne;
-import Interpretation.Interpreteur;
 import erreur.ErreurCommandesAvant;
+import interpretation.Coordonne;
+import interpretation.Interpreteur;
 
 public class Avant implements Commandes{
 
