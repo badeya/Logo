@@ -2,28 +2,15 @@ Thibaut Depommier, Valentin Lucas, Belembert Melvin, Badey Arthur.
 
 Adresse git: https://git-iut.univ-lille1.fr/tanguy.depommier/ProjetMode2017-K4.git
 
-Ce qui � �t� fait : - L'interpretateur de language LOGO
-					- L'interface graphique 
-					- implemantation des boutons
-					- Controle sortie de canvas
-					
+Ce qui � �t� fait :
+- L'interpretateur de language LOGO
+- L'interface graphique 
+- implemantation des boutons
+- Controle sortie de canvas
+
 Ce qu'il reste � faire : - sauvegarder le code (logo)
 
-Pour la r�partitions des t�ches :- Melvin et Thibaut se sont occuper de l'Interpr�teur de language LOGO et des commandes.
-								 -Valentin et Arthur de l'interface graphique et de l'impl�mentation des boutons.
-								 
+Pour la r�partitions des t�ches :
+- Melvin et Thibaut se sont occuper de l'Interpr�teur de language LOGO et des commandes.
+-Valentin et Arthur de l'interface graphique et de l'impl�mentation des boutons.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 9656eab9c4fdebe92792a2fbbce5c28c234890be
