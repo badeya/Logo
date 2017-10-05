@@ -1,15 +1,22 @@
-----TODO----
-- sauvegarder le code (logo)
 
----- DONE ----
-- L'interpretateur de language LOGO
-- L'interface graphique 
-- implemantation des boutons
-- Controle sortie de canvas
+Thibaut Depommier, Valentin Lucas, Belembert Melvin, Badey Arthur.
 
------------------------
+Adresse git: https://git-iut.univ-lille1.fr/tanguy.depommier/ProjetMode2017-K4.git
 
-test
+Ce qui à été fait : - L'interpretateur de language LOGO
+					- L'interface graphique 
+					- implemantation des boutons
+					- Controle sortie de canvas
+					
+Ce qu'il reste à faire : - sauvegarder le code (logo)
+
+Pour la répartitions des tâches :- Melvin et Thibaut se sont occuper de l'Interpréteur de language LOGO et des commandes.
+								 -Valentin et Arthur de l'interface graphique et de l'implémentation des boutons.
+								 
+
+
+
+
 
 
 
