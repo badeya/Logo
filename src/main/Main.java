@@ -1,5 +1,7 @@
 package main;
 
+
+
 import interpretation.Interpreteur;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -14,14 +16,16 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Main extends Application{
-	private static Interpreteur i = new Interpreteur(375, 375);
-	private static Canvas c2 = i.getCanvas("");
+	private  Interpreteur i;
+	private  Canvas c2;
+	private HBox root;
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		HBox root = new HBox();
+		this.root = new HBox();
 		TextArea ta=new TextArea();
-		Interpreteur interpreteur=new Interpreteur((int) c2.getWidth(),(int) c2.getHeight());
+		this.c2 = new Canvas(300,300);
+		this.i=new Interpreteur((int) c2.getWidth(),(int) c2.getHeight());
 		VBox vbox=new VBox();
 		HBox hbox=new HBox();
 		hbox.setPadding(new Insets(5));
@@ -58,19 +62,14 @@ public class Main extends Application{
 		HBox hbox2=new HBox();
 		Button clear=new Button("clear");
 		clear.setPrefSize(75, 50);
-		clear.setOnMouseClicked(e->{;
-			//interpreteur.clear();
+		clear.setOnMouseClicked(e->{
+			updateCanvas("");
 			ta.setText("");
 		});
 		Button submit=new Button("submit");
 		submit.setPrefSize(75, 50);
 		submit.setOnMouseClicked(e->{
-			Canvas temp = c2;
-			c2=interpreteur.getCanvas(ta.getText());
-			root.getChildren().remove(temp);
-			root.getChildren().add(c2);				
-			//interpreteur.clear();
-			ta.setText("");
+			updateCanvas(ta.getText());
 
 		});			
 
@@ -88,6 +87,13 @@ public class Main extends Application{
 		stage.setScene(s);
 		stage.show();
 		
+	}
+	
+	private void updateCanvas(String s){
+		Canvas temp = c2;
+		c2=i.getCanvas(s);
+		root.getChildren().remove(temp);
+		root.getChildren().add(c2);	
 	}
 	
 	public static void main(String[] args){
