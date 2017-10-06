@@ -4,6 +4,7 @@ import erreur.ErreurCommandesAllerA;
 import interpretation.Coordonne;
 import interpretation.Interpreteur;
 
+
 public class Allera implements Commandes{
 
 	@Override
@@ -43,5 +44,9 @@ public class Allera implements Commandes{
         }
         return new Coordonne(newx,newy);
     }
+
+
+
+
 
 }
