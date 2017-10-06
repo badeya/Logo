@@ -15,9 +15,9 @@ public class Allera implements Commandes{
 			int newx = Integer.valueOf(i.getCurrentLine().split(" ")[1].split(",")[0]);
 			int newy = Integer.valueOf(i.getCurrentLine().split(" ")[1].split(",")[1]);
 			
-			if(i.getCrayon().isEcrit()){
+			/*if(i.getCrayon().isEcrit()){
 				i.getGc().strokeLine(i.getCrayon().getX(), i.getCrayon().getY(), newx, newy);
-			}
+			}*/
 
             Coordonne c = check(newx,newy);
             i.getCrayon().setX(c.getX());
