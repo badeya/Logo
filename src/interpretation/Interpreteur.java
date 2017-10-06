@@ -106,6 +106,13 @@ public class Interpreteur {
 		}
 
 	}
+	
+	public double getHeighCanvas(){
+		return this.c.getHeight();
+	}
+	public double getWidthCanvas(){
+		return this.c.getWidth();
+	}
 
 	/*private void move(String commande) {
 		String test = commande.split(" ")[0];

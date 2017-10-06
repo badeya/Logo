@@ -6,6 +6,7 @@ public class Epaisseur implements Commandes{
 
 	@Override
 	public void updateCrayon(Interpreteur i) {
+		
 		try {
 			int width = Integer.valueOf(i.getCurrentLine().split(" ")[1]);
 			i.getCrayon().setWidth(width);

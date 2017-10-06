@@ -24,26 +24,26 @@ public class Avant implements Commandes{
 			if(i.getCrayon().isEcrit()){
 				i.getGc().strokeLine(coord.getX(), coord.getY(), newx, newy);
 			}
-            Coordonne c = check(newx,newy);
+            Coordonne c = check(newx,newy,i);
 			i.getCrayon().setX(c.getX());
 			i.getCrayon().setY(c.getY());
 			
 		} catch (Exception e) {
 			
-		  new ErreurCommandesAvant().afficherErreur();
+			new ErreurCommandesAvant().afficherErreur();
 		  }
 		
 	}
 
-	private Coordonne check(double newx, double newy){
-        if (newx > 375){
-            newx=375;
+	private Coordonne check(double newx, double newy,Interpreteur i){
+        if (newx > i.getWidthCanvas()){
+            newx=i.getWidthCanvas();
         }
         if (newx < 0){
             newx = 0;
         }
-        if (newy > 375){
-            newy = 375;
+        if (newy > i.getHeighCanvas()){
+            newy = i.getHeighCanvas();
         }
         if (newy < 0){
             newy = 0;
