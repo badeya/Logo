@@ -69,6 +69,7 @@ public class Main extends Application{
 		Button submit=new Button("submit");
 		submit.setPrefSize(75, 50);
 		submit.setOnMouseClicked(e->{
+			ta.setText(ta.getText().toUpperCase());
 			updateCanvas(ta.getText());
 
 		});			
