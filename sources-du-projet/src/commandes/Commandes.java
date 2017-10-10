@@ -2,7 +2,7 @@ package commandes;
 
 import interpretation.Interpreteur;
 
-interface Commandes {
+public interface Commandes {
 
 
 	void updateCrayon(Interpreteur i);

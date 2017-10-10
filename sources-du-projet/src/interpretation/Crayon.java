@@ -4,6 +4,9 @@ import javafx.scene.paint.Color;
 
 public class Crayon {
 
+	private static final Crayon INSTANCE = new Crayon(0, 1);
+	
+	
 	private Coordonne coord = new Coordonne(0, 0);
 	private Color couleur = Color.BLACK;
 	private boolean ecrit = true;
@@ -13,6 +16,10 @@ public class Crayon {
 	
 	public Crayon(int x, int y) {
 		coord = new Coordonne(x, y);
+	}
+	
+	public static Crayon getInstance(){
+		return Crayon.INSTANCE;
 	}
 	
 	public void setWidth(int x){

@@ -25,7 +25,7 @@ public class Main extends Application{
 		this.root = new HBox();
 		TextArea ta=new TextArea();
 		this.c2 = new Canvas(300,300);
-		this.i=new Interpreteur((int) c2.getWidth(),(int) c2.getHeight());
+		this.i=Interpreteur.getInstance();
 		VBox vbox=new VBox();
 		HBox hbox=new HBox();
 		hbox.setPadding(new Insets(5));
