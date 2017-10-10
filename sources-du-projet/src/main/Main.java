@@ -31,31 +31,31 @@ public class Main extends Application{
 		hbox.setPadding(new Insets(5));
 		vbox.setPadding(new Insets(5));
 		Button avant=new Button();	
-		Image flecheavant=new Image("File:images/flecheavant.png");
+		Image flecheavant=new Image("File:sources-du-projet/images/flecheavant.png");
 		avant.setPrefSize(50, 50);
 		avant.setGraphic(new ImageView(flecheavant));
 		avant.setOnMouseClicked(e->ta.setText(ta.getText()+"AVANT 20\n"));
 		
 		Button gauche=new Button();
-		Image flechegauche=new Image("File:images/flechegauche.png");
+		Image flechegauche=new Image("File:sources-du-projet/images/flechegauche.png");
 		gauche.setGraphic(new ImageView(flechegauche));
 		gauche.setPrefSize(50, 50);
 		gauche.setOnMouseClicked(e->ta.setText(ta.getText()+"GAUCHE 90\n"));
 
 		
 		Button droite=new Button();
-		Image flechedroite=new Image("File:images/flechedroite.png");
+		Image flechedroite=new Image("File:sources-du-projet/images/flechedroite.png");
 		droite.setGraphic(new ImageView(flechedroite));
 		droite.setOnMouseClicked(e->ta.setText(ta.getText()+"DROITE 90\n"));
 
 		droite.setPrefSize(50, 50);
 		Button poser=new Button();
-		Image flecheposer=new Image("File:images/flecheposer.png");
+		Image flecheposer=new Image("File:sources-du-projet/images/flecheposer.png");
 		poser.setGraphic(new ImageView(flecheposer));
 		poser.setPrefSize(50, 50);
 		
 		Button lever=new Button();
-		Image flechelever=new Image("File:images/flechelever.png");
+		Image flechelever=new Image("File:sources-du-projet/images/flechelever.png");
 		lever.setGraphic(new ImageView(flechelever));
 		lever.setPrefSize(50, 50);
 		
@@ -69,6 +69,7 @@ public class Main extends Application{
 		Button submit=new Button("submit");
 		submit.setPrefSize(75, 50);
 		submit.setOnMouseClicked(e->{
+			ta.setText(ta.getText().toUpperCase());
 			updateCanvas(ta.getText());
 
 		});			
@@ -86,6 +87,7 @@ public class Main extends Application{
 		Scene s = new Scene(root,800,300);
 		stage.setScene(s);
 		stage.show();
+		stage.setResizable(false);
 		
 	}
 	
