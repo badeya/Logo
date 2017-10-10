@@ -14,6 +14,7 @@ public class Couleur implements Commandes{
 			for (CouleurEnum c : CouleurEnum.values()) {
 				
 				if(c.getName().equals(couleur)){
+					System.out.println("ok");
 					i.getCrayon().setCouleur(c.getColor());
 					couleurTrouve = true;
 					break;
