@@ -5,8 +5,8 @@ import interpretation.Interpreteur;
 public class Epaisseur implements Commandes{
 
 	@Override
-	public void updateCrayon(Interpreteur i) {
-		
+	public void execute() {
+		Interpreteur i = Interpreteur.getInstance();
 		try {
 			int width = Integer.valueOf(i.getCurrentLine().split(" ")[1]);
 			i.getCrayon().setWidth(width);

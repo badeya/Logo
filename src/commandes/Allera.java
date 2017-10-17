@@ -8,8 +8,8 @@ import interpretation.Interpreteur;
 public class Allera implements Commandes{
 
 	@Override
-	public void updateCrayon(Interpreteur i) {
-		
+	public void execute(){
+		Interpreteur i = Interpreteur.getInstance();
 		try {
 			
 			int newx = Integer.valueOf(i.getCurrentLine().split(" ")[1].split(",")[0]);

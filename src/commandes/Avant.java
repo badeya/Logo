@@ -7,8 +7,8 @@ import interpretation.Interpreteur;
 public class Avant implements Commandes{
 
 	@Override
-	public void updateCrayon(Interpreteur i) {
-		
+	public void execute() {
+		Interpreteur i = Interpreteur.getInstance();
 		try {
 			
 			double orientation = i.getCrayon().getOrientation();

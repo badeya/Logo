@@ -6,7 +6,8 @@ import interpretation.Interpreteur;
 public class Couleur implements Commandes{
 
 	@Override
-	public void updateCrayon(Interpreteur i) {
+	public void execute() {
+		Interpreteur i = Interpreteur.getInstance();
 		boolean couleurTrouve = false;
 		try {
 			String couleur = i.getCurrentLine().split(" ")[1];

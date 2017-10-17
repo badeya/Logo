@@ -5,7 +5,8 @@ import interpretation.Interpreteur;
 public class Lever implements Commandes{
 
 	@Override
-	public void updateCrayon(Interpreteur i) {
+	public void execute(){
+		Interpreteur i = Interpreteur.getInstance();
 		i.getCrayon().setEcrit(false);
 		
 	}
