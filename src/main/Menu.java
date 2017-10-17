@@ -2,6 +2,7 @@ package main;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 
 import interpretation.Interpreteur;
@@ -35,12 +36,21 @@ public class Menu extends Application {
 		HBox hbox=new HBox();
 		MenuBar mb=new MenuBar();
 		javafx.scene.control.Menu file=new javafx.scene.control.Menu("fichier");
-		MenuItem save=new MenuItem("sauvegarder");
-		file.getItems().add(save);
+		MenuItem save=new MenuItem("Sauvegarder");
+		MenuItem ouvrir=new MenuItem("Ouvrir");
+		file.getItems().addAll(save,ouvrir);
 		save.setOnAction(e->{
 			FileChooser dialog = new FileChooser();
 			dialog.getExtensionFilters().setAll(new FileChooser.ExtensionFilter("Texte","*.txt"));
 			File file2 = dialog.showSaveDialog(null);
+			if(file2.getName().contains(".")){
+				int i=0;
+				while(file2.getName().charAt(i)!='.')i++;
+				file2=new File(file2.getName().substring(0, i) + ".txt");
+			}
+			if(!file2.getName().contains(".")){
+				file2=new File(file2.getAbsolutePath() + ".txt");
+			}
 			try {
 				FileWriter fw=new FileWriter(file2);
 				fw.write(ta.getText());
@@ -50,6 +60,21 @@ public class Menu extends Application {
 			}
                 
 			});
+		ouvrir.setOnAction(e->{
+			FileChooser dialog = new FileChooser();
+			dialog.getExtensionFilters().setAll(new FileChooser.ExtensionFilter("Texte","*.txt"));
+			File file2 = dialog.showOpenDialog(null);
+			String texte="";
+			try {
+				FileReader fr=new FileReader(file2);
+				
+				fr.close();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+			ta.setText(texte);
+			
+		});
 		mb.getMenus().add(file);
 		
 		
