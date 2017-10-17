@@ -1,5 +1,8 @@
 package commandes;
 
+import java.util.ArrayList;
+
+import arbre.Node;
 import interpretation.Interpreteur;
 
 public class Epaisseur implements Commandes,Node{
@@ -15,6 +18,11 @@ public class Epaisseur implements Commandes,Node{
 			// TODO: erreur 
 		}
 		
+	}
+
+	@Override
+	public ArrayList<Node> getChildren() {
+		return null;
 	}
 
 }
