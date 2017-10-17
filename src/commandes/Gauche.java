@@ -1,8 +1,11 @@
 package commandes;
 
+import java.util.ArrayList;
+
+import arbre.Node;
 import interpretation.Interpreteur;
 
-public class Gauche implements Commandes{
+public class Gauche implements Commandes,Node{
 
 	@Override
 	public void execute(){
@@ -17,6 +20,11 @@ public class Gauche implements Commandes{
 		}
 		
 		
+	}
+
+	@Override
+	public ArrayList<Node> getChildren() {
+		return null;
 	}
 
 }
