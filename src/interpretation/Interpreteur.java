@@ -52,7 +52,7 @@ public class Interpreteur {
 
 	private void execute() {
 		try{
-			CommandeFactory.getInstance().getCommande(this.currentLine.split(" ")[0]).updateCrayon(this);
+			CommandeFactory.getInstance().getCommande(this.currentLine.split(" ")[0]).execute();
 		}catch (Exception e) {
 			System.out.println("[Message debug] Pas de commande donner en paramétre (Normal dans le cas d'un clear)");
 		}
