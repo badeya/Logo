@@ -67,7 +67,11 @@ public class Menu extends Application {
 			String texte="";
 			try {
 				FileReader fr=new FileReader(file2);
-				
+				int c= fr.read();
+				while(c!=-1){
+					texte+=(char)c;
+					c=fr.read();
+				}
 				fr.close();
 			} catch (Exception e1) {
 				e1.printStackTrace();
