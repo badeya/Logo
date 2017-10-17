@@ -1,6 +1,8 @@
 package main;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
 
 import interpretation.Interpreteur;
 import javafx.application.Application;
@@ -37,9 +39,17 @@ public class Menu extends Application {
 		file.getItems().add(save);
 		save.setOnAction(e->{
 			FileChooser dialog = new FileChooser();
-			dialog.getExtensionFilters().setAll(new FileChooser.ExtensionFilter("Image","*.png"),new FileChooser.ExtensionFilter("Tous les fichiers", "*.*"));
-			File file2 = dialog.showOpenDialog(null);
-		});
+			dialog.getExtensionFilters().setAll(new FileChooser.ExtensionFilter("Texte","*.txt"));
+			File file2 = dialog.showSaveDialog(null);
+			try {
+				FileWriter fw=new FileWriter(file2);
+				fw.write(ta.getText());
+				fw.close();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+                
+			});
 		mb.getMenus().add(file);
 		
 		
