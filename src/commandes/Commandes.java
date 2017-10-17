@@ -1,6 +1,5 @@
 package commandes;
 
-import interpretation.Interpreteur;
 
 public interface Commandes {
 
