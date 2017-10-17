@@ -1,16 +1,21 @@
 package main;
 
+import java.io.File;
+
 import interpretation.Interpreteur;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 
@@ -26,6 +31,18 @@ public class Menu extends Application {
 		this.i=Interpreteur.getInstance();
 		VBox vbox=new VBox();
 		HBox hbox=new HBox();
+		MenuBar mb=new MenuBar();
+		javafx.scene.control.Menu file=new javafx.scene.control.Menu("fichier");
+		MenuItem save=new MenuItem("sauvegarder");
+		file.getItems().add(save);
+		save.setOnAction(e->{
+			FileChooser dialog = new FileChooser();
+			dialog.getExtensionFilters().setAll(new FileChooser.ExtensionFilter("Image","*.png"),new FileChooser.ExtensionFilter("Tous les fichiers", "*.*"));
+			File file2 = dialog.showOpenDialog(null);
+		});
+		mb.getMenus().add(file);
+		
+		
 		hbox.setPadding(new Insets(5));
 		vbox.setPadding(new Insets(5));
 		Button avant=new Button();	
@@ -81,7 +98,7 @@ public class Menu extends Application {
 		root.getChildren().addAll(vbox,c2);
 		hbox.getChildren().addAll(avant,gauche,droite,poser,lever);
 		hbox2.getChildren().addAll(clear,submit,quit);
-		vbox.getChildren().addAll(hbox,ta,hbox2);
+		vbox.getChildren().addAll(mb,hbox,ta,hbox2);
 
 		Scene s = new Scene(root,800,300);
 		stage.setScene(s);
