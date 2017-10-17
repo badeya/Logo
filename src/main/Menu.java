@@ -51,12 +51,14 @@ public class Menu extends Application {
 		Image flecheposer=new Image("File:images/flecheposer.png");
 		poser.setGraphic(new ImageView(flecheposer));
 		poser.setPrefSize(50, 50);
+		poser.setOnMouseClicked(e->ta.setText(ta.getText()+"POSER\n"));
 		
 		Button lever=new Button();
 		Image flechelever=new Image("File:images/flechelever.png");
 		lever.setGraphic(new ImageView(flechelever));
 		lever.setPrefSize(50, 50);
-		
+		lever.setOnMouseClicked(e->ta.setText(ta.getText()+"LEVER\n"));
+
 		HBox hbox2=new HBox();
 		Button clear=new Button("clear");
 		clear.setPrefSize(75, 50);
