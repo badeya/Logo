@@ -1,11 +1,14 @@
 package commandes;
 
+import java.util.ArrayList;
+
+import arbre.Node;
 import erreur.ErreurCommandesAllerA;
 import interpretation.Coordonne;
 import interpretation.Interpreteur;
 
 
-public class Allera implements Commandes{
+public class Allera implements Commandes,Node{
 
 	@Override
 	public void execute(){
@@ -44,6 +47,11 @@ public class Allera implements Commandes{
         }
         return new Coordonne(newx,newy);
     }
+
+	@Override
+	public ArrayList<Node> getChildren() {
+		return null;
+	}
 
 
 

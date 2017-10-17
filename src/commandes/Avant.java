@@ -1,10 +1,13 @@
 package commandes;
 
+import java.util.ArrayList;
+
+import arbre.Node;
 import erreur.ErreurCommandesAvant;
 import interpretation.Coordonne;
 import interpretation.Interpreteur;
 
-public class Avant implements Commandes{
+public class Avant implements Commandes,Node{
 
 	@Override
 	public void execute() {
@@ -51,5 +54,10 @@ public class Avant implements Commandes{
         }
         return new Coordonne(newx,newy);
     }
+
+	@Override
+	public ArrayList<Node> getChildren() {
+		return null;
+	}
 
 }

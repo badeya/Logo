@@ -2,7 +2,7 @@ package commandes;
 
 import interpretation.Interpreteur;
 
-public class Epaisseur implements Commandes{
+public class Epaisseur implements Commandes,Node{
 
 	@Override
 	public void execute() {

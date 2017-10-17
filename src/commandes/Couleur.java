@@ -1,9 +1,12 @@
 package commandes;
 
+import java.util.ArrayList;
+
+import arbre.Node;
 import interpretation.Interpreteur;
 
 
-public class Couleur implements Commandes{
+public class Couleur implements Commandes,Node{
 
 	@Override
 	public void execute() {
@@ -30,6 +33,11 @@ public class Couleur implements Commandes{
 			}
 			
 		}
+	}
+
+	@Override
+	public ArrayList<Node> getChildren() {
+		return null;
 	}
 }
 
