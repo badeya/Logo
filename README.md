@@ -1,4 +1,4 @@
-[![pipeline status](https://git-iut.univ-lille1.fr/ProjetMode2017-K4/badges/master/pipeline.svg)](https://git-iut.univ-lille1.fr/ProjetMode2017-K4/commits/master)
+[![pipeline status](https://git-iut.univ-lille1.fr/tanguy.depommier/ProjetMode2017-K4/badges/master/pipeline.svg)](https://git-iut.univ-lille1.fr/tanguy.depommier/ProjetMode2017-K4/commits/master)
 
 
 Thibaut Depommier, Valentin Lucas, Belembert Melvin, Badey Arthur.
