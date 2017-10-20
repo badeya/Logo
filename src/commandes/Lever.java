@@ -16,7 +16,9 @@ public class Lever implements Commandes,Node{
 
 	@Override
 	public ArrayList<Node> getChildren() {
-		return null;
+		ArrayList<Node> res = new ArrayList<Node>();
+		res.add(this);
+		return res;
 	}
 
 }

@@ -9,6 +9,15 @@ import interpretation.Interpreteur;
 
 
 public class Allera implements Commandes,Node{
+	
+	int x;
+	int y;
+	
+	public Allera(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	
 
 	@Override
 	public void execute(){
@@ -50,7 +59,9 @@ public class Allera implements Commandes,Node{
 
 	@Override
 	public ArrayList<Node> getChildren() {
-		return null;
+		ArrayList<Node> res = new ArrayList<Node>();
+		res.add(this);
+		return res;
 	}
 
 

@@ -8,6 +8,12 @@ import interpretation.Coordonne;
 import interpretation.Interpreteur;
 
 public class Avant implements Commandes,Node{
+	
+	int distance;
+	
+	public Avant(int distance){
+		this.distance = distance;
+	}
 
 	@Override
 	public void execute() {
@@ -17,7 +23,6 @@ public class Avant implements Commandes,Node{
 			double orientation = i.getCrayon().getOrientation();
 			Coordonne coord = i.getCrayon().getCoord();
 			
-			int distance = Integer.valueOf(i.getCurrentLine().split(" ")[1]);
 			
 			double angle = 2.0 * Math.PI * (orientation/360);
 			
@@ -57,7 +62,9 @@ public class Avant implements Commandes,Node{
 
 	@Override
 	public ArrayList<Node> getChildren() {
-		return null;
+		ArrayList<Node> res = new ArrayList<Node>();
+		res.add(this);
+		return res;
 	}
 
 }

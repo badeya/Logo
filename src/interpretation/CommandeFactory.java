@@ -29,9 +29,9 @@ public class CommandeFactory {
 
 		switch(this.commande){
 		case "DROITE":
-			return new Droite();
+			return new Droite(0);
 		case "GAUCHE":
-			return new Gauche();
+			return new Gauche(0);
 		case "LEVER":
 			return new Lever();
 		case "POSER":
@@ -39,11 +39,11 @@ public class CommandeFactory {
 		case "EPAISSEUR":
 			return new Epaisseur();
 		case "COULEUR":
-			return new Couleur();
+			return new Couleur(null);
 		case "AVANT":
-			return new Avant();
+			return new Avant(0);
 		case "ALLERA":
-			return new Allera();
+			return new Allera(0,0);
 		default:
 			return null;
 
