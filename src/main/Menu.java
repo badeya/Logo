@@ -1,11 +1,16 @@
 package main;
 
+import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 import interpretation.Interpreteur;
 import javafx.application.Application;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -15,6 +20,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -35,10 +41,30 @@ public class Menu extends Application {
 		HBox hbox=new HBox();
 		MenuBar mb=new MenuBar();
 		javafx.scene.control.Menu file=new javafx.scene.control.Menu("fichier");
-		MenuItem save=new MenuItem("Sauvegarder");
+		MenuItem savecode=new MenuItem("Sauvegarder code");
 		MenuItem ouvrir=new MenuItem("Ouvrir");
-		file.getItems().addAll(save,ouvrir);
-		save.setOnAction(e->{
+		MenuItem saveimage=new MenuItem("Sauvegarder image");
+		file.getItems().addAll(savecode,saveimage,ouvrir);
+
+		saveimage.setOnAction(e->{
+			FileChooser fileChooser = new FileChooser();
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image", "*.png"));
+          
+            File file3 = fileChooser.showSaveDialog(stage);
+            
+            if(file3 != null){
+                try {
+                    WritableImage writableImage = new WritableImage((int) c2.getWidth(), (int) c2.getHeight());
+                    c2.snapshot(null, writableImage);
+                    RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
+                    ImageIO.write(renderedImage, "png", file3);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+		});
+
+		savecode.setOnAction(e->{
 			FileChooser dialog = new FileChooser();
 			dialog.getExtensionFilters().setAll(new FileChooser.ExtensionFilter("Texte","*.txt"));
 			File file2 = dialog.showSaveDialog(null);
@@ -57,8 +83,10 @@ public class Menu extends Application {
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
-                
-			});
+
+		});
+
+
 		ouvrir.setOnAction(e->{
 			FileChooser dialog = new FileChooser();
 			dialog.getExtensionFilters().setAll(new FileChooser.ExtensionFilter("Texte","*.txt"));
@@ -76,11 +104,13 @@ public class Menu extends Application {
 				e1.printStackTrace();
 			}
 			ta.setText(texte);
-			
+
 		});
+
+
 		mb.getMenus().add(file);
-		
-		
+
+
 		hbox.setPadding(new Insets(5));
 		vbox.setPadding(new Insets(5));
 		Button avant=new Button();	
@@ -88,14 +118,14 @@ public class Menu extends Application {
 		avant.setPrefSize(50, 50);
 		avant.setGraphic(new ImageView(flecheavant));
 		avant.setOnMouseClicked(e->ta.setText(ta.getText()+"AVANT 20\n"));
-		
+
 		Button gauche=new Button();
 		Image flechegauche=new Image("File:images/flechegauche.png");
 		gauche.setGraphic(new ImageView(flechegauche));
 		gauche.setPrefSize(50, 50);
 		gauche.setOnMouseClicked(e->ta.setText(ta.getText()+"GAUCHE 90\n"));
 
-		
+
 		Button droite=new Button();
 		Image flechedroite=new Image("File:images/flechedroite.png");
 		droite.setGraphic(new ImageView(flechedroite));
@@ -107,7 +137,7 @@ public class Menu extends Application {
 		poser.setGraphic(new ImageView(flecheposer));
 		poser.setPrefSize(50, 50);
 		poser.setOnMouseClicked(e->ta.setText(ta.getText()+"POSER\n"));
-		
+
 		Button lever=new Button();
 		Image flechelever=new Image("File:images/flechelever.png");
 		lever.setGraphic(new ImageView(flechelever));
@@ -143,7 +173,7 @@ public class Menu extends Application {
 		stage.show();
 		stage.setResizable(false);
 	}
-	
+
 	private void updateCanvas(String s){
 		Canvas temp = c2;
 		c2=i.getCanvas(s);
