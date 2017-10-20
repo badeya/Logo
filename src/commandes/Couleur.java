@@ -1,12 +1,16 @@
 package commandes;
 
+import java.util.ArrayList;
+
+import arbre.Node;
 import interpretation.Interpreteur;
 
 
-public class Couleur implements Commandes{
+public class Couleur implements Commandes,Node{
 
 	@Override
-	public void updateCrayon(Interpreteur i) {
+	public void execute() {
+		Interpreteur i = Interpreteur.getInstance();
 		boolean couleurTrouve = false;
 		try {
 			String couleur = i.getCurrentLine().split(" ")[1];
@@ -29,6 +33,11 @@ public class Couleur implements Commandes{
 			}
 			
 		}
+	}
+
+	@Override
+	public ArrayList<Node> getChildren() {
+		return null;
 	}
 }
 

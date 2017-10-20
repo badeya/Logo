@@ -1,12 +1,15 @@
 package commandes;
 
+import java.util.ArrayList;
+
+import arbre.Node;
 import interpretation.Interpreteur;
 
-public class Epaisseur implements Commandes{
+public class Epaisseur implements Commandes,Node{
 
 	@Override
-	public void updateCrayon(Interpreteur i) {
-		
+	public void execute() {
+		Interpreteur i = Interpreteur.getInstance();
 		try {
 			int width = Integer.valueOf(i.getCurrentLine().split(" ")[1]);
 			i.getCrayon().setWidth(width);
@@ -15,6 +18,11 @@ public class Epaisseur implements Commandes{
 			// TODO: erreur 
 		}
 		
+	}
+
+	@Override
+	public ArrayList<Node> getChildren() {
+		return null;
 	}
 
 }

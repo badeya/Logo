@@ -1,0 +1,5 @@
+image: mjalas/javafx
+
+build:
+  script: "cd src && javac main/Main.java"
+  
