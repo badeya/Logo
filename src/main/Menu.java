@@ -7,7 +7,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageOutputStream;
 
 import interpretation.Interpreteur;
 import javafx.application.Application;
@@ -15,7 +14,6 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
