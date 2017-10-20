@@ -47,10 +47,6 @@ public class Menu extends Application {
 		file.getItems().addAll(savecode,saveimage,ouvrir);
 
 		saveimage.setOnAction(e->{
-			/*FileChooser dialog = new FileChooser();
-			dialog.getExtensionFilters().setAll(new FileChooser.ExtensionFilter("Image","*.png"));
-			File file3 = dialog.showSaveDialog(null);
-			*/
 			FileChooser fileChooser = new FileChooser();
             fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image", "*.png"));
           
