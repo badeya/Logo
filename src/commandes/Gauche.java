@@ -15,9 +15,10 @@ public class Gauche implements Commandes,Node{
 	}
 
 	@Override
-	public void execute(){
+	public void execute(Integer... a){
 		Crayon c = Interpreteur.getInstance().getCrayon();
-		c.setOrientation((int) (c.getOrientation()+orientation));
+		orientation = a[0];
+		c.setOrientation((int) (c.getOrientation()-orientation));
 	}
 
 	@Override

@@ -1,5 +1,9 @@
 package interpretation;
 
+import java.io.BufferedReader;
+import java.io.StringReader;
+import java.util.StringTokenizer;
+
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -15,6 +19,8 @@ public class Interpreteur {
 	private GraphicsContext gc;
 	private Crayon crayon;
 	private String currentLine;
+	private BufferedReader rd;
+	private StringTokenizer code;
 
 	public Interpreteur(int xCanvas,int yCanvas){
 	    //ne pas retirer le jfx panel
@@ -32,11 +38,10 @@ public class Interpreteur {
 	}
 	
 	public Canvas getCanvas(String programme){
+		code = new StringTokenizer(programme);
 		this.clear();
-		String[] code = programme.split("\n");
-
-        for (String aCode : code) {
-            this.currentLine = aCode;
+        while(code.hasMoreElements()){
+            this.currentLine = code.nextToken("\n");
             execute();
         }
 		return c;
@@ -52,8 +57,20 @@ public class Interpreteur {
 
 	private void execute() {
 		try{
-			CommandeFactory.getInstance().getCommande(this.currentLine.split(" ")[0]).execute();
+			StringTokenizer strr = new StringTokenizer(currentLine);
+			String sttt = strr.nextToken();
+			if(CommandeFactory.getInstance().doesNeedInt(sttt)){
+				if(strr.countTokens() == 1){
+					CommandeFactory.getInstance().getCommande(sttt).execute(Integer.parseInt(strr.nextToken()));
+				}
+				if(strr.countTokens() == 2){
+					CommandeFactory.getInstance().getCommande(sttt).execute(Integer.parseInt(strr.nextToken()),Integer.parseInt(strr.nextToken()));
+				}
+			}else{
+				CommandeFactory.getInstance().getCommande(sttt).execute();
+			}
 		}catch (Exception e) {
+			e.printStackTrace();
 			System.out.println("[Message debug] Pas de commande donner en paramétre (Normal dans le cas d'un clear)");
 		}
 		

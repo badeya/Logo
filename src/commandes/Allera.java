@@ -20,7 +20,9 @@ public class Allera implements Commandes,Node{
 	
 
 	@Override
-	public void execute(){
+	public void execute(Integer... a){
+		x = a[0];
+		y = a[1];
 		Interpreteur i = Interpreteur.getInstance();
 		try {
 			

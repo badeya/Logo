@@ -15,8 +15,9 @@ public class Droite implements Commandes,Node{
 	}
 
 	@Override
-	public void execute(){
+	public void execute(Integer... a){
 		Crayon c = Interpreteur.getInstance().getCrayon();
+		orientation = a[0];
 		c.setOrientation((int) (c.getOrientation()+orientation));
 		
 		

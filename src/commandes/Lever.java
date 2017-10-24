@@ -8,7 +8,7 @@ import interpretation.Interpreteur;
 public class Lever implements Commandes,Node{
 
 	@Override
-	public void execute(){
+	public void execute(Integer... a){
 		Interpreteur i = Interpreteur.getInstance();
 		i.getCrayon().setEcrit(false);
 		

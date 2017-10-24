@@ -24,6 +24,31 @@ public class CommandeFactory {
 		this.commande = commande;
 		return makeCommand();
 	}
+	
+	public boolean doesNeedInt(String s){
+		switch(s){
+		case "DROITE":
+			return true;
+		case "GAUCHE":
+			return true;
+		case "LEVER":
+			return false;
+		case "POSER":
+			return false;
+		case "EPAISSEUR":
+			return false;
+		case "COULEUR":
+			return false;
+		case "AVANT":
+			return true;
+		case "ALLERA":
+			return true;
+		default:
+			return false;
+
+
+		}
+	}
 
 	public Commandes makeCommand(){
 
