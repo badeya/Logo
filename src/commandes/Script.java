@@ -17,8 +17,8 @@ public class Script implements Node{
 	@Override
 	public ArrayList<Node> getChildren() {
 		ArrayList<Node> l = new ArrayList<>();
-		for (Node node : l) {
-			l.add(node);
+		for (Node node : this.l) {
+			l.addAll(node.getChildren());
 		}
 		return l;
 	}

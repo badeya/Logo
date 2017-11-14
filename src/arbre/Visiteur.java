@@ -19,14 +19,14 @@ public class Visiteur {
 	
 	public void excuteTree(){
 		
-		while(q.peek()!=null){		
+		while(q.peek()!=null){	
+		
 			System.out.println(q.poll());
 			
 		}
 	}
 
 	public static void main(String[] args) {
-		
 		ArrayList<Node> l = new ArrayList<>();
 		l.add(new Allera(10,10));
 		l.add(new Gauche(90));
