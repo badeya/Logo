@@ -65,6 +65,8 @@ public class Allera implements Commandes,Node{
 		res.add(this);
 		return res;
 	}
+	
+	
 
 
 

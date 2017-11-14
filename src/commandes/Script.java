@@ -16,6 +16,10 @@ public class Script implements Node{
 	
 	@Override
 	public ArrayList<Node> getChildren() {
+		ArrayList<Node> l = new ArrayList<>();
+		for (Node node : l) {
+			l.add(node);
+		}
 		return l;
 	}
 
