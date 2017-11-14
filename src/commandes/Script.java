@@ -6,6 +6,7 @@ import arbre.Node;
 
 public class Script implements Node{
 
+
 	ArrayList<Node> l = new ArrayList<>();
 	
 	
@@ -18,6 +19,4 @@ public class Script implements Node{
 		return l;
 	}
 
-	
-	
 }
