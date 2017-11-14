@@ -23,8 +23,9 @@ Rendu n°2 (restant à faire):
 
 
 -parseur 
--lexeur(algé + bool)
+-lexeur(algé + bool) : en cours thibaut
 -Noeud SI, SINON, ALORS, TANTQUE
+
 
 
 
