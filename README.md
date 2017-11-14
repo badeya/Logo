@@ -19,4 +19,15 @@ Pour la r�partitions des t�ches :
 
 INTEGRATION CONTINUE A CONTINUER QUAND LES TESTS SERONT ECRIS
 
+Rendu n°2 (restant à faire): 
+
+
+-parseur 
+-lexeur(algé + bool)
+-Noeud SI, SINON, ALORS, TANTQUE
+
+
+
+
+
 
