@@ -4,6 +4,6 @@ package commandes;
 public interface Commandes {
 
 
-	void execute();
+	void execute(Integer... a);
 	
 }

@@ -16,7 +16,8 @@ public class Avant implements Commandes,Node{
 	}
 
 	@Override
-	public void execute() {
+	public void execute(Integer... a) {
+		distance = a[0];
 		Interpreteur i = Interpreteur.getInstance();
 		try {
 			

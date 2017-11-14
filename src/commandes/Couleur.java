@@ -18,7 +18,7 @@ public class Couleur implements Commandes,Node{
 	
 
 	@Override
-	public void execute() {
+	public void execute(Integer... a) {
 		Interpreteur.getInstance().getCrayon().setCouleur(c);
 		
 	}
