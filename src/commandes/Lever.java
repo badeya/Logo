@@ -3,22 +3,17 @@ package commandes;
 import java.util.ArrayList;
 
 import arbre.Node;
+import interpretation.Crayon;
 import interpretation.Interpreteur;
 
-public class Lever implements Commandes,Node{
+public class Lever implements Node{
 
 	@Override
-	public void execute(Integer... a){
-		Interpreteur i = Interpreteur.getInstance();
-		i.getCrayon().setEcrit(false);
+	public void accept(Crayon cr) {
+		cr.visiterLever(this);
 		
 	}
 
-	@Override
-	public ArrayList<Node> getChildren() {
-		ArrayList<Node> res = new ArrayList<Node>();
-		res.add(this);
-		return res;
-	}
+	
 
 }

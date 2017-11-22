@@ -1,24 +1,15 @@
 package commandes;
 
-import java.util.ArrayList;
-
 import arbre.Node;
-import interpretation.Interpreteur;
+import interpretation.Crayon;
 
-public class Poser implements Commandes,Node{
+public class Poser implements Node{
 
 	@Override
-	public void execute(Integer... a){
-		Interpreteur i = Interpreteur.getInstance();
-		i.getCrayon().setEcrit(true);
+	public void accept(Crayon cr) {
+		cr.visiterPoser(this);
 		
 	}
 
-	@Override
-	public ArrayList<Node> getChildren() {
-		ArrayList<Node> res = new ArrayList<Node>();
-		res.add(this);
-		return res;
-	}
-
+	
 }

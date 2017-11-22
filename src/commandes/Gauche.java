@@ -1,12 +1,11 @@
 package commandes;
 
-import java.util.ArrayList;
 
 import arbre.Node;
 import interpretation.Crayon;
-import interpretation.Interpreteur;
 
-public class Gauche implements Commandes,Node{
+
+public class Gauche implements Node{
 
 	int orientation;
 	
@@ -14,18 +13,16 @@ public class Gauche implements Commandes,Node{
 		this.orientation = orientation;
 	}
 
-	@Override
-	public void execute(Integer... a){
-		Crayon c = Interpreteur.getInstance().getCrayon();
-		orientation = a[0];
-		c.setOrientation((int) (c.getOrientation()-orientation));
+	public int getOrientation(){
+		return orientation;
 	}
 
 	@Override
-	public ArrayList<Node> getChildren() {
-		ArrayList<Node> res = new ArrayList<Node>();
-		res.add(this);
-		return res;
+	public void accept(Crayon cr) {
+		cr.visiterGauche(this);
+		
 	}
+
+	 
 
 }

@@ -1,30 +1,26 @@
 package commandes;
 
-import java.util.ArrayList;
 
 import arbre.Node;
-import interpretation.Interpreteur;
+import interpretation.Crayon;
 
-public class Epaisseur implements Commandes,Node{
-
-	@Override
-	public void execute(Integer... a) {
-		Interpreteur i = Interpreteur.getInstance();
-		try {
-			int width = a[0];
-			i.getCrayon().setWidth(width);
-		} catch(Exception e) {
-			System.out.println("ERREUR : La commande Epaisseur n'accepte que des nombres en paramétre");
-			// TODO: erreur 
-		}
-		
+public class Epaisseur implements Node{
+	
+	int e;
+	
+	public Epaisseur(int epaisseur) {
+		this.e = epaisseur;
+	}
+	
+	public int getEpaisseur(){
+		return e;
 	}
 
 	@Override
-	public ArrayList<Node> getChildren() {
-		ArrayList<Node> res = new ArrayList<Node>();
-		res.add(this);
-		return res;
+	public void accept(Crayon cr) {
+		cr.visiterEpaisseur(this);
 	}
+
+
 
 }

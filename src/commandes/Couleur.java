@@ -1,14 +1,12 @@
 package commandes;
 
-import java.util.ArrayList;
-
 
 import arbre.Node;
-import interpretation.Interpreteur;
+import interpretation.Crayon;
 import javafx.scene.paint.Color;
 
 
-public class Couleur implements Commandes,Node{
+public class Couleur implements Node{
 	
 	Color c;
 	
@@ -16,19 +14,18 @@ public class Couleur implements Commandes,Node{
 		this.c = c;
 	}
 	
+	public Color getColor(){
+		return c;
+	}
+	
 
 	@Override
-	public void execute(Integer... a) {
-		Interpreteur.getInstance().getCrayon().setCouleur(c);
+	public void accept(Crayon cr) {
+		cr.visiterCouleur(this);
 		
 	}
 
-	@Override
-	public ArrayList<Node> getChildren() {
-		ArrayList<Node> res = new ArrayList<Node>();
-		res.add(this);
-		return res;
-	}
+
 }
 
 

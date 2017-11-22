@@ -1,84 +1,90 @@
 package interpretation;
 
+import commandes.Allera;
+import commandes.Avant;
+import commandes.Couleur;
+import commandes.Droite;
+import commandes.Epaisseur;
+import commandes.Gauche;
+import commandes.Lever;
+import commandes.Poser;
+import commandes.Repeter;
+import commandes.Script;
 import javafx.scene.paint.Color;
 
-public class Crayon {
+public class Crayon implements VisiteurAST{
 
 	private static final Crayon INSTANCE = new Crayon(0, 1);
 	
 	
-	private Coordonne coord = new Coordonne(0, 0);
+	private Coordonne coord = new Coordonne(1, 1);
 	private Color couleur = Color.BLACK;
 	private boolean ecrit = true;
 	private int orientation = 0;
 	private int width = 5;
-
 	
-	public Crayon(int x, int y) {
-		coord = new Coordonne(x, y);
-	}
-	
-	public static Crayon getInstance(){
-		return Crayon.INSTANCE;
+	private Crayon(int x,int y) {
+		this.coord.setX(x);
+		this.coord.setY(y);
 	}
 	
-	public void setWidth(int x){
-		this.width = x;
+	@Override
+	public void visiterCouleur(Couleur c) {
+		this.couleur = c.getColor();
+		
+	}
+
+	@Override
+	public void visiterAllerA(Allera c) {
+		if(ecrit) Interpreteur.getInstance().getGc().strokeLine(this.coord.getX(), this.coord.getY(), c.getX(), c.getY());
+		this.coord = new Coordonne(c.getX(), c.getY());	
 	}
 	
-	public int getWidth(){
-		return width;
+	@Override
+	public void visiterDroite(Droite c) {
+		this.orientation += c.getOrientation();
+		this.orientation = this.orientation%360;
 	}
 	
-	public Coordonne getCoord(){
-		return coord;
+	@Override
+	public void visiterEpaisseur(Epaisseur c) {
+		this.width = c.getEpaisseur();
+		
 	}
-	
-	public void setOrientation(int o){
-		this.orientation = o;
+	@Override
+	public void visiterGauche(Gauche c) {
+		this.orientation -= c.getOrientation();
+		this.orientation = this.orientation%360;
+		
 	}
-	
-	public double getOrientation(){
-		return this.orientation;
+	@Override
+	public void visiterLever(Lever c) {
+		this.ecrit = false;
+		
 	}
-
-	public double getX() {
-		return coord.getX();
+	@Override
+	public void visiterPoser(Poser c) {
+		// TODO Auto-generated method stub
+		
 	}
-
-
-	public void setX(double x) {
-		coord.setX(x);
-	}
-
-
-	public double getY() {
-		return coord.getY();
-	}
-
-
-	public void setY(double y) {
-		coord.setY(y);
-	}
-
-
-	public Color getCouleur() {
-		return couleur;
-	}
-
-
-	public void setCouleur(Color couleur) {
-		this.couleur = couleur;
-	}
-
-
-	public boolean isEcrit() {
-		return ecrit;
-	}
-
-	public void setEcrit(boolean ecrit) {
-		this.ecrit = ecrit;
+	@Override
+	public void visiterScript(Script s) {
+		// TODO Auto-generated method stub
+		
 	}	
 	
 	
+	
+	@Override
+	public void visiterAvant(Avant c) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void visiterRepeter(Repeter n) {
+		// TODO
+		
+	}
+	
+
 }

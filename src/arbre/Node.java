@@ -1,9 +1,9 @@
 package arbre;
 
-import java.util.ArrayList;
+import interpretation.Crayon;
 
 public interface Node {
 	
-	public ArrayList<Node> getChildren();
-	
+	public void accept(Crayon cr);
+
 }

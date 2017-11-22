@@ -2,6 +2,7 @@ package commandes;
 import java.util.ArrayList;
 
 import arbre.Node;
+import interpretation.VisiteurAST;
 
 public class Repeter implements Node{
 	
@@ -17,6 +18,8 @@ public class Repeter implements Node{
 	}
 
 
+	
+	
 	@Override
 	public ArrayList<Node> getChildren() {
 		ArrayList<Node> res = new  ArrayList<>();
@@ -26,7 +29,9 @@ public class Repeter implements Node{
 		return res;
 	}
 	
-	
+	public void accept (VisiteurAST v) {
+		v.visitRepeter(this);
+	}
 	
 
 }
