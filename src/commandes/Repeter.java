@@ -1,14 +1,12 @@
 package commandes;
-import java.util.ArrayList;
 
 import arbre.Node;
-import interpretation.VisiteurAST;
+import interpretation.Crayon;
 
 public class Repeter implements Node{
 	
 	int nbrDeTour;
 	Script s;
-	
 	
 	// Le script contient les commande qui sont dans le for
 	// nbrDeTour est le nombre de tour que la boulce effectu
@@ -17,21 +15,13 @@ public class Repeter implements Node{
 		this.s = s;
 	}
 
+	@Override
+	public void accept(Crayon cr) {
+		cr.visiterRepeter(this);
+		
+	}
 
 	
-	
-	@Override
-	public ArrayList<Node> getChildren() {
-		ArrayList<Node> res = new  ArrayList<>();
-		for (int i = 0; i < nbrDeTour; i++) {
-			res.addAll(s.getChildren());
-		}
-		return res;
-	}
-	
-	public void accept (VisiteurAST v) {
-		v.visitRepeter(this);
-	}
 	
 
 }

@@ -3,6 +3,7 @@ package commandes;
 import java.util.ArrayList;
 
 import arbre.Node;
+import interpretation.Crayon;
 
 public class Script implements Node{
 
@@ -14,13 +15,14 @@ public class Script implements Node{
 		this.l = l;
 	}
 	
+	public ArrayList<Node> getList(){return this.l;}
+
+
 	@Override
-	public ArrayList<Node> getChildren() {
-		ArrayList<Node> l = new ArrayList<>();
-		for (Node node : this.l) {
-			l.addAll(node.getChildren());
-		}
-		return l;
+	public void accept(Crayon cr) {
+		cr.visiterScript(this);
+		
 	}
+	
 
 }
