@@ -14,6 +14,9 @@ public class Repeter implements Node{
 		this.nbrDeTour = nbrDeTour;
 		this.s = s;
 	}
+	
+	public int getNbrDeTour(){return this.nbrDeTour;}
+	public Script getScript(){return this.s;}
 
 	@Override
 	public void accept(Crayon cr) {

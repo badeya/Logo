@@ -1,5 +1,8 @@
 package interpretation;
 
+import java.util.ArrayList;
+
+import arbre.Node;
 import commandes.Allera;
 import commandes.Avant;
 import commandes.Couleur;
@@ -15,6 +18,7 @@ import javafx.scene.paint.Color;
 public class Crayon implements VisiteurAST{
 
 	private static final Crayon INSTANCE = new Crayon(0, 1);
+	public static  Crayon getInstance(){return Crayon.INSTANCE;}
 	
 	
 	private Coordonne coord = new Coordonne(1, 1);
@@ -64,25 +68,28 @@ public class Crayon implements VisiteurAST{
 	}
 	@Override
 	public void visiterPoser(Poser c) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void visiterScript(Script s) {
-		// TODO Auto-generated method stub
-		
-	}	
-	
-	
-	
-	@Override
-	public void visiterAvant(Avant c) {
-		// TODO Auto-generated method stub
+		this.ecrit = true;
 		
 	}
 	@Override
 	public void visiterRepeter(Repeter n) {
-		// TODO
+		int nbrTour = n.getNbrDeTour();
+		for(int i = 0; i < nbrTour;i++){
+			this.visiterScript(n.getScript());
+		}
+	}
+	
+	@Override
+	public void visiterScript(Script s) {
+		ArrayList<Node> l = s.getList();
+		for (Node n : l) {
+			n.accept(this);
+		}	
+	}	
+	
+	@Override
+	public void visiterAvant(Avant c) {
+		// TODO Auto-generated method stub
 		
 	}
 	

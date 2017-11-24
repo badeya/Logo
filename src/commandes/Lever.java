@@ -1,10 +1,9 @@
 package commandes;
 
-import java.util.ArrayList;
 
 import arbre.Node;
 import interpretation.Crayon;
-import interpretation.Interpreteur;
+
 
 public class Lever implements Node{
 

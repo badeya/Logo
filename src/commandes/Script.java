@@ -16,7 +16,7 @@ public class Script implements Node{
 	}
 	
 	public ArrayList<Node> getList(){return this.l;}
-
+	
 
 	@Override
 	public void accept(Crayon cr) {

@@ -23,16 +23,19 @@ public class Interpreteur {
 	private StringTokenizer code;
 
 	public Interpreteur(int xCanvas,int yCanvas){
-	    //ne pas retirer le jfx panel
 		new JFXPanel();
-		crayon = new Crayon(0, 1);
+		crayon = Crayon.getInstance();
 		this.c = new Canvas(xCanvas,yCanvas);
 		this.gc = c.getGraphicsContext2D();
+	}
+	
+	public GraphicsContext getGc() {
+		return gc;
 	}
 
 
 	
-	public void setParam(int height,int width){
+	/*public void setParam(int height,int width){
 		this.c = new Canvas(width, height);
 		this.gc = c.getGraphicsContext2D();
 	}
@@ -88,9 +91,6 @@ public class Interpreteur {
 		this.gc = c.getGraphicsContext2D();
 		this.crayon=new Crayon(0, 0);
 	}
-	
-	public GraphicsContext getGc() {
-		return gc;
-	}
+	*/
 
 }
