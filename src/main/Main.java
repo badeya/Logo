@@ -1,4 +1,6 @@
 package main;
+import java.util.Random;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -14,6 +16,7 @@ public class Main extends Application{
 		
 	
 	public static void main(String[] args){
-		Application.launch();
+		//Application.launch();
+		System.out.println(new Random().nextInt(39)+1);
 	}
 }
