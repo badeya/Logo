@@ -16,7 +16,6 @@ public class Main extends Application{
 		
 	
 	public static void main(String[] args){
-		//Application.launch();
-		System.out.println(new Random().nextInt(39)+1);
+		Application.launch();
 	}
 }

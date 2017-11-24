@@ -1,13 +1,9 @@
 package commandes;
 
-import java.util.ArrayList;
-
 import arbre.Node;
-import erreur.ErreurCommandesAvant;
-import interpretation.Coordonne;
-import interpretation.Interpreteur;
+import interpretation.Crayon;
 
-public class Avant implements Commandes,Node{
+public class Avant implements Node{
 	
 	int distance;
 	
@@ -16,6 +12,13 @@ public class Avant implements Commandes,Node{
 	}
 
 	@Override
+	public void accept(Crayon cr) {
+		cr.visiterAvant(this);
+	}
+	
+	
+
+	/*@Override
 	public void execute(Integer... a) {
 		distance = a[0];
 		Interpreteur i = Interpreteur.getInstance();
@@ -66,6 +69,6 @@ public class Avant implements Commandes,Node{
 		ArrayList<Node> res = new ArrayList<Node>();
 		res.add(this);
 		return res;
-	}
+	}*/
 
 }
