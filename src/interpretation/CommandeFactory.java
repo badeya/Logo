@@ -1,14 +1,5 @@
 package interpretation;
 
-import commandes.Allera;
-import commandes.Avant;
-import commandes.Commandes;
-import commandes.Couleur;
-import commandes.Droite;
-import commandes.Epaisseur;
-import commandes.Gauche;
-import commandes.Lever;
-import commandes.Poser;
 
 public class CommandeFactory {
 	
@@ -18,9 +9,9 @@ public class CommandeFactory {
 	// Fin du singleton
 	
 	
-	private String commande;
+	/*private String commande;
 	
-	public Commandes getCommande(String commande){
+	public Node getCommande(String commande){
 		this.commande = commande;
 		return makeCommand();
 	}
@@ -50,7 +41,7 @@ public class CommandeFactory {
 		}
 	}
 
-	public Commandes makeCommand(){
+	public Node makeCommand(){
 
 		switch(this.commande){
 		case "DROITE":
@@ -62,7 +53,7 @@ public class CommandeFactory {
 		case "POSER":
 			return new Poser();
 		case "EPAISSEUR":
-			return new Epaisseur();
+			return new Epaisseur(0);
 		case "COULEUR":
 			return new Couleur(null);
 		case "AVANT":
@@ -74,6 +65,6 @@ public class CommandeFactory {
 
 
 		}
-	}
+	}*/
 
 }

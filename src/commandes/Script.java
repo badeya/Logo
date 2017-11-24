@@ -20,8 +20,7 @@ public class Script implements Node{
 
 	@Override
 	public void accept(Crayon cr) {
-		cr.visiterScript(this);
-		
+		cr.visiterScript(this);	
 	}
 	
 

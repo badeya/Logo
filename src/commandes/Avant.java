@@ -50,21 +50,7 @@ public class Avant implements Node{
 		
 	}
 
-	private Coordonne check(double newx, double newy,Interpreteur i){
-        if (newx > i.getWidthCanvas()){
-            newx=i.getWidthCanvas();
-        }
-        if (newx < 0){
-            newx = 0;
-        }
-        if (newy > i.getHeighCanvas()){
-            newy = i.getHeighCanvas();
-        }
-        if (newy < 0){
-            newy = 0;
-        }
-        return new Coordonne(newx,newy);
-    }
+	
 
 	@Override
 	public ArrayList<Node> getChildren() {

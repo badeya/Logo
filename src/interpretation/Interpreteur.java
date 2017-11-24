@@ -1,9 +1,5 @@
 package interpretation;
 
-import java.io.BufferedReader;
-import java.io.StringReader;
-import java.util.StringTokenizer;
-
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -18,9 +14,9 @@ public class Interpreteur {
 	private Canvas c;
 	private GraphicsContext gc;
 	private Crayon crayon;
-	private String currentLine;
-	private BufferedReader rd;
-	private StringTokenizer code;
+	//private String currentLine;
+	//private BufferedReader rd;
+	//private StringTokenizer code;
 
 	public Interpreteur(int xCanvas,int yCanvas){
 		new JFXPanel();
@@ -29,9 +25,13 @@ public class Interpreteur {
 		this.gc = c.getGraphicsContext2D();
 	}
 	
-	public GraphicsContext getGc() {
-		return gc;
-	}
+	public GraphicsContext getGc() {return gc;}
+	
+	public double getHeighCanvas(){return this.c.getHeight();}
+	
+	public double getWidthCanvas(){return this.c.getWidth();}
+	
+	public Crayon getCrayon() {return crayon;}
 
 
 	
@@ -50,9 +50,7 @@ public class Interpreteur {
 		return c;
 	}
 
-	public Crayon getCrayon() {
-		return crayon;
-	}
+
 
 	public String getCurrentLine() {
 		return currentLine;
@@ -79,12 +77,7 @@ public class Interpreteur {
 		
 	}
 	
-	public double getHeighCanvas(){
-		return this.c.getHeight();
-	}
-	public double getWidthCanvas(){
-		return this.c.getWidth();
-	}
+
 
 	public void clear(){
 		this.c = new Canvas(c.getWidth(),c.getHeight());

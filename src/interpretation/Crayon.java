@@ -89,9 +89,32 @@ public class Crayon implements VisiteurAST{
 	
 	@Override
 	public void visiterAvant(Avant c) {
-		// TODO Auto-generated method stub
+		Interpreteur i = Interpreteur.getInstance();
+		double orientation = this.orientation;
+		Coordonne coord = this.coord;
 		
+		
+		double angle = 2.0 * Math.PI * (orientation/360);
+		
+		double newx = Math.cos(angle) * c.getDistance() + coord.getX();
+		double newy =  Math.sin(angle) * c.getDistance() + coord.getY();
+		
+		
+		if(this.ecrit){
+			i.getGc().setLineWidth(this.width);
+			i.getGc().setStroke(this.couleur);
+			i.getGc().strokeLine(coord.getX(), coord.getY(), newx, newy);
+		}
+        Coordonne temp = check(newx,newy,i);
+		this.coord = temp;
 	}
+	private Coordonne check(double newx, double newy,Interpreteur i){
+        if (newx > i.getWidthCanvas()){ newx=i.getWidthCanvas();}
+        if (newx < 0){ newx = 0;}
+        if (newy > i.getHeighCanvas()){newy = i.getHeighCanvas();}
+        if (newy < 0){newy = 0;}
+        return new Coordonne(newx,newy);
+    }
 	
 
 }
