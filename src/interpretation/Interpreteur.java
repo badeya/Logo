@@ -1,8 +1,17 @@
 package interpretation;
 
+import java.util.ArrayList;
+
+import commandes.Avant;
+import commandes.Droite;
+import commandes.Lever;
+import commandes.Poser;
+import commandes.Repeter;
+import commandes.Script;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+
 
 public class Interpreteur {
 	
@@ -32,6 +41,22 @@ public class Interpreteur {
 	public double getWidthCanvas(){return this.c.getWidth();}
 	
 	public Crayon getCrayon() {return crayon;}
+	
+	
+	public Canvas getCanvas(String programme){
+		Script p = new Script(new ArrayList<>());
+		p.getList().add(new Avant(30));
+		p.getList().add(new Droite(90));
+		p.getList().add(new Avant(30));
+		p.getList().add(new Lever());
+		p.getList().add(new Avant(30));
+		p.getList().add(new Poser());
+		
+		Repeter r = new Repeter(2, p);
+		r.accept(this.crayon);
+		
+		return this.c;
+	}
 
 
 	

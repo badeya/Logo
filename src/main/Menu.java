@@ -125,7 +125,6 @@ public class Menu extends Application {
 		gauche.setPrefSize(50, 50);
 		gauche.setOnMouseClicked(e->ta.setText(ta.getText()+"GAUCHE 90\n"));
 
-
 		Button droite=new Button();
 		Image flechedroite=new Image("File:images/flechedroite.png");
 		droite.setGraphic(new ImageView(flechedroite));
