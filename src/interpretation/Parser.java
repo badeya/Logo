@@ -41,7 +41,15 @@ public class Parser {
 			this.Consommer("repeter");
 			Script();
 			Commande();
-		}else{
+		}else if (this.teteLect.split(" ")[0].equals("si")) {
+			this.Consommer(this.teteLect);
+			this.Consommer("alors");
+			Script();
+			this.Consommer("sinon");
+			Script();
+			Commande();
+		}
+		else{
 			// TODO
 			System.out.println("Paser methode Commande() l45 : TODO : "+this.teteLect);
 		}
@@ -75,6 +83,15 @@ public class Parser {
 				+ "fin\n"
 				+ "avant 50\n"
 				+ "avant 60\n"
+				//+ "si estlever\n"
+				+ "alors\n"
+				+ "script\n"
+				+ "avant alors\n"
+				+ "fin\n"
+				+ "sinon\n"
+				+ "script\n"
+				+ "avant sinon\n"
+				+ "fin\n"
 				+ "fin";
 		Tokenizer t = new Tokenizer(prog);
 		Parser p = new Parser(t);
