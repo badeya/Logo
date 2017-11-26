@@ -42,8 +42,7 @@ public class Parser {
 			this.Consommer("sinon");
 			Script();
 			Commande();
-		}
-		else{// TODO	
+		}else{// TODO	
 			System.out.println("Paser methode Commande() l45 : TODO : "+this.teteLect);
 		}
 	}

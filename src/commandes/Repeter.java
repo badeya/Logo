@@ -10,8 +10,8 @@ public class Repeter implements Node{
 	
 	// Le script contient les commande qui sont dans le for
 	// nbrDeTour est le nombre de tour que la boulce effectu
-	public Repeter(int nbrDeTour,Script s){
-		this.nbrDeTour = nbrDeTour;
+	public Repeter(String commande,Script s){
+		this.nbrDeTour = Integer.valueOf(commande.split(" ")[1]);
 		this.s = s;
 	}
 	

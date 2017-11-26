@@ -1,12 +1,5 @@
 package interpretation;
 
-import java.util.ArrayList;
-
-import commandes.Avant;
-import commandes.Droite;
-import commandes.Lever;
-import commandes.Poser;
-import commandes.Repeter;
 import commandes.Script;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.canvas.Canvas;
@@ -62,10 +55,11 @@ public class Interpreteur {
 				+ "avant 50\n"
 				+ "fin";
 		Tokenizer t = new Tokenizer(prog);
-		Parser p = new Parser(t);
-		//Script s = p.analyser();
-		//System.out.println(s);
-		//s.accept(this.crayon);
+		t.nextLine();
+		Script s = Compilateur.getSlingleton().getScript(t);
+		
+		System.out.println(s);
+		s.accept(this.crayon);
 		
 		return this.c;
 	}
