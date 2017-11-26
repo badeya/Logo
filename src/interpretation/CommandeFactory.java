@@ -1,5 +1,7 @@
 package interpretation;
 
+import arbre.Node;
+import commandes.*;
 
 public class CommandeFactory {
 	
@@ -9,9 +11,22 @@ public class CommandeFactory {
 	// Fin du singleton
 	
 	
-	/*private String commande;
+	private String commande;
 	
 	public Node getCommande(String commande){
+		if(doesNeedInt(commande.split(" ")[0].toUpperCase())){
+			if(commande.split(" ").length != 2){
+				System.out.println("Erreur  todo : CommandeFactory l20");
+			}else{
+				try{
+					Integer.valueOf(commande.split(" ")[1]);
+				}catch (Exception e) {
+					
+					System.out.println("Erreur  todo : CommandeFactory l25");
+				}
+			}
+			
+		}
 		this.commande = commande;
 		return makeCommand();
 	}
@@ -42,22 +57,22 @@ public class CommandeFactory {
 	}
 
 	public Node makeCommand(){
-
-		switch(this.commande){
+		
+		switch(this.commande.split(" ")[0]){
 		case "DROITE":
-			return new Droite(0);
+			return new Droite(Integer.valueOf(commande.split(" ")[1]));
 		case "GAUCHE":
-			return new Gauche(0);
+			return new Gauche(Integer.valueOf(commande.split(" ")[1]));
 		case "LEVER":
 			return new Lever();
 		case "POSER":
 			return new Poser();
 		case "EPAISSEUR":
-			return new Epaisseur(0);
+			return new Epaisseur(Integer.valueOf(commande.split(" ")[1]));
 		case "COULEUR":
-			return new Couleur(null);
+			return new Couleur(CouleurEnum.getColor(commande.split(" ")[1]));
 		case "AVANT":
-			return new Avant(0);
+			return new Avant(Integer.valueOf(commande.split(" ")[1]));
 		case "ALLERA":
 			return new Allera(0,0);
 		default:
@@ -65,6 +80,6 @@ public class CommandeFactory {
 
 
 		}
-	}*/
+	}
 
 }

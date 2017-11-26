@@ -44,7 +44,7 @@ public class Interpreteur {
 	
 	
 	public Canvas getCanvas(String programme){
-		Script p = new Script(new ArrayList<>());
+		/*Script p = new Script(new ArrayList<>());
 		p.getList().add(new Avant(30));
 		p.getList().add(new Droite(90));
 		p.getList().add(new Avant(30));
@@ -52,8 +52,20 @@ public class Interpreteur {
 		p.getList().add(new Avant(30));
 		p.getList().add(new Poser());
 		
-		Repeter r = new Repeter(2, p);
-		r.accept(this.crayon);
+		Repeter r = new Repeter(2, p);*/
+		String prog = "SCRIPT\n"
+				+ "AVANT 20\n"
+				+ "AVANT 30\n"
+				+ "script\n"
+				+ "avant 40\n"
+				+ "fin\n"
+				+ "avant 50\n"
+				+ "fin";
+		Tokenizer t = new Tokenizer(prog);
+		Parser p = new Parser(t);
+		//Script s = p.analyser();
+		//System.out.println(s);
+		//s.accept(this.crayon);
 		
 		return this.c;
 	}

@@ -8,12 +8,13 @@ import interpretation.Crayon;
 public class Script implements Node{
 
 
-	ArrayList<Node> l = new ArrayList<>();
+	ArrayList<Node> l;
 	
 	
-	public Script(ArrayList<Node> l){
-		this.l = l;
-	}
+	public Script(ArrayList<Node> l){this.l = l;}
+	public Script(){l = new ArrayList<>();}
+	
+	public void add(Node n){this.l.add(n);}
 	
 	public ArrayList<Node> getList(){return this.l;}
 	

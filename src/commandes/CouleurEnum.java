@@ -33,5 +33,44 @@ public enum CouleurEnum {
 		return name;
 	}
 	
+	public static Color getColor(String nom){
+		nom = nom.toLowerCase();
+		switch (nom) {
+		case "jaune":
+			return CouleurEnum.JAUNE.getColor();
+			
+		case "rouge":
+			return CouleurEnum.ROUGE.getColor();
+			
+		case "bleu":
+			return CouleurEnum.BLEU.getColor();
+			
+		case "blanc":
+			return CouleurEnum.BLANC.getColor();
+			
+		case "gris":
+			return CouleurEnum.GRIS.getColor();
+			
+		case "vert":
+			return CouleurEnum.VERT.getColor();
+			
+		case "orange":
+			return CouleurEnum.ORANGE.getColor();
+			
+		case "rose":
+			return CouleurEnum.ROSE.getColor();
+			
+		case "violet":
+			return CouleurEnum.VIOLET.getColor();
+			
+		case "marron":
+			return CouleurEnum.MARRON.getColor();
+			
+		default:
+			return Color.BLACK;
+			
+		}
+	}
+	
 	
 }
