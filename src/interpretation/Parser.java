@@ -1,6 +1,9 @@
 package interpretation;
 
+import java.util.ArrayList;
 import java.util.Stack;
+
+import arbre.Node;
 
 public class Parser {
 
@@ -27,8 +30,10 @@ public class Parser {
 	}
 	
 	private void Commande(){
+		//ArrayList<Node> res = new ArrayList<Node>();
 		if(isCommande(this.teteLect.split(" ")[0])){
 			this.Consommer(this.teteLect);
+			//res.add(CommandeFactory.getInstance().getCommande(this.teteLect));
 			Commande();
 		}else if(this.teteLect.equals("fin")) return;
 		else if (this.teteLect.equals("repeter")) {
