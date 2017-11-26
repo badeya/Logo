@@ -1,7 +1,6 @@
 package interpretation;
 
 import java.util.Stack;
-import commandes.Script;
 
 public class Parser {
 
@@ -10,15 +9,11 @@ public class Parser {
 	
 	private Stack<String> s = new Stack<String>();
 	
-	
-	public Parser(Tokenizer lecteur){
-		this.lecteur = lecteur;
-	}
+	public Parser(Tokenizer lecteur){this.lecteur = lecteur;}
 	
 	public void analyser(){
 		this.teteLect = this.lecteur.nextLine();
 		Script();
-
 	}
 	
 	private void Script() {
@@ -26,8 +21,7 @@ public class Parser {
 			this.Consommer("script");
 			this.Commande();
 			this.Consommer("fin");
-		}else{
-			// TODO
+		}else{// TODO
 			System.out.println("Paser methode analyser() l24 : TODO");
 		}
 	}
@@ -49,8 +43,7 @@ public class Parser {
 			Script();
 			Commande();
 		}
-		else{
-			// TODO
+		else{// TODO	
 			System.out.println("Paser methode Commande() l45 : TODO : "+this.teteLect);
 		}
 	}
@@ -59,9 +52,8 @@ public class Parser {
 		if(this.teteLect.equals(type)){
 			s.push(type);
 			this.teteLect = this.lecteur.nextLine();
-		}else{
+		}else{// TODO
 			System.out.println("Paser methode consommer() l56 : TODO :"+this.teteLect+":"+type);
-			// TODO
 		}
 	}
 	
@@ -83,7 +75,7 @@ public class Parser {
 				+ "fin\n"
 				+ "avant 50\n"
 				+ "avant 60\n"
-				//+ "si estlever\n"
+				+ "si estlever\n"
 				+ "alors\n"
 				+ "script\n"
 				+ "avant alors\n"
