@@ -37,16 +37,21 @@ public class Interpreteur {
 	
 	public Crayon getCrayon() {return crayon;}
 	
-	
-	public Canvas getCanvas(String programme){
+	private void reset(){
 		this.crayon.reset();
 		this.c = new Canvas(c.getWidth(), c.getHeight());
 		this.gc = c.getGraphicsContext2D();
+	}
+	
+	public Canvas getCanvas(String programme){
+		reset();
 		Tokenizer t = new Tokenizer(programme);
 		Parser p = new Parser(t);
 		Script s = (Script)p.analyser();
-		s.accept(this.crayon);
-		System.out.println(c);
+		
+		if(!Interpreteur.getInstance().haveErreur()) s.accept(this.crayon);
+		else reset();
+		
 		return this.c;
 	}
 }

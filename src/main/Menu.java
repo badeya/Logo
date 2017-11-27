@@ -12,6 +12,7 @@ import interpretation.Interpreteur;
 import javafx.application.Application;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
@@ -147,12 +148,14 @@ public class Menu extends Application {
 		Button clear=new Button("clear");
 		clear.setPrefSize(75, 50);
 		clear.setOnMouseClicked(e->{
+			Interpreteur.getInstance().setErreur(false);
 			updateCanvas("script\nfin\n");
 			ta.setText("");
 		});
 		Button submit=new Button("submit");
 		submit.setPrefSize(75, 50);
 		submit.setOnMouseClicked(e->{
+			Interpreteur.getInstance().setErreur(false);
 			ta.setText(ta.getText().toUpperCase());
 			updateCanvas(ta.getText());
 
@@ -174,7 +177,7 @@ public class Menu extends Application {
 	}
 
 	private void updateCanvas(String s){
-		Canvas temp = c2;
+		Node temp = c2;
 		c2=i.getCanvas(s);
 		root.getChildren().remove(temp);
 		root.getChildren().add(c2);	

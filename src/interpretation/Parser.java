@@ -28,8 +28,9 @@ public class Parser {
 			Script res = new Script(Commande());
 			this.Consommer("fin");
 			return res;
-		}else{// TODO
+		}else{
 			System.out.println("Paser methode analyser() l24 : TODO"+":"+this.teteLect);
+			Interpreteur.getInstance().setErreur(true);
 		}
 		return null;
 	}
@@ -38,7 +39,6 @@ public class Parser {
 		ArrayList<Node> res = new ArrayList<Node>();
 		if(isCommande(this.teteLect.split(" ")[0])){	
 			res.add(CommandeFactory.getInstance().getCommande(this.teteLect));
-			System.out.println("@@@"+res);
 			this.Consommer(this.teteLect);
 			res.addAll(Commande());
 		}else if(this.teteLect.equals("fin")){return res;}
@@ -54,8 +54,9 @@ public class Parser {
 			this.Consommer("sinon");
 			res.add(Script());
 			res.addAll(Commande());
-		}else{// TODO	
+		}else{
 			System.out.println("Paser methode Commande() l45 : TODO : "+this.teteLect);
+			Interpreteur.getInstance().setErreur(true);
 			return null;
 		}
 		return res;
@@ -65,13 +66,14 @@ public class Parser {
 		if(this.teteLect.equals(type)){
 			s.push(type);
 			this.teteLect = this.lecteur.nextLine();
-		}else{// TODO
+		}else{
 			System.out.println("Paser methode consommer() l56 : TODO :"+this.teteLect+":"+type);
+			Interpreteur.getInstance().setErreur(true);
 		}
 	}
 	
 	private boolean isCommande(String s) {
-		String[] commande = {"allera","avant","couleur","droite","epaisseur","lever","poser"};
+		String[] commande = {"allera","avant","couleur","droite","epaisseur","lever","poser","gauche"};
 		for (String cmd : commande) {
 			if(s.equals(cmd)) return true;
 		}

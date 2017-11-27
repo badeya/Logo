@@ -48,7 +48,8 @@ public class Crayon implements VisiteurAST{
 
 	@Override
 	public void visiterAllerA(Allera c) {
-		if(ecrit) Interpreteur.getInstance().getGc().strokeLine(this.coord.getX(), this.coord.getY(), c.getX(), c.getY());
+		Interpreteur.getInstance().getGc().setLineWidth(this.width);
+		//if(ecrit) Interpreteur.getInstance().getGc().strokeLine(this.coord.getX(), this.coord.getY(), c.getX(), c.getY());
 		this.coord = new Coordonne(c.getX(), c.getY());	
 	}
 	

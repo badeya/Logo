@@ -15,7 +15,16 @@ public class Tokenizer {
 	
 	String nextLine(){
 		line++;
-		return programme[line-1];
+		return deleteSpace(programme[line-1]);
+	}
+	
+	private String deleteSpace(String s){
+		int i = 0;
+		while(s.charAt(i)==' '){
+			i++;
+		}
+		
+		return s.substring(i);
 	}
 	
 	
