@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 import arbre.Node;
+import commandes.Repeter;
+import commandes.Script;
 
 public class Parser {
 
@@ -14,42 +16,49 @@ public class Parser {
 	
 	public Parser(Tokenizer lecteur){this.lecteur = lecteur;}
 	
-	public void analyser(){
+	public Node analyser(){
 		this.teteLect = this.lecteur.nextLine();
-		Script();
+		return Script();
 	}
 	
-	private void Script() {
+	private Script Script() {
+		
 		if(teteLect.equals("script")){
 			this.Consommer("script");
-			this.Commande();
+			Script res = new Script(Commande());
 			this.Consommer("fin");
+			return res;
 		}else{// TODO
-			System.out.println("Paser methode analyser() l24 : TODO");
+			System.out.println("Paser methode analyser() l24 : TODO"+":"+this.teteLect);
 		}
+		return null;
 	}
 	
-	private void Commande(){
-		//ArrayList<Node> res = new ArrayList<Node>();
-		if(isCommande(this.teteLect.split(" ")[0])){
+	private ArrayList<Node> Commande(){
+		ArrayList<Node> res = new ArrayList<Node>();
+		if(isCommande(this.teteLect.split(" ")[0])){	
+			res.add(CommandeFactory.getInstance().getCommande(this.teteLect));
+			System.out.println("@@@"+res);
 			this.Consommer(this.teteLect);
-			//res.add(CommandeFactory.getInstance().getCommande(this.teteLect));
-			Commande();
-		}else if(this.teteLect.equals("fin")) return;
-		else if (this.teteLect.equals("repeter")) {
-			this.Consommer("repeter");
-			Script();
-			Commande();
+			res.addAll(Commande());
+		}else if(this.teteLect.equals("fin")){return res;}
+		else if (this.teteLect.split(" ")[0].equals("repeter")) {
+			String tmp = this.teteLect;
+			this.Consommer(this.teteLect);
+			res.add(new Repeter(tmp,Script()));
+			res.addAll(Commande());
 		}else if (this.teteLect.split(" ")[0].equals("si")) {
 			this.Consommer(this.teteLect);
 			this.Consommer("alors");
-			Script();
+			res.add(Script());
 			this.Consommer("sinon");
-			Script();
-			Commande();
+			res.add(Script());
+			res.addAll(Commande());
 		}else{// TODO	
 			System.out.println("Paser methode Commande() l45 : TODO : "+this.teteLect);
+			return null;
 		}
+		return res;
 	}
 	
 	private void Consommer(String type) {
@@ -73,25 +82,17 @@ public class Parser {
 		String prog = "SCRIPT\n"
 				+ "AVANT 20\n"
 				+ "AVANT 30\n"
-				+ "repeter\n"
+				+ "repeter 2\n"
 				+ "script\n"
 				+ "avant 40\n"
 				+ "fin\n"
 				+ "avant 50\n"
 				+ "avant 60\n"
-				+ "si estlever\n"
-				+ "alors\n"
-				+ "script\n"
-				+ "avant alors\n"
-				+ "fin\n"
-				+ "sinon\n"
-				+ "script\n"
-				+ "avant sinon\n"
-				+ "fin\n"
 				+ "fin";
 		Tokenizer t = new Tokenizer(prog);
 		Parser p = new Parser(t);
-		p.analyser();
+		Script s = (Script)p.analyser();
 		System.out.println(p.s);
+		System.out.println("scriptList : "+s.getList().toString());
 	}
 }

@@ -147,7 +147,7 @@ public class Menu extends Application {
 		Button clear=new Button("clear");
 		clear.setPrefSize(75, 50);
 		clear.setOnMouseClicked(e->{
-			updateCanvas("");
+			updateCanvas("script\nfin\n");
 			ta.setText("");
 		});
 		Button submit=new Button("submit");

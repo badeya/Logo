@@ -25,7 +25,6 @@ public class CommandeFactory {
 					System.out.println("Erreur  todo : CommandeFactory l25");
 				}
 			}
-			
 		}
 		this.commande = commande;
 		return makeCommand();
@@ -51,14 +50,12 @@ public class CommandeFactory {
 			return true;
 		default:
 			return false;
-
-
 		}
 	}
 
 	public Node makeCommand(){
 		
-		switch(this.commande.split(" ")[0]){
+		switch(this.commande.split(" ")[0].toUpperCase()){
 		case "DROITE":
 			return new Droite(Integer.valueOf(commande.split(" ")[1]));
 		case "GAUCHE":
