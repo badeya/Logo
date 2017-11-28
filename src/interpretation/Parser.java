@@ -1,15 +1,13 @@
 package interpretation;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
-<<<<<<< HEAD
-=======
 import arbre.Node;
 import commandes.Repeter;
 import commandes.Script;
 import commandes.Si;
 
->>>>>>> 439bc5c3b44e09108b55d38b4cf7bbdccbb6b23f
 public class Parser {
 
 	private Tokenizer lecteur;
@@ -85,39 +83,4 @@ public class Parser {
 		}
 		return false;
 	}
-<<<<<<< HEAD
-
-	public static void main(String[] args) {
-		String prog = "SCRIPT\n"
-				+ "AVANT 20 + 32r-yu\n"
-				+ "AVANT 30\n"
-				+ "repeter\n"
-				+ "script\n"
-				+ "avant 40\n"
-				+ "fin\n"
-				+ "avant 50\n"
-				+ "avant 60\n"
-				+ "si estlever\n"
-				+ "alors\n"
-				+ "script\n"
-				+ "avant alors\n"
-				+ "fin\n"
-				+ "sinon\n"
-				+ "script\n"
-				+ "avant sinon\n"
-				+ "fin\n"
-				+ "fin";
-		/*String prog = "Script\n"
-				+"Avant 20\n"
-				+"Script\n"
-				+"Avant 20\n"
-				+"fin\n"
-				+"fin\n";*/
-		Tokenizer t = new Tokenizer(prog);
-		Parser p = new Parser(t);
-		p.analyser();
-		System.out.println(p.s);
-	}
-=======
->>>>>>> 439bc5c3b44e09108b55d38b4cf7bbdccbb6b23f
 }
