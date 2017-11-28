@@ -1,9 +1,6 @@
 package interpretation;
 
-import java.util.ArrayList;
 import java.util.Stack;
-
-import arbre.Node;
 
 public class Parser {
 
@@ -71,7 +68,7 @@ public class Parser {
 
 	public static void main(String[] args) {
 		String prog = "SCRIPT\n"
-				+ "AVANT 20\n"
+				+ "AVANT 20 + 32r-yu\n"
 				+ "AVANT 30\n"
 				+ "repeter\n"
 				+ "script\n"
@@ -89,6 +86,12 @@ public class Parser {
 				+ "avant sinon\n"
 				+ "fin\n"
 				+ "fin";
+		/*String prog = "Script\n"
+				+"Avant 20\n"
+				+"Script\n"
+				+"Avant 20\n"
+				+"fin\n"
+				+"fin\n";*/
 		Tokenizer t = new Tokenizer(prog);
 		Parser p = new Parser(t);
 		p.analyser();
