@@ -32,6 +32,10 @@ public class Crayon implements VisiteurAST{
 		this.coord.setY(y);
 	}
 	
+	public boolean ecrit(){
+		return this.ecrit;
+	}
+	
 	public void reset(){
 		//Crayon.instance = new Crayon(1, 1);
 		this.coord = new Coordonne(1,1);

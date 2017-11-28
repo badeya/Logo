@@ -6,6 +6,7 @@ import java.util.Stack;
 import arbre.Node;
 import commandes.Repeter;
 import commandes.Script;
+import commandes.Si;
 
 public class Parser {
 
@@ -48,11 +49,13 @@ public class Parser {
 			res.add(new Repeter(tmp,Script()));
 			res.addAll(Commande());
 		}else if (this.teteLect.split(" ")[0].equals("si")) {
+			String tmp = this.teteLect;
 			this.Consommer(this.teteLect);
 			this.Consommer("alors");
-			res.add(Script());
+			Script tmp2 = Script();
 			this.Consommer("sinon");
-			res.add(Script());
+			res.add(new Si(tmp,tmp2,Script()));
+			
 			res.addAll(Commande());
 		}else{
 			System.out.println("Paser methode Commande() l45 : TODO : "+this.teteLect);
@@ -67,7 +70,8 @@ public class Parser {
 			s.push(type);
 			this.teteLect = this.lecteur.nextLine();
 		}else{
-			System.out.println("Paser methode consommer() l56 : TODO :"+this.teteLect+":"+type);
+			
+			//System.out.println("Paser methode consommer() l56 : TODO :"+this.teteLect+":"+type);
 			Interpreteur.getInstance().setErreur(true);
 		}
 	}
@@ -78,23 +82,5 @@ public class Parser {
 			if(s.equals(cmd)) return true;
 		}
 		return false;
-	}
-
-	public static void main(String[] args) {
-		String prog = "SCRIPT\n"
-				+ "AVANT 20\n"
-				+ "AVANT 30\n"
-				+ "repeter 2\n"
-				+ "script\n"
-				+ "avant 40\n"
-				+ "fin\n"
-				+ "avant 50\n"
-				+ "avant 60\n"
-				+ "fin";
-		Tokenizer t = new Tokenizer(prog);
-		Parser p = new Parser(t);
-		Script s = (Script)p.analyser();
-		System.out.println(p.s);
-		System.out.println("scriptList : "+s.getList().toString());
 	}
 }
