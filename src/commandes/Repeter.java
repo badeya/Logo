@@ -2,6 +2,7 @@ package commandes;
 
 import arbre.Node;
 import interpretation.Crayon;
+import interpretation.Interpreteur;
 
 public class Repeter implements Node{
 	
@@ -11,7 +12,11 @@ public class Repeter implements Node{
 	// Le script contient les commande qui sont dans le for
 	// nbrDeTour est le nombre de tour que la boulce effectu
 	public Repeter(String commande,Script s){
-		this.nbrDeTour = Integer.valueOf(commande.split(" ")[1]);
+		try{
+			this.nbrDeTour = Integer.valueOf(commande.split(" ")[1]);
+		}catch (Exception e) {
+			Interpreteur.getInstance().setErreur(true);
+		}
 		this.s = s;
 	}
 	

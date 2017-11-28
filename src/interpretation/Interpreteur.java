@@ -16,9 +16,7 @@ public class Interpreteur {
 	private Canvas c;
 	private GraphicsContext gc;
 	private Crayon crayon;
-	//private String currentLine;
-	//private BufferedReader rd;
-	//private StringTokenizer code;
+	private boolean erreur = false;
 
 	public Interpreteur(int xCanvas,int yCanvas){
 		new JFXPanel();
@@ -26,6 +24,10 @@ public class Interpreteur {
 		this.c = new Canvas(xCanvas,yCanvas);
 		this.gc = c.getGraphicsContext2D();
 	}
+	
+	public boolean haveErreur(){return this.erreur;}
+	
+	public void setErreur(boolean erreur){this.erreur = erreur;}
 	
 	public GraphicsContext getGc() {return gc;}
 	
@@ -35,86 +37,21 @@ public class Interpreteur {
 	
 	public Crayon getCrayon() {return crayon;}
 	
+	private void reset(){
+		this.crayon.reset();
+		this.c = new Canvas(c.getWidth(), c.getHeight());
+		this.gc = c.getGraphicsContext2D();
+	}
 	
 	public Canvas getCanvas(String programme){
-		/*Script p = new Script(new ArrayList<>());
-		p.getList().add(new Avant(30));
-		p.getList().add(new Droite(90));
-		p.getList().add(new Avant(30));
-		p.getList().add(new Lever());
-		p.getList().add(new Avant(30));
-		p.getList().add(new Poser());
+		reset();
+		Tokenizer t = new Tokenizer(programme);
+		Parser p = new Parser(t);
+		Script s = (Script)p.analyser();
 		
-		Repeter r = new Repeter(2, p);*/
-		String prog = "SCRIPT\n"
-				+ "AVANT 20\n"
-				+ "AVANT 30\n"
-				+ "script\n"
-				+ "avant 40\n"
-				+ "fin\n"
-				+ "avant 50\n"
-				+ "fin";
-		Tokenizer t = new Tokenizer(prog);
-		t.nextLine();
-		Script s = Compilateur.getSlingleton().getScript(t);
-		
-		System.out.println(s);
-		s.accept(this.crayon);
+		if(!Interpreteur.getInstance().haveErreur()) s.accept(this.crayon);
+		else reset();
 		
 		return this.c;
 	}
-
-
-	
-	/*public void setParam(int height,int width){
-		this.c = new Canvas(width, height);
-		this.gc = c.getGraphicsContext2D();
-	}
-	
-	public Canvas getCanvas(String programme){
-		code = new StringTokenizer(programme);
-		this.clear();
-        while(code.hasMoreElements()){
-            this.currentLine = code.nextToken("\n");
-            execute();
-        }
-		return c;
-	}
-
-
-
-	public String getCurrentLine() {
-		return currentLine;
-	}
-
-	private void execute() {
-		try{
-			StringTokenizer strr = new StringTokenizer(currentLine);
-			String sttt = strr.nextToken();
-			if(CommandeFactory.getInstance().doesNeedInt(sttt)){
-				if(strr.countTokens() == 1){
-					CommandeFactory.getInstance().getCommande(sttt).execute(Integer.parseInt(strr.nextToken()));
-				}
-				if(strr.countTokens() == 2){
-					CommandeFactory.getInstance().getCommande(sttt).execute(Integer.parseInt(strr.nextToken()),Integer.parseInt(strr.nextToken()));
-				}
-			}else{
-				CommandeFactory.getInstance().getCommande(sttt).execute();
-			}
-		}catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("[Message debug] Pas de commande donner en paramétre (Normal dans le cas d'un clear)");
-		}
-		
-	}
-	
-
-
-	public void clear(){
-		this.c = new Canvas(c.getWidth(),c.getHeight());
-		this.gc = c.getGraphicsContext2D();
-		this.crayon=new Crayon(0, 0);
-	}
-	*/
-
 }

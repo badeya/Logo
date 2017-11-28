@@ -1,5 +1,6 @@
 package commandes;
 
+import interpretation.Interpreteur;
 import javafx.scene.paint.Color;
 
 public enum CouleurEnum {
@@ -67,6 +68,7 @@ public enum CouleurEnum {
 			return CouleurEnum.MARRON.getColor();
 			
 		default:
+			Interpreteur.getInstance().setErreur(true);
 			return Color.BLACK;
 			
 		}

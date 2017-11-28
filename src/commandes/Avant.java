@@ -2,13 +2,18 @@ package commandes;
 
 import arbre.Node;
 import interpretation.Crayon;
+import interpretation.Interpreteur;
 
 public class Avant implements Node{
 	
 	int distance;
 	
-	public Avant(int distance){
-		this.distance = distance;
+	public Avant(String cmd){
+		try {
+			this.distance = Integer.valueOf(cmd.split(" ")[1]);
+		} catch (Exception e) {
+			Interpreteur.getInstance().setErreur(true);
+		}
 	}
 	
 	public int getDistance(){return this.distance;}

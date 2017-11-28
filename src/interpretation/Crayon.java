@@ -17,8 +17,8 @@ import javafx.scene.paint.Color;
 
 public class Crayon implements VisiteurAST{
 
-	private static final Crayon INSTANCE = new Crayon(0, 1);
-	public static  Crayon getInstance(){return Crayon.INSTANCE;}
+	private static Crayon instance = new Crayon(0, 1);
+	public static  Crayon getInstance(){return Crayon.instance;}
 	
 	
 	private Coordonne coord = new Coordonne(1, 1);
@@ -32,15 +32,28 @@ public class Crayon implements VisiteurAST{
 		this.coord.setY(y);
 	}
 	
+	public boolean ecrit(){
+		return this.ecrit;
+	}
+	
+	public void reset(){
+		//Crayon.instance = new Crayon(1, 1);
+		this.coord = new Coordonne(1,1);
+		this.couleur  =Color.BLACK;
+		this.ecrit = true;
+		this.orientation = 0;
+		this.width = 5;
+	}
+	
 	@Override
 	public void visiterCouleur(Couleur c) {
 		this.couleur = c.getColor();
-		
 	}
 
 	@Override
 	public void visiterAllerA(Allera c) {
-		if(ecrit) Interpreteur.getInstance().getGc().strokeLine(this.coord.getX(), this.coord.getY(), c.getX(), c.getY());
+		Interpreteur.getInstance().getGc().setLineWidth(this.width);
+		//if(ecrit) Interpreteur.getInstance().getGc().strokeLine(this.coord.getX(), this.coord.getY(), c.getX(), c.getY());
 		this.coord = new Coordonne(c.getX(), c.getY());	
 	}
 	

@@ -14,7 +14,7 @@ public class CommandeFactory {
 	private String commande;
 	
 	public Node getCommande(String commande){
-		if(doesNeedInt(commande.split(" ")[0].toUpperCase())){
+/*		if(doesNeedInt(commande.split(" ")[0].toUpperCase())){
 			if(commande.split(" ").length != 2){
 				System.out.println("Erreur  todo : CommandeFactory l20");
 			}else{
@@ -25,8 +25,7 @@ public class CommandeFactory {
 					System.out.println("Erreur  todo : CommandeFactory l25");
 				}
 			}
-			
-		}
+		}*/
 		this.commande = commande;
 		return makeCommand();
 	}
@@ -51,30 +50,28 @@ public class CommandeFactory {
 			return true;
 		default:
 			return false;
-
-
 		}
 	}
 
 	public Node makeCommand(){
 		
-		switch(this.commande.split(" ")[0]){
+		switch(this.commande.split(" ")[0].toUpperCase()){
 		case "DROITE":
-			return new Droite(Integer.valueOf(commande.split(" ")[1]));
+			return new Droite(commande);
 		case "GAUCHE":
-			return new Gauche(Integer.valueOf(commande.split(" ")[1]));
+			return new Gauche(commande);
 		case "LEVER":
 			return new Lever();
 		case "POSER":
 			return new Poser();
 		case "EPAISSEUR":
-			return new Epaisseur(Integer.valueOf(commande.split(" ")[1]));
+			return new Epaisseur(commande);
 		case "COULEUR":
 			return new Couleur(CouleurEnum.getColor(commande.split(" ")[1]));
 		case "AVANT":
-			return new Avant(Integer.valueOf(commande.split(" ")[1]));
+			return new Avant(commande);
 		case "ALLERA":
-			return new Allera(0,0);
+			return new Allera(commande);
 		default:
 			return null;
 
