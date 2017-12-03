@@ -19,18 +19,17 @@ public class Si implements Node {
 	
 	@Override
 	public void accept(Crayon cr) {
-		alors.accept(cr);
-
+		if(conditionVrai) alors.accept(cr);
+		else sinon.accept(cr);
 	}
 	
 	private boolean evaluer(String s){
-		if(s.split(" ")[1].equals("estlever")){
+		if(s.equals("estlever")){
 			return !Interpreteur.getInstance().getCrayon().ecrit();
-		}else if(s.split(" ")[1].equals("estposer")){
-			System.out.println(Interpreteur.getInstance().getCrayon().ecrit());
+		}else if(s.equals("estposer")){
 			return Interpreteur.getInstance().getCrayon().ecrit();
 		}
-		System.out.println("Erreu condition du if");
+		System.out.println("Erreur condition du if");
 		Interpreteur.getInstance().setErreur(true);
 		return false;
 	}
