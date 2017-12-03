@@ -2,8 +2,6 @@ package commandes;
 
 import arbre.Node;
 import interpretation.Crayon;
-import interpretation.Interpreteur;
-
 public class Repeter implements Node{
 	
 	int nbrDeTour;
