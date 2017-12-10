@@ -38,7 +38,6 @@ public class Parser {
 	
 	private ArrayList<Node> Commande(){
 		ArrayList<Node> res = new ArrayList<Node>();
-		
 		if(this.teteLect.equals("fin")){return res;}
 		
 		else if(this.teteLect.equals("avant"))    { res.addAll(Avant()); }
@@ -51,7 +50,8 @@ public class Parser {
 		else if(this.teteLect.equals("allera"))   { res.addAll(allera());}
 		else if(this.teteLect.equals("couleur"))  { res.addAll(couleur());}
 		else if(this.teteLect.equals("si"))       { res.addAll(si());}
-
+		else if(this.teteLect.equals("tantque"))  { res.addAll(tantque());}
+		
 		else{
 			System.out.println("Paser methode Commande() l45 : TODO : "+this.teteLect);
 			Interpreteur.getInstance().setErreur(true);
@@ -60,6 +60,16 @@ public class Parser {
 		return res;
 	}
 	
+	private Collection<? extends Node> tantque() {
+		ArrayList<Node> res = new ArrayList<>();
+		this.Consommer("tantque");
+		String condition = this.teteLect;
+		this.teteLect = this.lecteur.nextLine();
+		res.add(new Tantque(condition, Script()));
+		res.addAll(Commande());
+		return res;
+	}
+
 	private Collection<? extends Node> si() {
 		ArrayList<Node> res = new ArrayList<>();
 		this.Consommer("si");

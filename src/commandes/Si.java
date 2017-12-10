@@ -2,7 +2,7 @@ package commandes;
 
 import arbre.Node;
 import interpretation.Crayon;
-import interpretation.Interpreteur;
+import interpretation.ParserBoolean;
 
 public class Si implements Node {
 
@@ -24,14 +24,16 @@ public class Si implements Node {
 	}
 	
 	private boolean evaluer(String s){
-		if(s.equals("estlever")){
+		return ParserBoolean.parser(s);
+		
+		/*if(s.equals("estlever")){
 			return !Interpreteur.getInstance().getCrayon().ecrit();
 		}else if(s.equals("estposer")){
 			return Interpreteur.getInstance().getCrayon().ecrit();
 		}
 		System.out.println("Erreur condition du if");
 		Interpreteur.getInstance().setErreur(true);
-		return false;
+		return false;*/
 	}
 
 }

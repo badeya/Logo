@@ -13,6 +13,7 @@ import commandes.Lever;
 import commandes.Poser;
 import commandes.Repeter;
 import commandes.Script;
+import commandes.Tantque;
 import javafx.scene.paint.Color;
 
 public class Crayon implements VisiteurAST{
@@ -98,7 +99,9 @@ public class Crayon implements VisiteurAST{
 		for (Node n : l) {
 			n.accept(this);
 		}	
-	}	
+	}
+	
+	
 	
 	@Override
 	public void visiterAvant(Avant c) {
@@ -128,6 +131,13 @@ public class Crayon implements VisiteurAST{
         if (newy < 0){newy = 0;}
         return new Coordonne(newx,newy);
     }
+
+	@Override
+	public void visiterTantque(Tantque n) {
+		while(ParserBoolean.parser(n.getExpression())){
+			this.visiterScript(n.getScript());
+		}
+	}
 	
 
 }

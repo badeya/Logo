@@ -10,6 +10,7 @@ import commandes.Lever;
 import commandes.Poser;
 import commandes.Repeter;
 import commandes.Script;
+import commandes.Tantque;
 
 public interface VisiteurAST {
 
@@ -23,6 +24,7 @@ public interface VisiteurAST {
 	void visiterScript(Script s);
 	void visiterAvant(Avant c);
 	void visiterRepeter(Repeter n);
+	void visiterTantque(Tantque n);
 	
 	
 }
