@@ -4,12 +4,13 @@ import commandes.Script;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import main.Menu;
 
 
 public class Interpreteur {
 	
 	// Singleton
-	private static final Interpreteur INSTANCE = new Interpreteur(300, 300);
+	private static final Interpreteur INSTANCE = new Interpreteur(Menu.taille, Menu.taille);
 	public static Interpreteur getInstance(){ return Interpreteur.INSTANCE; }
 	// Fin du singleton
 	

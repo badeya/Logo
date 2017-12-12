@@ -5,9 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
-
 import interpretation.Interpreteur;
 import javafx.application.Application;
 import javafx.embed.swing.SwingFXUtils;
@@ -29,6 +27,9 @@ import javafx.stage.Stage;
 
 
 public class Menu extends Application {
+	
+	public static final int taille = 500;
+	
 	private  Interpreteur i;
 	private  Canvas c2;
 	private HBox root;
@@ -36,7 +37,7 @@ public class Menu extends Application {
 	public void start(Stage stage) throws Exception {
 		this.root = new HBox();
 		TextArea ta=new TextArea();
-		this.c2 = new Canvas(300,300);
+		this.c2 = new Canvas(Menu.taille,Menu.taille);
 		this.i=Interpreteur.getInstance();
 		VBox vbox=new VBox();
 		HBox hbox=new HBox();
@@ -170,7 +171,7 @@ public class Menu extends Application {
 		hbox2.getChildren().addAll(clear,submit,quit);
 		vbox.getChildren().addAll(mb,hbox,ta,hbox2);
 
-		Scene s = new Scene(root,800,300);
+		Scene s = new Scene(root,500+Menu.taille,Menu.taille);
 		stage.setScene(s);
 		stage.show();
 		stage.setResizable(false);
