@@ -35,11 +35,12 @@ public class Parser {
 		}
 		return null;
 	}
+
 	
 	private ArrayList<Node> Commande(){
 		ArrayList<Node> res = new ArrayList<Node>();
 		if(this.teteLect.equals("fin")){return res;}
-		
+		else if(this.teteLect.equals("script"))   { res.add(Script()); }
 		else if(this.teteLect.equals("avant"))    { res.addAll(Avant()); }
 		else if(this.teteLect.equals("droite"))   { res.addAll(Droite()); }
 		else if(this.teteLect.equals("gauche"))   { res.addAll(Gauche()); }

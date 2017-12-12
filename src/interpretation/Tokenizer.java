@@ -16,6 +16,7 @@ public class Tokenizer {
 	
 	String nextLine(){
 		line++;
+		while(programme[line-1].equals("")) line++;
 		return deleteSpace(programme[line-1]);
 	}
 	
