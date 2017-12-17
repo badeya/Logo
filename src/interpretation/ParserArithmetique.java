@@ -53,7 +53,7 @@ public class ParserArithmetique {
 		ArrayList<String> op = new ArrayList<String>();
 		ArrayList<String> nb = new ArrayList<String>();
 		String[] s1 = nombre(s);
-		while(stillGotTwoOperand(s1[1])){
+		while(stillGotAnOperand(s1[1])){
 			nb.add(s1[0]);
 			op.add(s1[1].charAt(0)+"");
 			s1[1] = s1[1].substring(1, s1[1].length());
@@ -69,17 +69,17 @@ public class ParserArithmetique {
 		return tab;
 	}
 	
-	private boolean stillGotTwoOperand(String s){
+	private boolean stillGotAnOperand(String s){
 		int cpt  = 1;
 		int cpt2 = 0;
-		while(cpt < s.length() && cpt2 <= 1) {
+		while(cpt < s.length() && cpt2 < 1) {
 			if(!isDigit(s.charAt(cpt)) && s.charAt(cpt-1) != ']') {
 				cpt2++;
 			}
 			cpt++;
 		}
 		
-		return cpt2 == 2;
+		return cpt2 == 1;
 	}
 	
 	private static int firstOpToDo(ArrayList<String> op) {
