@@ -1,5 +1,7 @@
 package interpretation;
 
+import java.util.HashMap;
+
 import commandes.Script;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.canvas.Canvas;
@@ -14,10 +16,13 @@ public class Interpreteur {
 	public static Interpreteur getInstance(){ return Interpreteur.INSTANCE; }
 	// Fin du singleton
 	
+	
+	private HashMap<String, Integer> variables = new HashMap<>();
 	private Canvas c;
 	private GraphicsContext gc;
 	private Crayon crayon;
 	private boolean erreur = false;
+	private String messageErreur;
 
 	public Interpreteur(int xCanvas,int yCanvas){
 		new JFXPanel();
@@ -26,9 +31,15 @@ public class Interpreteur {
 		this.gc = c.getGraphicsContext2D();
 	}
 	
+	public HashMap<String, Integer> getVariables(){return this.variables;}
+	
 	public boolean haveErreur(){return this.erreur;}
 	
 	public void setErreur(boolean erreur){this.erreur = erreur;}
+	
+	public String getMessageErreur() {return this.messageErreur;}
+	
+	public void setMessageErreur(String message) {this.messageErreur = message;}
 	
 	public GraphicsContext getGc() {return gc;}
 	
@@ -53,6 +64,10 @@ public class Interpreteur {
 		if(!Interpreteur.getInstance().haveErreur()) s.accept(this.crayon);
 		else reset();
 		
+		// SYSOUT DE DEBUG #########
+		//System.out.println(this.));
+		System.out.println(Interpreteur.getInstance().getVariables());
+		// FIN SYSOUT DE DEBUG ######
 		return this.c;
 	}
 }
