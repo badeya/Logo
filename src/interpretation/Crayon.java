@@ -138,6 +138,20 @@ public class Crayon implements VisiteurAST{
 			this.visiterScript(n.getScript());
 		}
 	}
-	
 
+	public Color getCouleur() {
+		return couleur;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+	
+	public double getPosX() {
+		return coord.getX();
+	}
+	
+	public double getPosY() {
+		return coord.getY();
+	}
 }

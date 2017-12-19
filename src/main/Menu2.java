@@ -21,7 +21,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
@@ -29,7 +28,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -65,9 +63,9 @@ public class Menu2 extends Application {
 		ta.setPrefHeight(270);
 		VBox vbox1=new VBox();
 		VBox vbox2=new VBox();
-		VBox vbox3=new VBox();
 		HBox hbox3=new HBox();
 		HBox hbox4=new HBox();
+		HBox hbox5=new HBox();
 		MenuBar mb=new MenuBar();
 		javafx.scene.control.Menu file=new javafx.scene.control.Menu("file");
 		MenuItem saveimage=new MenuItem("Save image");
@@ -101,25 +99,6 @@ public class Menu2 extends Application {
 		epaisseur.setPrefWidth(250);
 		Label nbEpaisseur=new Label("   1    2    3    4    5    6    7    8    9    10");
 		
-		gp.getChildren().addAll(avant,gauche,droite,lever,poser);
-		hbox3.getChildren().addAll(epaisseur,ApplyEpaisseur);
-		hbox4.getChildren().addAll(clear,submit,quit);
-		vbox2.getChildren().addAll(commandes,choixCouleur,nbEpaisseur,hbox3,gp,ta,hbox4);
-		hbox2.getChildren().addAll(vbox2,c2);
-		vbox1.getChildren().addAll(mb,hbox2);
-		
-		gp.setRowIndex(avant, 0);
-		gp.setColumnIndex(avant, 0);
-		gp.setRowIndex(gauche, 0);
-		gp.setColumnIndex(gauche, 1);
-		gp.setRowIndex(droite, 0);
-		gp.setColumnIndex(droite, 2);
-		gp.setRowIndex(lever, 0);
-		gp.setColumnIndex(lever, 3);
-		gp.setRowIndex(poser, 0);
-		gp.setColumnIndex(poser, 4);
-		
-		
 		avant.setGraphic(new ImageView(flecheavant));
 		avant.setOnMouseClicked(e->ta.setText(ta.getText()+"AVANT 20 "));
 		gauche.setGraphic(new ImageView(flechegauche));
@@ -134,12 +113,13 @@ public class Menu2 extends Application {
 			Interpreteur.getInstance().setErreur(false);
 			updateCanvas("script fin ");
 			ta.setText("");
+			LoadInfo(hbox5);
 		});
 		submit.setOnMouseClicked(e->{
 			Interpreteur.getInstance().setErreur(false);
 			ta.setText(ta.getText().toUpperCase());
 			updateCanvas(ta.getText());
-
+			LoadInfo(hbox5);
 		});	
 		
 		saveimage.setOnAction(e->{
@@ -220,14 +200,43 @@ public class Menu2 extends Application {
 		submit.setPadding(new Insets(20,20,20,20));
 		clear.setPadding(new Insets(20,20,20,20));
 		quit.setPadding(new Insets(20,20,20,20));
-		 
 		
-		Scene s = new Scene(vbox1,500+Menu.taille,Menu.taille);
+		gp.getChildren().addAll(avant,gauche,droite,lever,poser);
+		hbox3.getChildren().addAll(epaisseur,ApplyEpaisseur);
+		hbox4.getChildren().addAll(clear,submit,quit);
+		vbox2.getChildren().addAll(commandes,choixCouleur,nbEpaisseur,hbox3,gp,ta,hbox4,hbox5);
+		hbox2.getChildren().addAll(vbox2,c2);
+		vbox1.getChildren().addAll(mb,hbox2);
+		
+		
+		gp.setRowIndex(avant, 0);
+		gp.setColumnIndex(avant, 0);
+		gp.setRowIndex(gauche, 0);
+		gp.setColumnIndex(gauche, 1);
+		gp.setRowIndex(droite, 0);
+		gp.setColumnIndex(droite, 2);
+		gp.setRowIndex(lever, 0);
+		gp.setColumnIndex(lever, 3);
+		gp.setRowIndex(poser, 0);
+		gp.setColumnIndex(poser, 4);
+			 
+		LoadInfo(hbox5);
+		
+		Scene s = new Scene(vbox1,500+Menu.taille,20+Menu.taille);
 		stage.setTitle("Logo");
 		stage.setScene(s);
 		stage.show();
 		stage.setResizable(false);
 
+	}
+	
+	public void LoadInfo(HBox hbox) {
+		hbox.getChildren().clear();
+		Label posx=new Label("PosX : "+(int)i.getCrayon().getPosX());
+		Label posy=new Label(" PosY : "+(int)i.getCrayon().getPosY());
+		Label epaisseur=new Label(" Epaisseur : "+i.getCrayon().getWidth());
+		Label couleur=new Label(" Couleur : "+i.getCrayon().getCouleur().toString());
+		hbox.getChildren().addAll(posx,posy,epaisseur,couleur);
 	}
 	
 	private void updateCanvas(String s){
