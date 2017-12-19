@@ -245,9 +245,5 @@ public class Menu2 extends Application {
 		hbox2.getChildren().remove(temp);
 		hbox2.getChildren().add(c2);	
 	}
-	
-	public void reload(HBox info) {
-		
-	}
 
 }

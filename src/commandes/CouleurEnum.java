@@ -14,7 +14,8 @@ public enum CouleurEnum {
 	JAUNE(Color.YELLOW,"JAUNE"),
 	ROSE(Color.PINK,"ROSE"),
 	VIOLET(Color.VIOLET,"VIOLET"),
-	MARRON(Color.MAROON,"MARRON");
+	MARRON(Color.MAROON,"MARRON"),
+	NOIR(Color.BLACK,"NOIR");
 	
 	
 	
@@ -66,6 +67,9 @@ public enum CouleurEnum {
 			
 		case "marron":
 			return CouleurEnum.MARRON.getColor();
+		
+		case "noir":
+			return CouleurEnum.NOIR.getColor();
 			
 		default:
 			Interpreteur.getInstance().setErreur(true);
