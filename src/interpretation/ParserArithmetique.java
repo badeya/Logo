@@ -2,6 +2,7 @@ package interpretation;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class ParserArithmetique {
 	
@@ -11,9 +12,21 @@ public class ParserArithmetique {
 	// Fin singleton
 	
 	public int parser(String expression){
+		if(expression.charAt(0) == '$') {
+			return getVariable(expression);
+		}
+		
 		return calc(expression);
 	}
 	
+	private int getVariable(String expression) {
+		String variable = expression.substring(1,expression.length());
+		Set<String> set = Interpreteur.getInstance().getVariables().keySet();
+		for (String s : set) {
+			if(s.equals(variable)) return Interpreteur.getInstance().getVariables().get(set);
+		}
+		return 0;
+	}
 	private String[] nombre(String s) {
 		 String s1 = "";
 		 int cpt = 0;

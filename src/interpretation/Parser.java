@@ -2,6 +2,8 @@ package interpretation;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Set;
+
 import arbre.Node;
 import commandes.*;
 
@@ -17,6 +19,8 @@ public class Parser {
 		this.parserArithmetique = ParserArithmetique.getInstance();
 	}
 	
+	public Tokenizer getLecteur() {return this.lecteur;}
+	
 	public Node analyser(){
 		this.teteLect = this.lecteur.nextLine();
 		return Script();
@@ -24,13 +28,13 @@ public class Parser {
 	
 	private Script Script() {
 		
-		if(teteLect.equals("script")){
+		if(this.teteLect.equals("script")){
 			this.Consommer("script");
 			Script res = new Script(Commande());
 			this.Consommer("fin");
 			return res;
 		}else{
-			System.out.println("Paser methode analyser() l24 : TODO"+":"+this.teteLect);
+			System.out.println("Paser methode analyser() l24 : TODO"+":"+this.teteLect+"t");
 			Interpreteur.getInstance().setErreur(true);
 		}
 		return null;
@@ -52,6 +56,8 @@ public class Parser {
 		else if(this.teteLect.equals("couleur"))  { res.addAll(couleur());}
 		else if(this.teteLect.equals("si"))       { res.addAll(si());}
 		else if(this.teteLect.equals("tantque"))  { res.addAll(tantque());}
+		else if(this.teteLect.equals("var"))      { res.addAll(var()); }
+		else if(this.teteLect.equals("soit"))     { res.addAll(soit()); }
 		
 		else{
 			System.out.println("Paser methode Commande() l45 : TODO : "+this.teteLect);
@@ -60,7 +66,8 @@ public class Parser {
 		}
 		return res;
 	}
-	
+
+
 	private Collection<? extends Node> tantque() {
 		ArrayList<Node> res = new ArrayList<>();
 		this.Consommer("tantque");
@@ -168,11 +175,53 @@ public class Parser {
 		return res;
 	}
 	
-		private void Consommer(String type) {
+	// Partie qui s'occupe des variables 
+	
+	private Collection<? extends Node> var(){
+		ArrayList<Node> res = new ArrayList<>();
+		Consommer("var");
+		Interpreteur.getInstance().getVariables().put(this.teteLect, null);
+		this.teteLect = this.lecteur.nextLine();
+		res.addAll(Commande());
+		return res;
+	}
+	
+	
+	private Collection<? extends Node> soit() {
+		ArrayList<Node> res = new ArrayList<>();
+		Consommer("soit");
+		
+		String nom = ConsommerVar(this.teteLect);
+		Consommer("=");
+		Interpreteur.getInstance().getVariables().put(nom, ParserArithmetique.getInstance().parser(this.teteLect));
+		this.teteLect = this.lecteur.nextLine();
+		res.addAll(Commande());
+		return res;
+	}
+	
+	private String ConsommerVar(String teteLect) {
+		Set<String> set = Interpreteur.getInstance().getVariables().keySet();
+		for (String s : set) {
+			if(teteLect.equals(s)) {
+				this.teteLect = this.lecteur.nextLine();
+				return s;
+			}
+		}
+		this.teteLect = this.lecteur.nextLine();
+		//TODO
+		System.out.println("Paser methode consommerVariable() l207 : to do :"+this.teteLect);
+		Interpreteur.getInstance().setErreur(true);
+		return "";
+	}
+
+	// Fin du traitement des variables
+	
+	private void Consommer(String type) {
 		if(this.teteLect.equals(type)){
 			this.teteLect = this.lecteur.nextLine();
 		}else{
-			System.out.println("Paser methode consommer() l56 : to do :"+this.teteLect+":"+type);
+			//TODO
+			System.out.println("Paser methode consommer() l217 : to do :"+this.teteLect+":"+type);
 			Interpreteur.getInstance().setErreur(true);
 		}
 	}
