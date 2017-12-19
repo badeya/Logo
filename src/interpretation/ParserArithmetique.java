@@ -23,7 +23,10 @@ public class ParserArithmetique {
 		String variable = expression.substring(1,expression.length());
 		Set<String> set = Interpreteur.getInstance().getVariables().keySet();
 		for (String s : set) {
-			if(s.equals(variable)) return Interpreteur.getInstance().getVariables().get(set);
+			if(s.equals(variable)){
+				//System.out.println(Interpreteur.getInstance().getVariables().get(variable.toUpperCase()));
+				return Interpreteur.getInstance().getVariables().get(variable);
+			}
 		}
 		return 0;
 	}
