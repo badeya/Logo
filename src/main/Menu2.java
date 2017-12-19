@@ -105,7 +105,7 @@ public class Menu2 extends Application {
 		hbox3.getChildren().addAll(epaisseur,ApplyEpaisseur);
 		hbox4.getChildren().addAll(clear,submit,quit);
 		vbox2.getChildren().addAll(commandes,choixCouleur,nbEpaisseur,hbox3,gp,ta,hbox4);
-		hbox2.getChildren().addAll(c2,vbox2);
+		hbox2.getChildren().addAll(vbox2,c2);
 		vbox1.getChildren().addAll(mb,hbox2);
 		
 		gp.setRowIndex(avant, 0);
