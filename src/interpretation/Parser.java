@@ -56,7 +56,7 @@ public class Parser {
 		else if(this.teteLect.equals("couleur"))  { res.addAll(couleur());}
 		else if(this.teteLect.equals("si"))       { res.addAll(si());}
 		else if(this.teteLect.equals("tantque"))  { res.addAll(tantque());}
-		else if(this.teteLect.equals("var"))      { res.addAll(var()); }
+		//else if(this.teteLect.equals("var"))      { res.addAll(var()); }
 		else if(this.teteLect.equals("soit"))     { res.addAll(soit()); }
 		
 		else{
@@ -176,22 +176,13 @@ public class Parser {
 	}
 	
 	// Partie qui s'occupe des variables 
-	
-	private Collection<? extends Node> var(){
-		ArrayList<Node> res = new ArrayList<>();
-		Consommer("var");
-		Interpreteur.getInstance().getVariables().put(this.teteLect, null);
-		this.teteLect = this.lecteur.nextLine();
-		res.addAll(Commande());
-		return res;
-	}
-	
+
 	
 	private Collection<? extends Node> soit() {
 		ArrayList<Node> res = new ArrayList<>();
 		Consommer("soit");
-		
-		String nom = ConsommerVar(this.teteLect);
+		String nom = this.teteLect;
+		this.teteLect = this.lecteur.nextLine();
 		Consommer("=");
 		Interpreteur.getInstance().getVariables().put(nom, ParserArithmetique.getInstance().parser(this.teteLect));
 		this.teteLect = this.lecteur.nextLine();
@@ -199,22 +190,8 @@ public class Parser {
 		return res;
 	}
 	
-	private String ConsommerVar(String teteLect) {
-		Set<String> set = Interpreteur.getInstance().getVariables().keySet();
-		for (String s : set) {
-			if(teteLect.equals(s)) {
-				this.teteLect = this.lecteur.nextLine();
-				return s;
-			}
-		}
-		this.teteLect = this.lecteur.nextLine();
-		//TODO
-		System.out.println("Paser methode consommerVariable() l207 : to do :"+this.teteLect);
-		Interpreteur.getInstance().setErreur(true);
-		return "";
-	}
+	// Fin de partie qui s'occupe des variables
 
-	// Fin du traitement des variables
 	
 	private void Consommer(String type) {
 		if(this.teteLect.equals(type)){
