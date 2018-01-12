@@ -66,8 +66,7 @@ public class Parser {
 		}
 		return res;
 	}
-
-
+	
 	private Collection<? extends Node> bezier() {
 		// TODO
 		ArrayList<Node> res = new ArrayList<>();

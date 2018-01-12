@@ -16,6 +16,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -23,6 +24,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
@@ -228,6 +230,8 @@ public class Menu2 extends Application {
 		stage.show();
 		stage.setResizable(false);
 
+		
+
 	}
 	
 	public void LoadInfo(HBox hbox) {
@@ -243,7 +247,11 @@ public class Menu2 extends Application {
 		Node temp = c2;
 		c2=i.getCanvas(s);
 		hbox2.getChildren().remove(temp);
-		hbox2.getChildren().add(c2);	
+		hbox2.getChildren().add(c2);
+		if(this.i.haveErreur()){
+			Alert a = new Alert(AlertType.ERROR,i.getMessageErreur());
+			a.show();
+		}
 	}
 
 }

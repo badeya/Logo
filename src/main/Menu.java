@@ -13,6 +13,8 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -175,6 +177,8 @@ public class Menu extends Application {
 		stage.setScene(s);
 		stage.show();
 		stage.setResizable(false);
+		
+
 	}
 
 	private void updateCanvas(String s){
