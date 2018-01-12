@@ -51,7 +51,22 @@ public class Menu2 extends Application {
 	public void start(Stage stage) throws Exception {
 		this.c2 = new Canvas(Menu2.taille-20,Menu2.taille-20);
 		this.i=Interpreteur.getInstance();
-		TextArea ta=new TextArea("SCRIPT\n" +
+		TextArea ta=new TextArea("SCRIPT\n"+
+					"ALLERA 200 200\n"+
+					"SOIT DISTANCE = 50\n"+
+					"SOIT ANGLE = 90\n"+
+					"SOIT NBRDETOUR = 4\n"+
+					"REPETER $NBRDETOUR\n"+
+					"SCRIPT\n"+
+					"AVANT $DISTANCE\n"+
+					"DROITE $ANGLE\n"+
+					"FIN\n"+
+					"ALLERA 10 10\n"+
+					"SI ESTPOSER ALORS SCRIPT AVANT 50 FIN\n"+
+					"SINON SCRIPT DROITE 90 AVANT 20 FIN\n"+
+					"BEZIER 400 0 , 400 400\n"+
+					"FIN");
+		/*		TextArea ta=new TextArea("SCRIPT\n" +
 				"ALLERA 50 50 DROITE 90\n" + 
 				"AVANT 200 GAUCHE 90 AVANT 75\n" + 
 				"ALLERA 150 50 AVANT 75\n" + 
@@ -67,7 +82,7 @@ public class Menu2 extends Application {
 				"DROITE 90 AVANT 200\n" + 
 				"DROITE 90 AVANT 75\n" + 
 				"DROITE 90 AVANT 200\n" + 
-				"FIN");
+				"FIN");*/
 		ta.setPrefHeight(270);
 		VBox vbox1=new VBox();
 		VBox vbox2=new VBox();
