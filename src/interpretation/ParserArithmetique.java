@@ -12,11 +12,18 @@ public class ParserArithmetique {
 	// Fin singleton
 	
 	public int parser(String expression){
-		if(expression.charAt(0) == '$') {
-			return getVariable(expression);
+		try{
+			if(expression.charAt(0) == '$') {
+				return getVariable(expression);
+			}
+			
+			return calc(expression);
+		}catch (Exception e) {
+			Interpreteur.getInstance().setErreur(true);
+			Interpreteur.getInstance().setMessageErreur("Erreur expression arithmétique incorrecte : "+expression);
+			return 0;
 		}
-		
-		return calc(expression);
+
 	}
 	
 	private int getVariable(String expression) {

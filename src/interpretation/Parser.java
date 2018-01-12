@@ -33,8 +33,8 @@ public class Parser {
 			this.Consommer("fin");
 			return res;
 		}else{
-			System.out.println("Paser methode analyser() l24 : TODO"+":"+this.teteLect+"t");
 			Interpreteur.getInstance().setErreur(true);
+			Interpreteur.getInstance().setMessageErreur("Votre script doit commencer par \"script\"");
 		}
 		return null;
 	}
@@ -42,7 +42,14 @@ public class Parser {
 	
 	private ArrayList<Node> Commande(){
 		ArrayList<Node> res = new ArrayList<Node>();
-		if(this.teteLect.equals("fin")){return res;}
+		if(this.teteLect == null){
+			Interpreteur.getInstance().setErreur(true);
+			Interpreteur.getInstance().setMessageErreur("Le script doit se finir par le token \"fin\"");
+			ArrayList<Node> a = new ArrayList<>();
+			a.add(new Poser());
+			return a;
+		}
+		else if(this.teteLect.equals("fin")){return res;}
 		else if(this.teteLect.equals("script"))   { res.add(Script()); }
 		else if(this.teteLect.equals("avant"))    { res.addAll(Avant()); }
 		else if(this.teteLect.equals("droite"))   { res.addAll(Droite()); }
@@ -60,15 +67,16 @@ public class Parser {
 		else if(this.teteLect.equals("bezier"))     { res.addAll(bezier()); }
 		
 		else{
-			System.out.println("Paser methode Commande() l45 : TODO : "+this.teteLect);
 			Interpreteur.getInstance().setErreur(true);
-			return null;
+			Interpreteur.getInstance().setMessageErreur("Token inconnu");
+			ArrayList<Node> a = new ArrayList<>();
+			a.add(new Poser());
+			return a;
 		}
 		return res;
 	}
 	
 	private Collection<? extends Node> bezier() {
-		// TODO
 		ArrayList<Node> res = new ArrayList<>();
 		this.Consommer("bezier");
 		int x1 = this.parserArithmetique.parser(this.teteLect);
@@ -214,9 +222,8 @@ public class Parser {
 		if(this.teteLect.equals(type)){
 			this.teteLect = this.lecteur.nextLine();
 		}else{
-			//TODO
-			System.out.println("Paser methode consommer() l217 : to do :"+this.teteLect+":"+type);
 			Interpreteur.getInstance().setErreur(true);
+			Interpreteur.getInstance().setMessageErreur("Token invalide : "+this.teteLect+" | token attendu :"+type);
 		}
 	}
 		
