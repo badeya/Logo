@@ -4,12 +4,26 @@ import arbre.Node;
 import interpretation.Crayon;
 import interpretation.ParserBoolean;
 
+/**
+ * 
+ * Noeud conditions Si
+ *
+ */
+
 public class Si implements Node {
 
 	String cmd;
 	boolean conditionVrai;
 	Script alors;
 	Script sinon;
+	
+	/**
+	 * Constructeur de Si
+	 * 
+	 * @param cmd
+	 * @param alors
+	 * @param sinon
+	 */
 	
 	public Si(String cmd,Script alors,Script sinon){
 		conditionVrai = evaluer(cmd);
@@ -22,6 +36,13 @@ public class Si implements Node {
 		if(conditionVrai) alors.accept(cr);
 		else sinon.accept(cr);
 	}
+	
+	/**
+	 * Evalue le script
+	 * 
+	 * @param s
+	 * @return
+	 */
 	
 	private boolean evaluer(String s){
 		return ParserBoolean.parser(s);

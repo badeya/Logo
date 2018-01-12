@@ -11,6 +11,11 @@ public class ParserArithmetique {
 	public static ParserArithmetique getInstance(){return ParserArithmetique.instance;}
 	// Fin singleton
 	
+	/**
+	 * 
+	 * @param expression
+	 * @return
+	 */
 	public int parser(String expression){
 		if(expression.charAt(0) == '$') {
 			return getVariable(expression);
@@ -18,7 +23,11 @@ public class ParserArithmetique {
 		
 		return calc(expression);
 	}
-	
+	 /**
+	  * 
+	  * @param expression
+	  * @return
+	  */
 	private int getVariable(String expression) {
 		String variable = expression.substring(1,expression.length());
 		Set<String> set = Interpreteur.getInstance().getVariables().keySet();
@@ -30,6 +39,12 @@ public class ParserArithmetique {
 		}
 		return 0;
 	}
+	
+	/**
+	 * 
+	 * @param s
+	 * @return
+	 */
 	private String[] nombre(String s) {
 		 String s1 = "";
 		 int cpt = 0;
@@ -50,6 +65,11 @@ public class ParserArithmetique {
 		 return s2;
 	 }
 
+	/**
+	 * 
+	 * @param c
+	 * @return
+	 */
 	private boolean isDigit(char c) {
 		return c != ' ' && c != '+' && c != '-' && c != '*' && c != '/' && c != '%';
 	}
@@ -63,7 +83,11 @@ public class ParserArithmetique {
 		return s1;
 	}
 	 
-	 
+	/**
+	 * 
+	 * @param s
+	 * @return
+	 */
 	List<ArrayList<String>> miseEnListe(String s){
 		 s = rmspc(s);
 		ArrayList<String> op = new ArrayList<String>();
@@ -84,7 +108,11 @@ public class ParserArithmetique {
 		tab.add(nb);
 		return tab;
 	}
-	
+	/**
+	 * 
+	 * @param s
+	 * @return
+	 */
 	private boolean stillGotAnOperand(String s){
 		int cpt  = 1;
 		int cpt2 = 0;
@@ -98,6 +126,11 @@ public class ParserArithmetique {
 		return cpt2 == 1;
 	}
 	
+	/**
+	 * 
+	 * @param op
+	 * @return
+	 */
 	private static int firstOpToDo(ArrayList<String> op) {
 		int cpt = 0;
 		while(cpt < op.size() && !op.get(cpt).equals("*") && !op.get(cpt).equals("/") && !op.get(cpt).equals("%")) {
@@ -109,6 +142,13 @@ public class ParserArithmetique {
 		return cpt;
 	}
 	
+	/**
+	 * 
+	 * @param s
+	 * @param s2
+	 * @param op
+	 * @return
+	 */
 	private String doMath(String s,String s2,String op) {
 		if (s.charAt(0) == '[') {
 			s = s.substring(1, s.length()-1);
@@ -137,6 +177,10 @@ public class ParserArithmetique {
 		return "";
 	}
 	
+	/**
+	 * 
+	 * @param nombre
+	 */
 	private static void remet(String[] nombre) {
 		for (int i = 0; i < nombre.length-1; i++) {
 			if(nombre[i].equals("")) {
@@ -146,6 +190,11 @@ public class ParserArithmetique {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param calcul
+	 * @return
+	 */
 	private String doCalcul(String calcul) {
 		ArrayList<String> op = miseEnListe(calcul).get(0);
 		ArrayList<String> nb = miseEnListe(calcul).get(1);
@@ -164,7 +213,11 @@ public class ParserArithmetique {
 		return nombre[0];
 	}
 	
-
+	/**
+	 * 
+	 * @param s
+	 * @return
+	 */
 	private static boolean morePar(String s) {
 		int cpt = 0;
 		while(cpt < s.length() && s.charAt(cpt) != '(') {
@@ -173,6 +226,11 @@ public class ParserArithmetique {
 		return cpt != s.length();
 	}
 	
+	/**
+	 * 
+	 * @param s
+	 * @return
+	 */
 	private String getRidOfPar(String s) {
 		int[] where = new int[2];
 		while(morePar(s)) {
@@ -203,6 +261,11 @@ public class ParserArithmetique {
 		return s;
 	}
 	
+	/**
+	 * 
+	 * @param s
+	 * @return
+	 */
 	public boolean isAlone(String s) {
 		s = rmspc(s);
 		int cpt = 0;
@@ -217,12 +280,23 @@ public class ParserArithmetique {
 		return (cpt  == (length + r));
 	}
 	
+	/**
+	 * 
+	 * @param s
+	 * @return
+	 */
 	public String notNegative(String s) {
 		if(s.charAt(0) == '[') {
 			s = s.substring(1, s.length()-1);
 		}
 		return s;
 	}
+	
+	/**
+	 * 
+	 * @param s
+	 * @return
+	 */
 	public int calc(String s) {
 		s = getRidOfPar(s);
 		if(isAlone(s)) {

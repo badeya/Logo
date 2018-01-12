@@ -12,19 +12,31 @@ public class Parser {
 	private String teteLect;
 	private ParserArithmetique parserArithmetique;
 
-	
+	/**
+	 * 
+	 * @param lecteur
+	 */
 	public Parser(Tokenizer lecteur){
 		this.lecteur = lecteur;
 		this.parserArithmetique = ParserArithmetique.getInstance();
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public Tokenizer getLecteur() {return this.lecteur;}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public Node analyser(){
 		this.teteLect = this.lecteur.nextLine();
 		return Script();
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	private Script Script() {
 		
 		if(this.teteLect.equals("script")){
@@ -39,7 +51,10 @@ public class Parser {
 		return null;
 	}
 
-	
+	/**
+	 * 
+	 * @return
+	 */
 	private ArrayList<Node> Commande(){
 		ArrayList<Node> res = new ArrayList<Node>();
 		if(this.teteLect.equals("fin")){return res;}
@@ -67,7 +82,10 @@ public class Parser {
 		return res;
 	}
 
-
+	/**
+	 * 
+	 * @return
+	 */
 	private Collection<? extends Node> bezier() {
 		// TODO
 		ArrayList<Node> res = new ArrayList<>();
@@ -85,7 +103,10 @@ public class Parser {
 		res.addAll(Commande());
 		return res;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	private Collection<? extends Node> tantque() {
 		ArrayList<Node> res = new ArrayList<>();
 		this.Consommer("tantque");
@@ -95,7 +116,11 @@ public class Parser {
 		res.addAll(Commande());
 		return res;
 	}
-
+	
+	/**
+	 * 
+	 * @return
+	 */
 	private Collection<? extends Node> si() {
 		ArrayList<Node> res = new ArrayList<>();
 		this.Consommer("si");
@@ -108,7 +133,10 @@ public class Parser {
 		res.addAll(Commande());
 		return res;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	private Collection<? extends Node> couleur() {
 		ArrayList<Node> res = new ArrayList<>();
 		Consommer("couleur");
@@ -117,7 +145,10 @@ public class Parser {
 		res.addAll(Commande());
 		return res;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	private Collection<? extends Node> allera() {
 		ArrayList<Node> res = new ArrayList<>();
 		Consommer("allera");
@@ -129,7 +160,10 @@ public class Parser {
 		res.addAll(Commande());
 		return res;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	private Collection<? extends Node> Poser() {
 		ArrayList<Node> res = new ArrayList<>();
 		Consommer("poser");
@@ -138,7 +172,10 @@ public class Parser {
 		return res;
 	}
 	
-
+	/**
+	 * 
+	 * @return
+	 */
 	private Collection<? extends Node> Lever() {
 		ArrayList<Node> res = new ArrayList<>();
 		Consommer("lever");
@@ -146,7 +183,10 @@ public class Parser {
 		res.addAll(Commande());
 		return res;
 	}
-
+		/**
+		 * 
+		 * @return
+		 */
 		private Collection<? extends Node> Epaisseur(){
 		ArrayList<Node> res = new ArrayList<>();
 		Consommer("epaisseur");
@@ -155,7 +195,10 @@ public class Parser {
 		res.addAll(Commande());
 		return res;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	private Collection<? extends Node> Droite(){
 		ArrayList<Node> res = new ArrayList<>();
 		Consommer("droite");
@@ -165,6 +208,10 @@ public class Parser {
 		return res;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	private Collection<? extends Node> Gauche(){
 		ArrayList<Node> res = new ArrayList<>();
 		Consommer("gauche");
@@ -174,6 +221,10 @@ public class Parser {
 		return res;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	private Collection<? extends Node> Avant(){
 		ArrayList<Node> res = new ArrayList<>();
 		Consommer("avant");
@@ -182,7 +233,10 @@ public class Parser {
 		res.addAll(Commande());
 		return res;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	private Collection<? extends Node> repeter() {
 		ArrayList<Node> res = new ArrayList<>();
 		Consommer("repeter");
@@ -195,7 +249,10 @@ public class Parser {
 	
 	// Partie qui s'occupe des variables 
 
-	
+	/**
+	 * 
+	 * @return une variable
+	 */
 	private Collection<? extends Node> soit() {
 		ArrayList<Node> res = new ArrayList<>();
 		Consommer("soit");
@@ -210,7 +267,10 @@ public class Parser {
 	
 	// Fin de partie qui s'occupe des variables
 
-	
+	/**
+	 * 
+	 * @param type
+	 */
 	private void Consommer(String type) {
 		if(this.teteLect.equals(type)){
 			this.teteLect = this.lecteur.nextLine();

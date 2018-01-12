@@ -7,10 +7,19 @@ public class Droite implements Node{
 	
 	int orientation;
 	
+	/**
+     * constructeur de droite 
+     * @param orientation
+     */
+	
 	public Droite(int orientation){
 		this.orientation = orientation;
 	}
-	
+	/**
+     * Retourne l'oritentation.
+     * 
+     * @return Une instance de l'orientation.
+     */
 	public int getOrientation(){
 		return orientation;
 	}

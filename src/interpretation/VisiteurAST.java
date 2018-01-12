@@ -13,8 +13,14 @@ import commandes.Repeter;
 import commandes.Script;
 import commandes.Tantque;
 
-public interface VisiteurAST {
+/**
+ * 
+ * interface Visiteur
+ *
+ */
 
+public interface VisiteurAST {
+	
 	void visiterCouleur(Couleur c);
 	void visiterAllerA(Allera c);
 	void visiterDroite(Droite c);

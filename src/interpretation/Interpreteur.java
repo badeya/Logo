@@ -23,7 +23,14 @@ public class Interpreteur {
 	private Crayon crayon;
 	private boolean erreur = false;
 	private String messageErreur;
-
+	
+	
+	/**
+	 * Constructeur de l'interpreteur
+	 * 
+	 * @param xCanvas position x du canvas
+	 * @param yCanvas position y du canvas
+	 */
 	public Interpreteur(int xCanvas,int yCanvas){
 		new JFXPanel();
 		crayon = Crayon.getInstance();
@@ -31,30 +38,76 @@ public class Interpreteur {
 		this.gc = c.getGraphicsContext2D();
 	}
 	
+	/**
+	 * 
+	 * @return une variable
+	 */
+	
 	public HashMap<String, Integer> getVariables(){return this.variables;}
 	
+	/**
+	 * 
+	 * @return une erreur
+	 */
 	public boolean haveErreur(){return this.erreur;}
 	
+	/**
+	 * 
+	 * @param erreur
+	 */
 	public void setErreur(boolean erreur){this.erreur = erreur;}
 	
+	/**
+	 * 
+	 * @return une erreur sous la forme d'une chaine de caractère
+	 */
 	public String getMessageErreur() {return this.messageErreur;}
 	
+	/**
+	 * mise à jour du message d'eurreur
+	 * 
+	 * @param message
+	 */
 	public void setMessageErreur(String message) {this.messageErreur = message;}
-	
+	/**
+	 * 
+	 * @return un contecte graphipe
+	 */
 	public GraphicsContext getGc() {return gc;}
 	
+	/**
+	 * 
+	 * @return le hauteur du canvas
+	 */
 	public double getHeighCanvas(){return this.c.getHeight();}
 	
+	/**
+	 * 
+	 * @return la largeur du canvas 
+	 */
 	public double getWidthCanvas(){return this.c.getWidth();}
 	
+	/**
+	 * 
+	 * @return un crayon
+	 */
 	public Crayon getCrayon() {return crayon;}
 	
+	/**
+	 * permet de rester le crayon
+	 */
 	private void reset(){
 		this.crayon.reset();
 		this.c = new Canvas(c.getWidth(), c.getHeight());
 		this.gc = c.getGraphicsContext2D();
 	}
 	
+	/**
+	 * Permet de retourner un canvas à partir d'un programme
+	 * 
+	 * @param programme
+	 * @return
+	 */
 	public Canvas getCanvas(String programme){
 		reset();
 		Tokenizer t = new Tokenizer(programme);

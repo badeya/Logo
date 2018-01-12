@@ -32,6 +32,12 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+
+/**
+ * 
+ * Menu version 2
+ *
+ */
 public class Menu2 extends Application {
 	public static final int taille = 500;
 

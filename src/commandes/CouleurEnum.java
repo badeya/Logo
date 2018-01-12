@@ -3,18 +3,54 @@ package commandes;
 import interpretation.Interpreteur;
 import javafx.scene.paint.Color;
 
-public enum CouleurEnum {
+/**
+ *  Couleurs qui peuvent etres utiliser
+ */
 
+public enum CouleurEnum {
+	/**
+     * couleur rouge
+     */
 	ROUGE(Color.RED,"ROUGE"),
+	/**
+     * couleur bleu
+     */
 	BLEU(Color.BLUE,"BLEU"),
+	/**
+     * couleur blanc
+     */
 	BLANC(Color.WHITE,"BLANC"),
+	/**
+     * couleur gris
+     */
 	GRIS(Color.GREY,"GRIS"),
+	/**
+     * couleur vert
+     */
 	VERT(Color.GREEN,"VERT"),
+	/**
+     * couleur orange
+     */
 	ORANGE(Color.ORANGE,"ORANGE"),
+	/**
+     * couleur jaune
+     */
 	JAUNE(Color.YELLOW,"JAUNE"),
+	/**
+     * couleur rose
+     */
 	ROSE(Color.PINK,"ROSE"),
+	/**
+     * Red violet
+     */
 	VIOLET(Color.VIOLET,"VIOLET"),
+	/**
+     * couleur marron
+     */
 	MARRON(Color.MAROON,"MARRON"),
+	/**
+     * couleur noir
+     */
 	NOIR(Color.BLACK,"NOIR");
 	
 	
@@ -22,19 +58,41 @@ public enum CouleurEnum {
 	Color c;
 	String name;
 	
+	
+	/**
+	 * @param  c couleur du crayon
+	   @param  name 
+	 */
+
 	CouleurEnum(Color c, String name){
 		this.c = c;
 		this.name = name;
 	}
-
+	
+	
+	/**
+     * Retourne la couleur.
+     * 
+     * @return Une instance de Color.
+     */
 	public Color getColor() {
 		return c;
 	}
 
+	/**
+     * Retourne le nom de la couleur.
+     * 
+     * @return Une instance du nom de la couleur.
+     */
 	public String getName() {
 		return name;
 	}
-	
+	/**
+     * Retourne le nom de la couleur en minuscule.
+     * 
+     * @param nom
+     * @return Une instance du nom de la couleur en minuscule.
+     */
 	public static Color getColor(String nom){
 		nom = nom.toLowerCase();
 		switch (nom) {

@@ -3,6 +3,12 @@ package commandes;
 import arbre.Node;
 import interpretation.Crayon;
 
+/**
+ * 
+ * Poser du crayon
+ *
+ */
+
 public class Poser implements Node{
 
 	@Override

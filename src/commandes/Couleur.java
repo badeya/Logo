@@ -10,15 +10,25 @@ public class Couleur implements Node{
 	
 	Color c;
 	
+	/**
+	 * @param  c couleur du crayon
+	 
+	 */
+	
 	public Couleur(Color c){
 		this.c = c;
 	}
+	
+	/**
+    * 
+    * @return Une instance de la couleur
+    */
 	
 	public Color getColor(){
 		return c;
 	}
 	
-
+	
 	@Override
 	public void accept(Crayon cr) {
 		cr.visiterCouleur(this);

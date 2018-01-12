@@ -18,6 +18,13 @@ import commandes.Tantque;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
+
+/**
+ * 
+ * implementation du crayon sous la forme d'un visiteur
+ *
+ */
+
 public class Crayon implements VisiteurAST{
 
 	private static Crayon instance = new Crayon(0, 1);
@@ -30,14 +37,29 @@ public class Crayon implements VisiteurAST{
 	private int orientation = 0;
 	private int width = 5;
 	
+	/**
+	 * Constructeur du crayon
+	 * @param x
+	 * @param y
+	 */
+	
 	private Crayon(int x,int y) {
 		this.coord.setX(x);
 		this.coord.setY(y);
 	}
 	
+	/**
+	 * 
+	 * @return si le crayon ecrit
+	 */
+	
 	public boolean ecrit(){
 		return this.ecrit;
 	}
+	
+	/**
+	 * Permet de reset le crayon
+	 */
 	
 	public void reset(){
 		//Crayon.instance = new Crayon(1, 1);
@@ -157,18 +179,33 @@ public class Crayon implements VisiteurAST{
 		
 	}
 	
-
+	/**
+	 * 
+	 * @return la couleur du crayon
+	 */
 	public Color getCouleur() {
 		return couleur;
 	}
-
+	
+	/**
+	 * 
+	 * @return l'épaisseur du crayon
+	 */
 	public int getWidth() {
 		return width;
 	}
-	
+	/**
+	 * 
+	 * @return la position en x du crayon
+	 */
 	public double getPosX() {
 		return coord.getX();
 	}
+	
+	/**
+	 * 
+	 * @return la position en y du crayon
+	 */
 	
 	public double getPosY() {
 		return coord.getY();

@@ -1,7 +1,14 @@
+
 package main;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+
+
+/**
+ * 
+ * Main de l'interpreteur Bogo
+ */
 
 public class Main extends Application{
 	

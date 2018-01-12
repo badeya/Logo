@@ -1,7 +1,10 @@
 [![pipeline status](https://git-iut.univ-lille1.fr/tanguy.depommier/ProjetMode2017-K4/badges/master/pipeline.svg)](https://git-iut.univ-lille1.fr/tanguy.depommier/ProjetMode2017-K4/commits/master)
 
 
-Thibaut Depommier, Valentin Lucas, Belembert Melvin, Badey Arthur.
+@author Thibaut Depommier
+@author Valentin Lucas
+@author Belembert Melvin
+@author Badey Arthur
 
 Adresse git: https://git-iut.univ-lille1.fr/tanguy.depommier/ProjetMode2017-K4.git
 
@@ -10,8 +13,14 @@ Ce qui � �t� fait :
 - L'interface graphique 
 - implemantation des boutons
 - Controle sortie de canvas
+-Courbe de bézier
+-Parseur Boolean et arithmetique
+-Noeud Si, Tanque, Repeter
+-Variable
+-Sauvegarder/Charger 
 
-Ce qu'il reste � faire : - sauvegarder le code (logo)
+
+Ce qu'il reste � faire : 
 
 Pour la r�partitions des t�ches :
 - Melvin et Thibaut se sont occuper de l'Interpr�teur de language LOGO et des commandes.
@@ -19,12 +28,7 @@ Pour la r�partitions des t�ches :
 
 INTEGRATION CONTINUE A CONTINUER QUAND LES TESTS SERONT ECRIS
 
-Rendu n°2 (restant à faire): 
 
-
--parseur 
--lexeur(algé + bool) : en cours thibaut
--Noeud SI, SINON, ALORS, TANTQUE
 
 
 

@@ -26,6 +26,11 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 
+/**
+ * 
+ * Menu graphique v1
+ *
+ */
 public class Menu extends Application {
 	
 	public static final int taille = 500;
