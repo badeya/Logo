@@ -131,7 +131,7 @@ public enum CouleurEnum {
 			
 		default:
 			Interpreteur.getInstance().setErreur(true);
-			System.out.println("Mauvaise couleur");
+			Interpreteur.getInstance().setMessageErreur("Erreu dans le choix de la couleur");
 			return Color.BLACK;
 			
 		}
