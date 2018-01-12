@@ -2,6 +2,7 @@ package interpretation;
 
 import commandes.Allera;
 import commandes.Avant;
+import commandes.Bezier;
 import commandes.Couleur;
 import commandes.Droite;
 import commandes.Epaisseur;
@@ -25,6 +26,7 @@ public interface VisiteurAST {
 	void visiterAvant(Avant c);
 	void visiterRepeter(Repeter n);
 	void visiterTantque(Tantque n);
+	void visiterBezier(Bezier c);
 	
 	
 }

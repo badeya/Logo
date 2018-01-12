@@ -2,7 +2,6 @@ package interpretation;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Set;
 
 import arbre.Node;
 import commandes.*;
@@ -58,6 +57,7 @@ public class Parser {
 		else if(this.teteLect.equals("tantque"))  { res.addAll(tantque());}
 		//else if(this.teteLect.equals("var"))      { res.addAll(var()); }
 		else if(this.teteLect.equals("soit"))     { res.addAll(soit()); }
+		else if(this.teteLect.equals("bezier"))     { res.addAll(bezier()); }
 		
 		else{
 			System.out.println("Paser methode Commande() l45 : TODO : "+this.teteLect);
@@ -67,6 +67,24 @@ public class Parser {
 		return res;
 	}
 
+
+	private Collection<? extends Node> bezier() {
+		// TODO
+		ArrayList<Node> res = new ArrayList<>();
+		this.Consommer("bezier");
+		int x1 = this.parserArithmetique.parser(this.teteLect);
+		this.teteLect = this.lecteur.nextLine();
+		int y1 = this.parserArithmetique.parser(this.teteLect);
+		this.teteLect = this.lecteur.nextLine();
+		Consommer(",");
+		int x2 = this.parserArithmetique.parser(this.teteLect);
+		this.teteLect = this.lecteur.nextLine();
+		int y2 = this.parserArithmetique.parser(this.teteLect);
+		this.teteLect = this.lecteur.nextLine();
+		res.add(new Bezier(x1, y1, x2, y2));
+		res.addAll(Commande());
+		return res;
+	}
 
 	private Collection<? extends Node> tantque() {
 		ArrayList<Node> res = new ArrayList<>();

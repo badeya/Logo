@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import arbre.Node;
 import commandes.Allera;
 import commandes.Avant;
+import commandes.Bezier;
 import commandes.Couleur;
 import commandes.Droite;
 import commandes.Epaisseur;
@@ -14,6 +15,7 @@ import commandes.Poser;
 import commandes.Repeter;
 import commandes.Script;
 import commandes.Tantque;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class Crayon implements VisiteurAST{
@@ -138,6 +140,23 @@ public class Crayon implements VisiteurAST{
 			this.visiterScript(n.getScript());
 		}
 	}
+	@Override
+	public void visiterBezier(Bezier c) {
+		Interpreteur i = Interpreteur.getInstance();
+		GraphicsContext gc = i.getGc();
+	    gc.beginPath();
+	    
+	    gc.bezierCurveTo(this.coord.getX(), this.coord.getY(), c.getC1().getX(), c.getC1().getY(), c.getC2().getX(), c.getC2().getY());
+	   // gc.quadraticCurveTo(xc, yc, x1, y1);
+	    //gc.fill();
+	    gc.stroke();
+	    gc.closePath();
+	    this.coord.setX(c.getC2().getX());
+	    this.coord.setX(c.getC2().getY());
+		
+		
+	}
+	
 
 	public Color getCouleur() {
 		return couleur;
@@ -154,4 +173,6 @@ public class Crayon implements VisiteurAST{
 	public double getPosY() {
 		return coord.getY();
 	}
+
+
 }
