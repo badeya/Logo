@@ -19,7 +19,7 @@ public class Tokenizer {
 		if(programme.charAt(programme.length()-1)==' ') programme += "EOF";
 		else programme += " EOF";
 		
-		this.programme = programme.toLowerCase().split(" |\n");
+		this.programme = programme.toLowerCase().split(" |\n|\t");
 		line = 0;
 	}
 	/**

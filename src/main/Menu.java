@@ -60,19 +60,25 @@ public class Menu extends Application implements Observer{
 	public void start(Stage stage) throws Exception {
 		this.c2 = new Canvas(Menu.taille-20,Menu.taille-20);
 		TextArea ta=new TextArea("SCRIPT\n"+
-					"ALLERA 200 200\n"+
-					"SOIT DISTANCE = 50\n"+
-					"SOIT ANGLE = 90\n"+
-					"SOIT NBRDETOUR = 4\n"+
-					"REPETER $NBRDETOUR\n"+
-					"SCRIPT\n"+
-					"AVANT $DISTANCE\n"+
-					"DROITE $ANGLE\n"+
-					"FIN\n"+
-					"ALLERA 10 10\n"+
-					"SI ESTPOSER ALORS SCRIPT AVANT 50 FIN\n"+
-					"SINON SCRIPT DROITE 90 AVANT 20 FIN\n"+
-					"BEZIER 400 0 , 400 400\n"+
+					"\tALLERA 200 200\n"+
+					"\tSOIT DISTANCE = 50\n"+
+					"\tSOIT ANGLE = 90\n"+
+					"\tSOIT NBRDETOUR = 4\n"+
+					"\tREPETER $NBRDETOUR\n"+
+					"\tSCRIPT\n"+
+					"\t\tAVANT $DISTANCE\n"+
+					"\t\tDROITE $ANGLE\n"+
+					"\tFIN\n"+
+					"\tALLERA 10 10\n"+
+					"\tSI ESTPOSER\n" +
+					"\tALORS SCRIPT\n" +
+					"\t\tAVANT 50\n" +
+					"\tFIN\n"+
+					"\tSINON SCRIPT\n"+
+					"\t\tDROITE 90\n"+
+					"\t\tAVANT 20\n"+
+					"\tFIN\n"+
+					"\tBEZIER 400 0 , 400 400\n"+
 					"FIN");
 		/*		TextArea ta=new TextArea("SCRIPT\n" +
 				"ALLERA 50 50 DROITE 90\n" + 
