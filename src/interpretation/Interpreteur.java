@@ -1,6 +1,7 @@
 package interpretation;
 
 import java.util.HashMap;
+import java.util.Observable;
 
 import commandes.Script;
 import javafx.embed.swing.JFXPanel;
@@ -9,7 +10,7 @@ import javafx.scene.canvas.GraphicsContext;
 import main.Menu;
 
 
-public class Interpreteur {
+public class Interpreteur extends Observable{
 	
 	// Singleton
 	private static final Interpreteur INSTANCE = new Interpreteur(Menu.taille, Menu.taille);
@@ -108,7 +109,8 @@ public class Interpreteur {
 	 * @param programme
 	 * @return
 	 */
-	public Canvas getCanvas(String programme){
+	public void updateCanvas(String programme){
+		System.out.println("interpreteur 1");
 		reset();
 		Tokenizer t = new Tokenizer(programme);
 		Parser p = new Parser(t);
@@ -116,11 +118,16 @@ public class Interpreteur {
 		
 		if(!Interpreteur.getInstance().haveErreur()) s.accept(this.crayon);
 		else reset();
+		System.out.println("interpreteur 2");
+		//this.notifyObservers();
+		System.out.println(this.countObservers());
+		this.setChanged();
+		this.notifyObservers("update canvas");
 		
-		// SYSOUT DE DEBUG #########
-		//System.out.println(this.));
-		System.out.println(Interpreteur.getInstance().getVariables());
-		// FIN SYSOUT DE DEBUG ######
-		return this.c;
+		
 	}
+	
+	public Canvas getCanvas(){ return this.c;}
+	
+	
 }
