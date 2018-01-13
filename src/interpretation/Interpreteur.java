@@ -65,7 +65,7 @@ public class Interpreteur extends Observable{
 	public String getMessageErreur() {return this.messageErreur;}
 	
 	/**
-	 * mise à jour du message d'eurreur
+	 * mise à jour du message d'erreur
 	 * 
 	 * @param message
 	 */
@@ -95,7 +95,7 @@ public class Interpreteur extends Observable{
 	public Crayon getCrayon() {return crayon;}
 	
 	/**
-	 * permet de rester le crayon
+	 * permet de réinitialiser le crayon
 	 */
 	private void reset(){
 		this.crayon.reset();
@@ -129,7 +129,7 @@ public class Interpreteur extends Observable{
 	
 	/**
 	 * 
-	 * @return une canvas
+	 * @return un canvas
 	 */
 	
 	public Canvas getCanvas(){ return this.c;}

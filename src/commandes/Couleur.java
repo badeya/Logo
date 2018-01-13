@@ -11,6 +11,8 @@ public class Couleur implements Node{
 	Color c;
 	
 	/**
+	 * Constructeur de la couleur
+	 * 
 	 * @param  c couleur du crayon
 	 *
 	 */

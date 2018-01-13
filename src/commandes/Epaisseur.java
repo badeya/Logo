@@ -5,7 +5,7 @@ import arbre.Node;
 import interpretation.Crayon;
 
 /**
- *  épaisseur du crayon
+ *  Epaisseur du crayon
  */
 public class Epaisseur implements Node{
 	

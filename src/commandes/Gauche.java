@@ -11,6 +11,7 @@ public class Gauche implements Node{
 	
 	/**
      * constructeur de Gauche
+     * 
      * @param orientation
      */
 	

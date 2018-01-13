@@ -39,7 +39,7 @@ import javafx.stage.Stage;
 
 /**
  * 
- * Menu version 2
+ * classe contenant l'interface graphique de l'application
  *
  */
 public class Menu extends Application implements Observer{

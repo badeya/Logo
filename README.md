@@ -17,6 +17,7 @@ Ce qui � �t� fait :
 -Parseur Boolean et arithmetique
 -Noeud Si, Tanque, Repeter
 -Variable
+-modele mcv
 -Sauvegarder/Charger 
 
 
@@ -27,6 +28,22 @@ Pour la r�partitions des t�ches :
 -Valentin et Arthur de l'interface graphique et de l'impl�mentation des boutons.
 
 INTEGRATION CONTINUE A CONTINUER QUAND LES TESTS SERONT ECRIS
+
+****************************************************************
+
+Liste des fonctionalitées : 
+
+-Importer script
+-Sauvegarder le tracer
+-Sauvegarder le script
+-choix de la couleur 
+-choix de l'épaisseur
+-variable
+-Courbe de Bézier
+-Conditions 
+-Boucles
+-gestion des calculs 
+
 
 ****************************************************************
 Exemple de scripts : 
