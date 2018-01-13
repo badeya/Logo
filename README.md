@@ -28,8 +28,92 @@ Pour la r�partitions des t�ches :
 
 INTEGRATION CONTINUE A CONTINUER QUAND LES TESTS SERONT ECRIS
 
+****************************************************************
+Exemple de scripts : 
+
+SCRIPT
+EPAISSEUR 1
+ALLERA 150 150
+REPETER 10+8
+SCRIPT
+DROITE 40/2
+REPETER 18
+SCRIPT
+DROITE 2*10
+COULEUR ROUGE
+AVANT 5
+COULEUR JAUNE
+AVANT 5
+COULEUR VERT
+AVANT 5
+COULEUR BLEU
+AVANT 5
+FIN
+FIN
+FIN
 
 
+----------------------------------------------------------------
+
+SCRIPT
+LEVER
+ALLERA 50  50
+POSER
+EPAISSEUR 5
+COULEUR BLEU
+AVANT 50
+DROITE 90
+COULEUR VERT
+AVANT 50
+DROITE 90
+COULEUR ROUGE
+AVANT 50
+DROITE 90
+COULEUR JAUNE
+AVANT 50
+FIN
+
+------------------------------------------------------------------
+
+SCRIPT
+ALLERA 75 75
+REPETER 5
+SCRIPT
+EPAISSEUR 2
+AVANT 40
+EPAISSEUR 1
+AVANT 20
+EPAISSEUR 2
+AVANT 40
+DROITE 216
+FIN
+FIN
+
+------------------------------------------------------------------
+
+SCRIPT
+	ALLERA 200 200
+	SOIT DISTANCE = 50
+	SOIT ANGLE = 90
+	SOIT NBRDETOUR = 4
+	REPETER $NBRDETOUR
+	SCRIPT
+		AVANT $DISTANCE
+		DROITE $ANGLE
+	FIN
+	ALLERA 10 10
+	SI ESTPOSER
+	ALORS SCRIPT
+		AVANT 50
+	FIN
+	SINON SCRIPT
+		DROITE 90
+		AVANT 20
+	FIN
+	BEZIER 400 0 , 400 400
+FIN
+
+****************************************************************
 
 
 

@@ -90,7 +90,7 @@ public class Interpreteur extends Observable{
 	
 	/**
 	 * 
-	 * @return un crayon
+	 * @return une instance du crayon
 	 */
 	public Crayon getCrayon() {return crayon;}
 	
@@ -126,6 +126,11 @@ public class Interpreteur extends Observable{
 		
 		
 	}
+	
+	/**
+	 * 
+	 * @return une canvas
+	 */
 	
 	public Canvas getCanvas(){ return this.c;}
 	

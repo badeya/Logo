@@ -13,7 +13,7 @@ public class Epaisseur implements Node{
 	
 	/**
 	 * 
-	 *  constructeur de Epaisseur
+	 *  constructeur de l'Epaisseur
 	 */
 	
 	public Epaisseur(int e) {

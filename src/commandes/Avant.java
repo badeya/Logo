@@ -7,10 +7,19 @@ public class Avant implements Node{
 	
 	int distance;
 	
+	/**
+	 * constructeur de Avant
+	 * 
+	 * @param distance
+	 */
 	public Avant(int distance){
 		this.distance = distance;
 	}
 	
+	/**
+	 * 
+	 * @return une instance de la distance
+	 */
 	public int getDistance(){return this.distance;}
 
 	@Override

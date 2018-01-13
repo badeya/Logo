@@ -39,6 +39,7 @@ public class Crayon implements VisiteurAST{
 	
 	/**
 	 * Constructeur du crayon
+	 * 
 	 * @param x
 	 * @param y
 	 */

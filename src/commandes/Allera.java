@@ -18,7 +18,8 @@ public class Allera implements Node {
 	}
 	
 	/**
-	 * @return x
+	 * 
+	 * @return une instance de x
 	
 	 */
 
@@ -28,7 +29,7 @@ public class Allera implements Node {
 	
 
 	/**
-	 * @return y
+	 * @return une instance de y
 	
 	 */
 

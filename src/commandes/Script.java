@@ -12,7 +12,8 @@ public class Script implements Node{
 	
 	/**
 	 * constructeur du script
-	 * @param l
+	 * 
+	 * @param l une liste de noeud
 	 */
 	public Script(ArrayList<Node> l){this.l = l;}
 	
@@ -23,13 +24,15 @@ public class Script implements Node{
 	
 	/**
 	 * ajoute un noeud
+	 * 
 	 * @param n
 	 */
 	public void add(Node n){this.l.add(n);}
 	
 	/**
 	 * retourn une liste de noeud
-	 * @return
+	 * 
+	 * @return une liste de noeud
 	 */
 	public ArrayList<Node> getList(){return this.l;}
 	

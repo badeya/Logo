@@ -12,7 +12,7 @@ public class Couleur implements Node{
 	
 	/**
 	 * @param  c couleur du crayon
-	 
+	 *
 	 */
 	
 	public Couleur(Color c){
