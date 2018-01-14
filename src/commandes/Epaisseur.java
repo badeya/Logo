@@ -8,7 +8,8 @@ import interpretation.Crayon;
  *  Epaisseur du crayon
  */
 public class Epaisseur implements Node{
-	
+
+
 	int e;
 	
 	/**
@@ -35,5 +36,18 @@ public class Epaisseur implements Node{
 	}
 
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Epaisseur other = (Epaisseur) obj;
+		if (e != other.e)
+			return false;
+		return true;
+	}
 
 }

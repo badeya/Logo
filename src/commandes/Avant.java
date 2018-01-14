@@ -5,6 +5,7 @@ import interpretation.Crayon;
 
 public class Avant implements Node{
 	
+
 	int distance;
 	
 	/**
@@ -27,6 +28,21 @@ public class Avant implements Node{
 		cr.visiterAvant(this);
 	}
 	
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Avant other = (Avant) obj;
+		if (distance != other.distance)
+			return false;
+		return true;
+	}
+
 	
 
 	/*@Override

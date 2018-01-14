@@ -16,13 +16,14 @@ public class ParserBoolean {
 		else{ expr1 = p.calc(expression[0]); }
 		
 		if(!isOperande(expression[1])){ Interpreteur.getInstance().setErreur(true);
-			Interpreteur.getInstance().setMessageErreur("Erreur dans la condition : "+expr+" ,operande "+expression[1]+" inconnu");
+			Interpreteur.getInstance().setMessageErreur("Erreur dans la condition : \""+expr+"\" \noperande \""+expression[1]+"\" inconnu");
+			operande = "==";
 		}else{
 			operande = expression[1];
 		}
 		
 		if(isPrimitive(expression[2])){expr2 = getPrimitive(expression[2]);}
-		else{ expr2 = p.calc(expression[2]); }
+		else{ expr2 = p.parser(expression[2]); }
 				
 		return evaluer();
 	}

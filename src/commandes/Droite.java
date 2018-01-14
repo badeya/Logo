@@ -29,5 +29,19 @@ public class Droite implements Node{
 		cr.visiterDroite(this);
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Droite other = (Droite) obj;
+		if (orientation != other.orientation)
+			return false;
+		return true;
+	}
+
 
 }

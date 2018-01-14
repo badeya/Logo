@@ -26,7 +26,7 @@ public class Tokenizer {
 	 * 
 	 * @return la prochaine ligne
 	 */
-	String nextLine(){
+	public String nextLine(){
 		line++;
 		while(programme[line-1].equals("")) line++;
 		return getLine();

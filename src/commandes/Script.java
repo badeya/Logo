@@ -41,6 +41,25 @@ public class Script implements Node{
 	public void accept(Crayon cr) {
 		cr.visiterScript(this);	
 	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Script other = (Script) obj;
+		if (l == null) {
+			if (other.l != null)
+				return false;
+		} else if (!l.equals(other.l))
+			return false;
+		return true;
+	}
+	
 	
 
 }

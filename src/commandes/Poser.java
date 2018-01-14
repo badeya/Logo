@@ -16,6 +16,7 @@ public class Poser implements Node{
 		cr.visiterPoser(this);
 		
 	}
+	
 
 	
 }

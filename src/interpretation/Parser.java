@@ -20,6 +20,10 @@ public class Parser {
 		this.lecteur = lecteur;
 		this.parserArithmetique = ParserArithmetique.getInstance();
 	}
+	
+	public void setTeteLect(String s){
+		this.teteLect = s;
+	}
 	/**
 	 * 
 	 * @return
@@ -37,7 +41,7 @@ public class Parser {
 	 * 
 	 * @return
 	 */
-	private Script Script() {
+	public Script Script() {
 		
 		if(this.teteLect.equals("script")){
 			this.Consommer("script");

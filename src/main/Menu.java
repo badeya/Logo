@@ -140,7 +140,7 @@ public class Menu extends Application implements Observer{
 		Button quit=new Button("quit");
 		Button ApplyEpaisseur=new Button("Apply");
 		epaisseur.setPrefWidth(300);
-		Label nbEpaisseur=new Label("1       2       3       4        5        6        7        8        9        10");
+		Label nbEpaisseur=new Label(" 1      2      3      4       5       6       7       8       9       10");
 		Label NomEpaisseur=new Label("Epaisseur");
 		
 		avant.setGraphic(new ImageView(flecheavant));
