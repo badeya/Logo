@@ -332,6 +332,9 @@ public class Menu extends Application implements Observer{
 		case "0x800000ff":
 			nomCouleur="MARRON";
 			break;
+		case "0x000000ff":
+			nomCouleur="NOIR";
+			break;
 		}
 		Label couleur=new Label(" Couleur : "+nomCouleur);
 		
