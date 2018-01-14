@@ -8,7 +8,7 @@
 
 Adresse git: https://git-iut.univ-lille1.fr/tanguy.depommier/ProjetMode2017-K4.git
 
-Ce qui � �t� fait :
+Ce qui à été fait :
 - L'interpretateur de language LOGO
 - L'interface graphique 
 - implemantation des boutons
@@ -21,12 +21,12 @@ Ce qui � �t� fait :
 -Sauvegarder/Charger 
 
 
-Ce qu'il reste � faire : 
+Ce qu'il reste à faire : 
 
-Pour la r�partitions des t�ches :
-- Thibaut s'est occuper de l'Interpr�teur de language LOGO et des commandes.
+Pour la répartitions des tâches :
+- Thibaut s'est occuper de l'Interpréteur de language LOGO et des commandes.
 - Melvin du parser arithmétique et des tests.
-- Valentin et Arthur de l'interface graphique et de l'impl�mentation des boutons.
+- Valentin et Arthur de l'interface graphique et de l'implémentation des boutons.
 
 
 ****************************************************************
