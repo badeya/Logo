@@ -70,7 +70,7 @@ public class Menu extends Application implements Observer{
 					"\t\tDROITE $ANGLE\n"+
 					"\tFIN\n"+
 					"\tALLERA 10 10\n"+
-					"\tSI ESTPOSER\n" +
+					"\tSI POSX < 11\n" +
 					"\tALORS SCRIPT\n" +
 					"\t\tAVANT 50\n" +
 					"\tFIN\n"+
@@ -79,6 +79,15 @@ public class Menu extends Application implements Observer{
 					"\t\tAVANT 20\n"+
 					"\tFIN\n"+
 					"\tBEZIER 400 0 , 400 400\n"+
+					"\n"+
+					"\tDROITE 180\n"+
+					"\tTANTQUE POSX > 50\n"+
+					"\tSCRIPT\n"+
+					"\t\tAVANT 100\n"+
+					"\t\tDROITE 90\n"+
+					"\t\tAVANT 10\n"+
+					"\t\tGAUCHE 90\n"+
+					"\tFIN\n"+
 					"FIN");
 		/*		TextArea ta=new TextArea("SCRIPT\n" +
 				"ALLERA 50 50 DROITE 90\n" + 
