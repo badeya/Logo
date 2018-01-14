@@ -13,15 +13,12 @@ Ce qui à été fait :
 - L'interface graphique 
 - implemantation des boutons
 - Controle sortie de canvas
--Courbe de bézier
--Parseur Boolean et arithmetique
--Noeud Si, Tanque, Repeter
--Variable
--modele mcv
--Sauvegarder/Charger 
-
-
-Ce qu'il reste à faire : 
+- Courbe de bézier
+- Parseur Boolean et arithmetique
+- Noeud Si, Tanque, Repeter
+- Variable
+- modele mcv
+- Sauvegarder/Charger 
 
 Pour la répartitions des tâches :
 - Thibaut s'est occuper de l'Interpréteur de language LOGO et des commandes.
