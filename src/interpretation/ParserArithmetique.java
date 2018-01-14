@@ -78,7 +78,7 @@ public class ParserArithmetique {
 	 * @return
 	 */
 	private boolean isDigit(char c) {
-		return c != ' ' && c != '+' && c != '-' && c != '*' && c != '/' && c != '%';
+		return c != ' ' && c != '+' && c != '-' && c != '*' && c != '/' && c != '%' && c != '[' && c != ']';
 	}
 	
 	 private String rmspc(String s) {
@@ -156,7 +156,7 @@ public class ParserArithmetique {
 	 * @param op
 	 * @return
 	 */
-	private String doMath(String s,String s2,String op) {
+	public String doMath(String s,String s2,String op) {
 		if (s.charAt(0) == '[') {
 			s = s.substring(1, s.length()-1);
 		}
@@ -202,7 +202,7 @@ public class ParserArithmetique {
 	 * @param calcul
 	 * @return
 	 */
-	private String doCalcul(String calcul) {
+	public String doCalcul(String calcul) {
 		ArrayList<String> op = miseEnListe(calcul).get(0);
 		ArrayList<String> nb = miseEnListe(calcul).get(1);
 		String[] nombre = new String[nb.size()];
@@ -225,7 +225,7 @@ public class ParserArithmetique {
 	 * @param s
 	 * @return
 	 */
-	private static boolean morePar(String s) {
+	public static boolean morePar(String s) {
 		int cpt = 0;
 		while(cpt < s.length() && s.charAt(cpt) != '(') {
 			cpt++;
@@ -238,7 +238,7 @@ public class ParserArithmetique {
 	 * @param s
 	 * @return
 	 */
-	private String getRidOfPar(String s) {
+	public String getRidOfPar(String s) {
 		int[] where = new int[2];
 		while(morePar(s)) {
 			int cpt = 0;
@@ -279,10 +279,14 @@ public class ParserArithmetique {
 		int length = s.length();
 		int r = 0;
 		if(s.charAt(0) == '[') {
-			r = -3;
+			cpt = 2;
 		}
 		while(cpt < s.length() && isDigit(s.charAt(cpt))){
 				cpt++;
+		}
+		if(s.charAt(0) == '[') {
+			r = -3;
+			cpt = cpt - 2;
 		}
 		return (cpt  == (length + r));
 	}
