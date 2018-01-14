@@ -27,7 +27,7 @@ Pour la r�partitions des t�ches :
 - Thibaut s'est occuper de l'Interpr�teur de language LOGO et des commandes.
 - Melvin du parser arithmétique et des tests.
 - Valentin et Arthur de l'interface graphique et de l'impl�mentation des boutons.
-INTEGRATION CONTINUE A CONTINUER QUAND LES TESTS SERONT ECRIS
+
 
 ****************************************************************
 
