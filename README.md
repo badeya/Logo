@@ -162,9 +162,41 @@ SCRIPT
 	BEZIER 400 0 , 400 400
 FIN
 
+------------------------------------------------------------------
+
+
+SCRIPT
+LEVER
+ALLERA 100  100
+EPAISSEUR 2
+COULEUR ORANGE
+POSER
+REPETER 10
+SCRIPT
+  AVANT 10
+  DROITE 10
+FIN
+TANTQUE POSY > 100
+SCRIPT
+  AVANT 10
+  DROITE 10
+FIN
+SI POSX > 100
+ALORS
+  SCRIPT
+    COULEUR ROUGE
+  FIN
+SINON
+  SCRIPT
+    COULEUR BLEU
+  FIN
+GAUCHE 90
+EPAISSEUR 5
+AVANT 50
+FIN
+
+
 ****************************************************************
-
-
 
 
 
