@@ -139,8 +139,9 @@ public class Menu extends Application implements Observer{
 		Button submit=new Button("submit");
 		Button quit=new Button("quit");
 		Button ApplyEpaisseur=new Button("Apply");
-		epaisseur.setPrefWidth(250);
-		Label nbEpaisseur=new Label("   1    2    3    4    5    6    7    8    9    10");
+		epaisseur.setPrefWidth(300);
+		Label nbEpaisseur=new Label("1       2       3       4        5        6        7        8        9        10");
+		Label NomEpaisseur=new Label("Epaisseur");
 		
 		avant.setGraphic(new ImageView(flecheavant));
 		avant.setOnMouseClicked(e->ta.setText(ta.getText()+"AVANT 20 "));
@@ -243,16 +244,28 @@ public class Menu extends Application implements Observer{
 		clear.setPadding(new Insets(20));
 		quit.setPadding(new Insets(20));
 		
-		gp.getChildren().addAll(avant,gauche,droite,lever,poser);
+		hbox4.setMargin(submit, new Insets(1,1,1,280));
+		
+		
+		
+		gp.getChildren().addAll(avant,gauche,droite,lever,poser,choixCouleur);
 		gp.setAlignment(Pos.CENTER);
-		hbox3.getChildren().addAll(epaisseur,ApplyEpaisseur);
-		hbox4.getChildren().addAll(clear,submit,quit);
+		hbox3.getChildren().addAll(NomEpaisseur,epaisseur,ApplyEpaisseur);
+		hbox4.getChildren().addAll(clear,quit,submit);
 		hbox4.setAlignment(Pos.CENTER);
-		vbox2.getChildren().addAll(choixCouleur,nbEpaisseur,hbox3,gp,ta,hbox4,hbox5);
+		vbox2.getChildren().addAll(nbEpaisseur,hbox3,gp,ta,hbox4,hbox5);
 		
 		hbox2.getChildren().addAll(vbox2,c2);
 		vbox1.getChildren().addAll(mb,hbox2);
 		
+		vbox2.setMargin(nbEpaisseur, new Insets(1,1,1,70));
+		
+		hbox3.setMargin(epaisseur, new Insets(1,1,1,15));
+		hbox3.setMargin(ApplyEpaisseur, new Insets(1,1,1,15));
+		
+		choixCouleur.setPadding(new Insets(17,17,17,5));
+		gp.setMargin(choixCouleur, new Insets(1,1,1,-50));
+		gp.setMargin(avant, new Insets(1,1,1,50));
 		
 		gp.setRowIndex(avant, 0);
 		gp.setColumnIndex(avant, 0);
@@ -279,11 +292,47 @@ public class Menu extends Application implements Observer{
 	
 	public void LoadInfo(HBox hbox) {
 		hbox.getChildren().clear();
+		String nomCouleur="";
 		Label posx=new Label("PosX : "+(int)i.getCrayon().getPosX());
 		Label posy=new Label(" PosY : "+(int)i.getCrayon().getPosY());
 		Label epaisseur=new Label(" Epaisseur : "+i.getCrayon().getWidth());
-		Label couleur=new Label(" Couleur : "+i.getCrayon().getCouleur().toString());
+		switch(i.getCrayon().getCouleur().toString()) 
+		{
+		case "0xff0000ff":
+			nomCouleur="ROUGE";
+			break;
+		case "0x0000ffff":
+			nomCouleur="BLEU";
+			break;
+		case "0xffffffff":
+			nomCouleur="BLANC";
+			break;
+		case "0x808080ff":
+			nomCouleur="GRIS";
+			break;
+		case "0x008000ff":
+			nomCouleur="VERT";
+			break;
+		case "0xffa500ff":
+			nomCouleur="ORANGE";
+			break;
+		case "0xffff00ff":
+			nomCouleur="JAUNE";
+			break;
+		case "0xffc0cbff":
+			nomCouleur="ROSE";
+			break;
+		case "0xee82eeff":
+			nomCouleur="VIOLET";
+			break;
+		case "0x800000ff":
+			nomCouleur="MARRON";
+			break;
+		}
+		Label couleur=new Label(" Couleur : "+nomCouleur);
+		
 		hbox.getChildren().addAll(posx,posy,epaisseur,couleur);
+		
 	}
 	
 	private void updateCanvas(){
