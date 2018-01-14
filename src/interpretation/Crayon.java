@@ -175,7 +175,7 @@ public class Crayon implements VisiteurAST{
 	    gc.stroke();
 	    gc.closePath();
 	    this.coord.setX(c.getC2().getX());
-	    this.coord.setX(c.getC2().getY());
+	    this.coord.setY(c.getC2().getY());
 		
 		
 	}

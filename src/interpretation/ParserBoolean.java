@@ -10,13 +10,6 @@ public class ParserBoolean {
 	public static boolean parser(String expr){
 		
 		ParserArithmetique p = new ParserArithmetique();
-		//Interpreteur.getInstance().get
-		if(expr.equals("estlever")){
-			return !Interpreteur.getInstance().getCrayon().ecrit();
-		}else if(expr.equals("estposer")){
-			return Interpreteur.getInstance().getCrayon().ecrit();
-		}
-		
 		String[] expression = expr.split(" ");
 		
 		if(isPrimitive(expression[0])){expr1 = getPrimitive(expression[0]);}
@@ -29,7 +22,7 @@ public class ParserBoolean {
 		}
 		
 		if(isPrimitive(expression[2])){expr2 = getPrimitive(expression[2]);}
-		else{ expr1 = p.calc(expression[2]); }
+		else{ expr2 = p.calc(expression[2]); }
 				
 		return evaluer();
 	}
@@ -38,17 +31,17 @@ public class ParserBoolean {
 		System.out.println(expr2+operande+expr1);
 		switch(operande){
 		case "<":
-			return expr2<expr1;
+			return expr1<expr2;
 		case ">":
-			return expr2>expr1;
+			return expr1>expr2;
 		case "<=":
-			return expr2<=expr1;
+			return expr1<=expr2;
 		case ">=":
-			return expr2>=expr1;
+			return expr1>=expr2;
 		case "==":
-			return expr2==expr1;
+			return expr1==expr2;
 		case "!=":
-			return expr2!=expr1;
+			return expr1!=expr2;
 		}
 		return false;
 	}
@@ -62,7 +55,9 @@ public class ParserBoolean {
 	}
 
 	private static int getPrimitive(String s) {
-		if(s.equals("posx")) return (int) Interpreteur.getInstance().getCrayon().getPosX();
+		if(s.equals("posx")){
+			return (int) Interpreteur.getInstance().getCrayon().getPosX();
+		}
 		if(s.equals("posy")) return (int) Interpreteur.getInstance().getCrayon().getPosY();
 		return 0;
 	}
