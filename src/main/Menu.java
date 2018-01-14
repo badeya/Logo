@@ -253,7 +253,11 @@ public class Menu extends Application implements Observer{
 		hbox3.getChildren().addAll(NomEpaisseur,epaisseur,ApplyEpaisseur);
 		hbox4.getChildren().addAll(clear,quit,submit);
 		hbox4.setAlignment(Pos.CENTER);
+
 		vbox2.getChildren().addAll(nbEpaisseur,hbox3,gp,ta,hbox4,hbox5);
+		
+
+		//vbox2.getChildren().addAll(choixCouleur,nbEpaisseur,hbox3,gp,ta,hbox4,hbox5);
 		
 		hbox2.getChildren().addAll(vbox2,c2);
 		vbox1.getChildren().addAll(mb,hbox2);

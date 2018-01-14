@@ -109,7 +109,7 @@ public class Interpreteur extends Observable{
 	 * @param programme
 	 * @return
 	 */
-	public void updateCanvas(String programme){
+	public void updateCanvas(String programme) {
 		System.out.println("interpreteur 1");
 		reset();
 		Tokenizer t = new Tokenizer(programme);
