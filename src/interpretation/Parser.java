@@ -120,7 +120,11 @@ public class Parser {
 	private Collection<? extends Node> tantque() {
 		ArrayList<Node> res = new ArrayList<>();
 		this.Consommer("tantque");
-		String condition = this.teteLect;
+		String condition = this.teteLect+" ";
+		this.teteLect = this.lecteur.nextLine();
+		condition += this.teteLect+" ";
+		this.teteLect = this.lecteur.nextLine();
+		condition += this.teteLect+" ";
 		this.teteLect = this.lecteur.nextLine();
 		res.add(new Tantque(condition, Script()));
 		res.addAll(Commande());
@@ -134,7 +138,11 @@ public class Parser {
 	private Collection<? extends Node> si() {
 		ArrayList<Node> res = new ArrayList<>();
 		this.Consommer("si");
-		String condition = this.teteLect;
+		String condition = this.teteLect+" ";
+		this.teteLect = this.lecteur.nextLine();
+		condition += this.teteLect+" ";
+		this.teteLect = this.lecteur.nextLine();
+		condition += this.teteLect+" ";
 		this.teteLect = this.lecteur.nextLine();
 		this.Consommer("alors");
 		Script scriptalors = Script();
