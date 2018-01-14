@@ -24,9 +24,9 @@ Ce qui � �t� fait :
 Ce qu'il reste � faire : 
 
 Pour la r�partitions des t�ches :
-- Melvin et Thibaut se sont occuper de l'Interpr�teur de language LOGO et des commandes.
--Valentin et Arthur de l'interface graphique et de l'impl�mentation des boutons.
-
+- Thibaut s'est occuper de l'Interpr�teur de language LOGO et des commandes.
+- Melvin du parser arithmétique et des tests.
+- Valentin et Arthur de l'interface graphique et de l'impl�mentation des boutons.
 INTEGRATION CONTINUE A CONTINUER QUAND LES TESTS SERONT ECRIS
 
 ****************************************************************
