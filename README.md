@@ -44,9 +44,41 @@ Liste des fonctionalitées :
 -Boucles
 -gestion des calculs 
 
+****************************************************************
+Script montrant les fonctionalitées du projet : 
+
+SCRIPT
+	ALLERA 200 200
+	SOIT DISTANCE = 50
+	SOIT ANGLE = 90
+	SOIT NBRDETOUR = 4
+	REPETER $NBRDETOUR
+	SCRIPT
+		AVANT $DISTANCE
+		DROITE $ANGLE
+	FIN
+	ALLERA 10 10
+	SI POSX < 11
+	ALORS SCRIPT
+		AVANT 50
+	FIN
+	SINON SCRIPT
+		DROITE 90
+		AVANT 20
+	FIN
+	BEZIER 400 0 , 400 400
+	DROITE 180
+	TANTQUE POSX > 50
+	SCRIPT
+		AVANT 100
+		DROITE 90
+		AVANT 10
+		GAUCHE 90
+	FIN
+FIN
 
 ****************************************************************
-Exemple de scripts : 
+Exemple autres de scripts : 
 
 SCRIPT
 EPAISSEUR 1
