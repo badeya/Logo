@@ -121,7 +121,7 @@ public class Menu extends Application implements Observer{
 		close.setOnAction(e->{System.exit(0);});
 		file.getItems().addAll(importer,saveimage,savecode,close);
 		mb.getMenus().add(file);
-		Label commandes=new Label("Commandes");
+		//Label commandes=new Label("Commandes");
 		ComboBox<String> choixCouleur=new ComboBox<String>();
 		Slider epaisseur=new Slider(1,10,5);
 		GridPane gp=new GridPane();
@@ -238,16 +238,18 @@ public class Menu extends Application implements Observer{
 			ta.setText(ta.getText()+"COULEUR "+choixCouleur.getValue()+"\n");
 		});
 		choixCouleur.setPromptText("Colors");
-		commandes.setAlignment(Pos.CENTER);
 		
-		submit.setPadding(new Insets(20,20,20,20));
-		clear.setPadding(new Insets(20,20,20,20));
-		quit.setPadding(new Insets(20,20,20,20));
+		submit.setPadding(new Insets(20));
+		clear.setPadding(new Insets(20));
+		quit.setPadding(new Insets(20));
 		
 		gp.getChildren().addAll(avant,gauche,droite,lever,poser);
+		gp.setAlignment(Pos.CENTER);
 		hbox3.getChildren().addAll(epaisseur,ApplyEpaisseur);
 		hbox4.getChildren().addAll(clear,submit,quit);
-		vbox2.getChildren().addAll(commandes,choixCouleur,nbEpaisseur,hbox3,gp,ta,hbox4,hbox5);
+		hbox4.setAlignment(Pos.CENTER);
+		vbox2.getChildren().addAll(choixCouleur,nbEpaisseur,hbox3,gp,ta,hbox4,hbox5);
+		
 		hbox2.getChildren().addAll(vbox2,c2);
 		vbox1.getChildren().addAll(mb,hbox2);
 		
@@ -297,7 +299,6 @@ public class Menu extends Application implements Observer{
 
 	@Override
 	public void update(Observable o, Object arg) {
-		System.out.println("Menu");
 		updateCanvas();
 	}
 
